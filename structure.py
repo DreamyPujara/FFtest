@@ -14,6 +14,13 @@ FORMULA_DATA = [
         "Return Variables": "VALID,ERROR_MESSAGE,ERROR_CODE,TOKEN_NAME,TOKEN_VALUE"
     },
     {
+        "Code" : "Enrollment_Certification_Required",
+        "FORMULA_TYPE_NAME": "Enrollment Certification Required",
+        "Input Values": "",
+        "Context" : "BUSINESS_GROUP_ID ( ENTERPRISE_ID),EFFECTIVE_DATE,HR_ASSIGNMENT_ID,PGM_ID,PL_ID,PER_IN_LER_ID,ER_ID,BENEFIT_RELATION_ID,PL_TYP_ID,OPT_ID,ORGANIZATION_ID,ELIG_PER_ELCTBL_CHC_ID,ENRT_CTFN_TYP_CD",
+        "Return Variables": "L_OUTPUT"
+    },
+    {
         "Code" : "Global_Absence_Type_Duration",
         "FORMULA_TYPE_NAME": "Global Absence Type Duration",
         "Input Values": "IV_START_DATE,IV_END_DATE,IV_START_DURATION,IV_END_DURATION,IV_START_TIME,IV_END_TIME,IV_UOM",
@@ -140,9 +147,16 @@ FORMULA_DATA = [
         "Return Variables": "L_RETURN"
     },
     {
+        "Code": "Coverage_Amount_Limit",
+        "FORMULA_TYPE_NAME": "Coverage Amount Limit",
+        "Input Values": " ",
+        "Context": "BUSINESS_GROUP_ID ( ENTERPRISE_ID),EFFECTIVE_DATE,HR_ASSIGNMENT_ID,PERSON_ID",
+        "Return Variables": "L_MN_CVG_RQD_AMT, L_MX_CVG_ALWD_AMT, L_MX_CVG_WCFN_AMT, L_MX_CVG_INCR_ALWD_AMT, L_MX_CVG_INCR_WCF_ALWD_AMT"
+    },
+    {
         "Code": "Participation_And_Rate_Eligibility",
         "FORMULA_TYPE_NAME": "Participation And Rate Eligibility",
-        "Input Values": "",
+        "Input Values": " ",
         "Context": "BUSINESS_GROUP_ID,EFFECTIVE_DATE,HR_ASSIGNMENT_ID,LER_ID,OPT_ID,ORGANIZATION_ID,PGM_ID,PL_ID,PL_TYP_ID,PERSON_ID",
         "Return Variables": "ELIGIBLE"
     },
@@ -293,13 +307,13 @@ FORMULA_DATA = [
         "Context" : "BUSINESS_GROUP_ID ( ENTERPRISE_ID),EFFECTIVE_DATE,HR_ASSIGNMENT_ID,PERSON_ID",
         "Return Variables": "L_MN_CVG_RQD_AMT, L_MX_CVG_ALWD_AMT, L_MX_CVG_WCFN_AMT, L_MX_CVG_INCR_ALWD_AMT, L_MX_CVG_INCR_WCF_ALWD_AMT"
     },
-    {
-        "Code" : "Participation_And_Rate_Eligibility",
-        "FORMULA_TYPE_NAME": "Participation And Rate Eligibility",
-        "Input Values": "",
-        "Context" : "BUSINESS_GROUP_ID ( ENTERPRISE_ID),EFFECTIVE_DATE,HR_ASSIGNMENT_ID,LER_ID,OPT_ID,ORGANIZATION_ID,PGM_ID,PL_ID,PL_TYP_ID,PERSON_ID",
-        "Return Variables": "ELIGIBLE"
-    },
+    # {
+    #     "Code" : "Participation_And_Rate_Eligibility",
+    #     "FORMULA_TYPE_NAME": "Participation And Rate Eligibility",
+    #     "Input Values": "",
+    #     "Context" : "BUSINESS_GROUP_ID ( ENTERPRISE_ID),EFFECTIVE_DATE,HR_ASSIGNMENT_ID,LER_ID,OPT_ID,ORGANIZATION_ID,PGM_ID,PL_ID,PL_TYP_ID,PERSON_ID",
+    #     "Return Variables": "ELIGIBLE"
+    # },
     {
         "Code" : "Extra_Input",
         "FORMULA_TYPE_NAME": "Extra Input",
@@ -328,6 +342,13 @@ FORMULA_DATA = [
         "Input Values": "",
         "Context" : "BUSINESS_GROUP_ID ( ENTERPRISE_ID),EFFECTIVE_DATE,HR_ASSIGNMENT_ID,PGM_ID,PL_ID,PER_IN_LER_ID,PERSON_ID,LER_ID,BENEFIT_RELATION_ID,ELIG_PER_ELCTBL_CHC_ID",
         "Return Variables": "L_OUTPUT"
+    },
+    {
+        "Code" : "Dependent Certification Required",
+        "FORMULA_TYPE_NAME": "Dependent_Certification_Required",
+        "Input Values": "BEN_PEN_IV_PRTT_ENRT_RSLT_ID",
+        "Context" : "BUSINESS_GROUP_ID ( ENTERPRISE_ID),EFFECTIVE_DATE,HR_ASSIGNMENT_ID,PGM_ID,PL_ID,PL_TYP_ID,OPT_ID,PERSON_ID,LER_ID,BENEFIT_RELATION_ID,ELIG_PER_ELCTBL_CHC_ID,ORGANIZATION_ID",
+        "Return Variables": "L_OUTPUT,L_BNFT_AMOUNT,L_EPE_ID"
     },
     {
         "Code" : "Enrollment_Certification_Required",
