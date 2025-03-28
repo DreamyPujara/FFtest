@@ -4,9 +4,9 @@ from langchain_groq import ChatGroq
 from langchain_openai import ChatOpenAI
 
 
-# import os
-# if "GROQ_API_KEY" not in os.environ:
-#     os.environ["GROQ_API_KEY"] = "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"
+import os
+if "GROQ_API_KEY" not in os.environ:
+    os.environ["GROQ_API_KEY"] = "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"
 
 
 
@@ -19,23 +19,23 @@ load_dotenv()
 
 
 
-# G_llm = ChatGroq(
-#     model="llama-3.3-70b-versatile",
-#     temperature=0,
-#     max_tokens=None,
-#     timeout=None,
-#     max_retries=2,
-#     # other params...
-# )
-# llm=G_llm
-
-OR_llm = ChatOpenAI(
-  openai_api_key="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",
-  openai_api_base="https://openrouter.ai/api/v1",
-  model_name="meta-llama/llama-3.3-70b-instruct:free",
+G_llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    temperature=0,
+    max_tokens=None,
+    timeout=None,
+    max_retries=2,
+    # other params...
 )
-#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
-llm = OR_llm
+llm=G_llm
+
+# OR_llm = ChatOpenAI(
+#   openai_api_key="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",
+#   openai_api_base="https://openrouter.ai/api/v1",
+#   model_name="meta-llama/llama-3.3-70b-instruct:free",
+# )
+# #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
+# llm = OR_llm
 
 
 
