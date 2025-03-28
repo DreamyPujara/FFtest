@@ -16,9 +16,9 @@ nltk
 openai
 pypdf
 pysqlite3-binary
-groq==0.3.0
+groq
 chromadb==0.4.22
-langchain==0.1.12
-python-dotenv==1.0.0
-pypdf==4.1.0
-streamlit==1.29.0
+langchain
+python-dotenv
+pypdf
+streamlit
