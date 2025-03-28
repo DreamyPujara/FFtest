@@ -1,16 +1,17 @@
-# import os
-# from dotenv import load_dotenv
-# from langchain_groq import ChatGroq
-# from langchain_openai import ChatOpenAI
+import os
+from dotenv import load_dotenv
+from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI
+import streamlit as st
 
 
-# import os
-# if "GROQ_API_KEY" not in os.environ:
-#     os.environ["GROQ_API_KEY"] = "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"
+import os
+if "GROQ_API_KEY" not in os.environ:
+    os.environ["GROQ_API_KEY"] = "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"
+#client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 
-
-# load_dotenv()
+load_dotenv()
 
 # # OLLAMA_MODEL_NAME = "llama3.1"
 # # OLLAMA_SERVER_URL = "https://c967-34-169-7-63.ngrok-free.app/"
@@ -19,15 +20,15 @@
 
 
 
-# G_llm = ChatGroq(
-#     model="llama-3.3-70b-versatile",
-#     temperature=0,
-#     max_tokens=None,
-#     timeout=None,
-#     max_retries=2,
-#     # other params...
-# )
-# llm=G_llm
+G_llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    temperature=0,
+    max_tokens=None,
+    timeout=None,
+    max_retries=2,
+    # other params...
+)
+llm=G_llm
 
 # OR_llm = ChatOpenAI(
 #   openai_api_key="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",
