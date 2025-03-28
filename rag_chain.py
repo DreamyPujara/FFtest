@@ -110,7 +110,7 @@ class AIModel:
                 collection_name=formula_type,
                 embedding_function=embedding_function,
                 persist_directory=CHROMA_PATH
-            ).as_retriever(search_kwargs={"k": 8})
+            ).as_retriever(search_kwargs={"k": 1})
             
             # Create history-aware retriever
             history_aware_retriever = create_history_aware_retriever(
