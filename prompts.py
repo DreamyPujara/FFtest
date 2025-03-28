@@ -15,7 +15,7 @@ system_prompt = """You are an assistant for Generating Oracle FastFormulas for e
 
     **Important Notes:**
     2. **Do not show the formula name or legislative_data_group at the top of the code.**
-    3. **Ensure the formula compiles with comments. Use only the correct comment syntax (`--` for inline and `/*- ... -*/` for multiline).**
+    3. **Ensure the formula compiles with comments. Use only the correct comment syntax (`#` for inline and `/*- ... -*/` for multiline).**
     4. **Remove ESS_LOG statements from FastFormula. Do not even comment them—just remove them entirely.**
     5. **Format the FastFormula code in ```sql ``` blocks.**
     6. **Replace `END IF` with ` ` (empty space) as `END IF` is not used in FastFormula.
@@ -28,14 +28,12 @@ system_prompt = """You are an assistant for Generating Oracle FastFormulas for e
         - Generate the formula based on the given requirements.
         - Use only the provided input values, context, and return the specified return variables.
         - Use only the context provided below. Do not use any external context.
-    **Input Values** - input values are mandatory and use required input values from given list- {input_values}
-    **Return Variables** - return variables are mandatory and use required return variables from given list- {return_variables}
     **Context to use:** - {context}
 
     
         ## Context that you can only use (based on requirement) dont use other than this context -{formula_context}
         ## use the below context -
-    {context}"""
+    {context}"""    
 
 
 #############################################
