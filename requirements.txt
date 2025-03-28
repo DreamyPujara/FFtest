@@ -17,5 +17,5 @@ nltk
 openai
 pypdf
 pysqlite3-binary
-chromadb
+chromadb>=0.4.15
 
