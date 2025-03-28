@@ -1,9 +1,10 @@
 import streamlit as st
 from streamlit_extras.stylable_container import stylable_container
 import os
-#import pysqlite3
+import re
+import pysqlite3
 import sys
-#sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 from rag_chain import AIModel
 import asyncio
 
@@ -22,7 +23,7 @@ FORMULA_CONFIG = {
     },
     "Benefits": {
         "types": [
-            "Person Change Causes Life Event", "Participation and Rate Eligibility", "Rounding", "Age Calculation", "Person Selection",  "Life Event Reason Timeliness", "Coverage Amount Calculation", "Rate Value Calculation",  "Age Determination Date", "Enrollment Opportunity", "Beneficiary Certification Required", "Compensation Calculation", "Post Election Edit","Enrollment Period Start Date","Default Enrollment","Evaluate Life Event","Waiting Period Value and UOM","Coverage Amount Limit","Rate Periodization","Dependent Certification Required","Length of Service Date to Use","Enrollment Certification Required","Coverage Upper Limit","Rate Start Date","Enrollment Coverage Start Date","Default to Assign Pending Action","Extra Input"
+            "Person Change Causes Life Event", "Participation And Rate Eligibility", "Rounding", "Age Calculation", "Person Selection",  "Life Event Reason Timeliness", "Coverage Amount Calculation", "Rate Value Calculation",  "Age Determination Date", "Enrollment Opportunity", "Beneficiary Certification Required", "Compensation Calculation", "Post Election Edit","Enrollment Period Start Date","Default Enrollment","Evaluate Life Event","Waiting Period Value And UOM","Coverage Amount Limit","Rate Periodization","Length Of Service Date To Use","Enrollment Certification Required","Coverage Upper Limit","Rate Start Date","Enrollment Coverage Start Date","Default To Assign Pending Action","Extra Input"
         ]
     },
     "ORC": {
