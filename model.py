@@ -22,7 +22,7 @@ load_dotenv()
 
 G_llm = ChatGroq(
     model="llama-3.3-70b-versatile",
-    temperature=0.1,
+    temperature=0.8,
     max_tokens=None,
     timeout=None,
     max_retries=2,
