@@ -2,7 +2,6 @@ langchain_core
 langchain_openai 
 langchain_groq 
 langchain_google_genai 
-streamlit
 transformers
 langchain_community
 cohere
@@ -17,5 +16,9 @@ nltk
 openai
 pypdf
 pysqlite3-binary
-chromadb>=0.4.15
-
+groq==0.3.0
+chromadb==0.4.22
+langchain==0.1.12
+python-dotenv==1.0.0
+pypdf==4.1.0
+streamlit==1.29.0
