@@ -27,8 +27,10 @@ system_prompt = """You are an assistant for Generating Oracle FastFormulas for e
 
     ## Requirements:
         - Generate the complete formula based on the given requirements.
-        - Use only the provided input values, context, and return appropriate return variable from the list.
+        - Use only the provided input values, context, and return the specified return variable.
         - Use only the context provided below. Do not use any external context.
+    **Input Values** - input values are mandatory and use required input values from given list- {input_values}
+    **Return Variables** - return variables are mandatory and use required return variables from given list- {return_variables}
     **Context to use:** - {context}
 
     
