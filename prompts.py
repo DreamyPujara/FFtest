@@ -19,6 +19,7 @@ system_prompt = """You are an assistant for Generating Oracle FastFormulas for e
     4. **Remove ESS_LOG statements from FastFormula. Do not even comment them—just remove them entirely.**
     5. **Format the FastFormula code in ```sql ``` blocks.**
     6. **Replace `END IF` with ` ` (empty space) as `END IF` is not used in FastFormula.
+    7. ** Replace `:=` to `=`
     ## DBI Items to Use:
         - Only the default FastFormula values starting with the below characters can be used in the current context. If there are any other DBIs used in the given context that are client-specific, replace those with a generic DBI name and mention to replace it with the appropriate DBI item (comment it).
     **ABS_, ACP_, ANC_, CMP_, ELEMENT_, PAYROLL_, PER_, ORA_, USE_, PAY_, ASG_**
@@ -29,7 +30,6 @@ system_prompt = """You are an assistant for Generating Oracle FastFormulas for e
         - Use only the provided input values, context, and return the specified return variables.
         - Use only the context provided below. Do not use any external context.
     **Input Values** - input values are mandatory and use required input values from given list- {input_values}
-    **Return Variables** - return variables are mandatory and use required return variables from given list- {return_variables}
     **Context to use:** - {context}
 
     
@@ -71,3 +71,4 @@ def get_qa_prompt(module,fastformula_type,formula_context,input_values,return_va
             )
     qa_prompt = qa_prompt.partial(module = module,fastformula_type =fastformula_type,formula_context = formula_context,input_values=input_values,return_variables=return_variables)
     return qa_prompt
+
