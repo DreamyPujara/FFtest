@@ -1,0 +1,9 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_ENROLLMENT_PERIOD_START_DATE",
+        "FORMULA_TEXT": "DEFAULT FOR PER_ASG_MARITAL_STATUS_DATE is '01-JAN-1951'(date)\nL_OCRD_DT = PER_ASG_MARITAL_STATUS_DATE\nL_EFF_DATE = GET_CONTEXT(EFFECTIVE_DATE, to_date('01-JAN-2012'))\nl_start_dt = L_EFF_DATE\nif ( L_OCRD_DT < L_EFF_DATE ) then\n( l_last_dt = last_day(L_OCRD_DT)\nl_start_dt = add_days(l_last_dt,15)\n)\nelse\n( l_start_dt = L_EFF_DATE\n)\nreturn l_start_dt",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula determines the start date based on the marital status change date and the effective date.",
+        "FORMULA_TYPE_NAME": "Enrollment Period Start Date"
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_BENEFICIARY_CERTIFICATION_REQUIRED",
+        "FORMULA_TEXT": "DEFAULT FOR PER_PER_MARITAL_STATUS is \u2018X\u2019\nl_output = \u2018N\u2019\nl_mar_status = PER_PER_MARITAL_STATUS\nif (l_mar_status = \u2018S\u2019)\nthen\n(l_output = \u2018Y\u2019)\nelse\n(l_output = \u2018N\u2019)\nReturn l_output",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula checks an employee's **marital status**. If the status is **'S' (Single)**, it returns **'Y'**; otherwise, it returns **'N'**.",
+        "FORMULA_TYPE_NAME": "Beneficiary Certification Required"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_BENEFICIARY_CERTIFICATION_REQUIRED",
+        "FORMULA_TEXT": "DEFAULT FOR BEN_PLN_BNF_DSGE_MNR_TTEE_RQD_FLAG is 'X'\nDEFAULT FOR BEN_PLN_BNF_MAY_DSGT_ORG_FLAG is 'X'\nl_output = 'N'\nl_minor_tte = BEN_PLN_BNF_DSGE_MNR_TTEE_RQD_FLAG\nl_org_bnf = BEN_PLN_BNF_MAY_DSGT_ORG_FLAG\nif (l_minor_tte = 'Y' or l_org_bnf = 'Y' )\nthen\n(l_output = 'Y')\nelse\n(l_output = 'N')\nReturn l_output",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula checks if a **minor trustee is required** or if **an organization can be designated as a beneficiary** for a benefit plan. If either condition is **'Y'**, it returns **'Y'**; otherwise, it returns **'N'**.",
+        "FORMULA_TYPE_NAME": "Beneficiary Certification Required"
+    }
+]

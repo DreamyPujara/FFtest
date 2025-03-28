@@ -1,0 +1,16 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_LIFE_EVENT_REASON_TIMELINESS",
+        "FORMULA_TEXT": "DEFAULT FOR BEN_LER_NAME is 'xyz '\nDEFAULT FOR BEN_PIL_LF_EVT_OCRD_DT is '01-JAN-1951' (date)\nDEFAULT FOR BEN_PIL_NTFN_DT is '01-JAN-1951' (date)\nl_event_name = BEN_LER_NAME\nL_LIFEEVENT_VOIDED = \u2018N\u2019\nif ( l_event_name = 'Age Changed' or l_event_name = 'Address Changed' ) and ( add_days(BEN_PIL_LF_EVT_OCRD_DT,30) < BEN_PIL_NTFN_DT ) then\n(L_LIFEEVENT_VOIDED = 'Y' )\nreturn L_LIFEEVENT_VOIDED",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula checks if a life event should be voided based on its name and timing. It flags the event as voided if the event name is 'Age Changed' or 'Address Changed' and the notification date is more than 30 days after the event occurred. The formula ensures that only outdated or invalid life events are voided.",
+        "FORMULA_TYPE_NAME": "Life Event Reason Timeliness"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_LIFE_EVENT_REASON_TIMELINESS",
+        "FORMULA_TEXT": "DEFAULT FOR BEN_PPL_LF_EVT_OCRD_DT is '1951/01/01 00:00:00'(date)\nDEFAULT FOR BEN_PPL_NTFN_DT is '1951/01/01 00:00:00'(date)\nL_LIFEEVENT_VOIDED = 'N'\nif ( add_days(BEN_PPL_LF_EVT_OCRD_DT,90) < BEN_PPL_NTFN_DT )\nthen\n(L_LIFEEVENT_VOIDED = 'Y' )\nreturn L_LIFEEVENT_VOIDED",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula checks if a life event should be voided based on its timing. It flags the event as voided if the notification date is more than 90 days after the event occurred. The formula ensures that only outdated or invalid life events are voided.",
+        "FORMULA_TYPE_NAME": "Life Event Reason Timeliness"
+    }
+]

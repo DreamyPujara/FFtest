@@ -1,0 +1,58 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_ORC_",
+        "FORMULA_TEXT": "/*************************************************************************************************\n  FORMULA NAME: BKD_Recruit_Candidate_Selection_DRA_FF\n  FORMULA TYPE: Recruiting Candidate Selection Process\n  DESCRIPTION: Conditions can be used to determine if an automated action must be executed or to prevent moving a job application\n  Change History:\n  Name                      Date               Comments\n --------------------------------------------------------------------------------------------------------------------------\nFox               03/05/2020         Initial Version\n********************************************************************************************************/\n\n \n/*=========== INPUT VALUES DEFAULTS ENDS======================*/\nDEFAULT_DATA_VALUE FOR  IRC_CSP_REQUEST_INFO_APPFLOW_CODE IS 'N/A'\nDEFAULT_DATA_VALUE FOR  IRC_CSP_REQUEST_INFO_STATUS_CODE IS 'N/A'\nCONDITION_RESULT = 'N'\n\n\nindex =  IRC_CSP_REQUEST_INFO_APPFLOW_CODE.FIRST(-1) \nL_TOT_COUNT = IRC_CSP_REQUEST_INFO_APPFLOW_CODE.COUNT \n\n/* Looping through the Request Info Array.  Not sure why this is an array type but it is.  If it finds any that meet requirements then this returns true */\nWHILE (  IRC_CSP_REQUEST_INFO_APPFLOW_CODE.EXISTS(index)) \nLOOP (\n /*  IF start date of assignment < enrollment END date and status code != ACTIVE DUTY then need to use start date as the end value  */\n l_code = IRC_CSP_REQUEST_INFO_APPFLOW_CODE[index]\n l_status = IRC_CSP_REQUEST_INFO_STATUS_CODE[index]\n /* Using only Appflow Code and Status code of submitted.  Could use version but dont think it is needed here */\n if(l_code = 'BKD_DRA_APPROVAL' AND l_status = 'ORA_SUBMITTED') THEN\n (\n  CONDITION_RESULT = 'Y'\n )\n index =  IRC_CSP_REQUEST_INFO_APPFLOW_CODE.NEXT(index, -1) \n)\n\n  \n\nreturn  CONDITION_RESULT",
+        "LEGISLATIVE_DATA_GROUP": "US Legislation",
+        "Description": "Automatically progress a candidate from one state to the next within the candidate selection process, following completion of the DRA Request pass application.",
+        "FORMULA_TYPE_NAME": "Candidate Selection Process"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_ORC_",
+        "FORMULA_TEXT": "/*************************************************************************************************\n  FORMULA NAME: BKD_Recruit_Candidate_Selection_FIRSTPASS_FF\n  FORMULA TYPE: Recruiting Candidate Selection Process\n  DESCRIPTION: Conditions can be used to determine if an automated action must be executed or to prevent moving a job application\n  Change History:\n  Name                      Date               Comments\n --------------------------------------------------------------------------------------------------------------------------\nFox               03/05/2020         Initial Version\n********************************************************************************************************/\n\n \n/*=========== INPUT VALUES DEFAULTS ENDS======================*/\nDEFAULT_DATA_VALUE FOR  IRC_CSP_REQUEST_INFO_APPFLOW_CODE IS 'N/A'\nDEFAULT_DATA_VALUE FOR  IRC_CSP_REQUEST_INFO_STATUS_CODE IS 'N/A'\nCONDITION_RESULT = 'N'\n\n\nindex =  IRC_CSP_REQUEST_INFO_APPFLOW_CODE.FIRST(-1) \nL_TOT_COUNT = IRC_CSP_REQUEST_INFO_APPFLOW_CODE.COUNT \n\n/* Looping through the Request Info Array.  Not sure why this is an array type but it is.  If it finds any that meet requirements then this returns true */\nWHILE (  IRC_CSP_REQUEST_INFO_APPFLOW_CODE.EXISTS(index)) \nLOOP (\n /*  IF start date of assignment < enrollment END date and status code != ACTIVE DUTY then need to use start date as the end value  */\n l_code = IRC_CSP_REQUEST_INFO_APPFLOW_CODE[index]\n l_status = IRC_CSP_REQUEST_INFO_STATUS_CODE[index]\n /* Using only Appflow Code and Status code of submitted.  Could use version but dont think it is needed here */\n if(l_code = 'BKD_FIRSTPASS_ADDITIONAL_INFO' AND l_status = 'ORA_SUBMITTED') THEN\n (\n  CONDITION_RESULT = 'Y'\n )\n index =  IRC_CSP_REQUEST_INFO_APPFLOW_CODE.NEXT(index, -1) \n)\n\n  \n\nreturn  CONDITION_RESULT",
+        "LEGISLATIVE_DATA_GROUP": "US Legislation",
+        "Description": "Automatically progress a candidate from one state to the next within the candidate selection process, following completion of the 1st pass application.",
+        "FORMULA_TYPE_NAME": "Candidate Selection Process"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_ORC_",
+        "FORMULA_TEXT": "/*************************************************************************************************\n  FORMULA NAME: BKD_Recruit_Candidate_Selection_SecondPass_FF\n  FORMULA TYPE: Recruiting Candidate Selection Process\n  DESCRIPTION: Conditions can be used to determine if an automated action must be executed or to prevent moving a job application\n  Change History:\n  Name                      Date               Comments\n --------------------------------------------------------------------------------------------------------------------------\nFox               03/05/2020         Initial Version\n********************************************************************************************************/\n\n \n/*=========== INPUT VALUES DEFAULTS ENDS======================*/\nDEFAULT_DATA_VALUE FOR  IRC_CSP_REQUEST_INFO_APPFLOW_CODE IS 'N/A'\nDEFAULT_DATA_VALUE FOR  IRC_CSP_REQUEST_INFO_STATUS_CODE IS 'N/A'\nCONDITION_RESULT = 'N'\n\n\nindex =  IRC_CSP_REQUEST_INFO_APPFLOW_CODE.FIRST(-1) \nL_TOT_COUNT = IRC_CSP_REQUEST_INFO_APPFLOW_CODE.COUNT \n\n/* Looping through the Request Info Array.  Not sure why this is an array type but it is.  If it finds any that meet requirements then this returns true */\nWHILE (  IRC_CSP_REQUEST_INFO_APPFLOW_CODE.EXISTS(index)) \nLOOP (\n /*  IF start date of assignment < enrollment END date and status code != ACTIVE DUTY then need to use start date as the end value  */\n l_code = IRC_CSP_REQUEST_INFO_APPFLOW_CODE[index]\n l_status = IRC_CSP_REQUEST_INFO_STATUS_CODE[index]\n /* Using only Appflow Code and Status code of submitted.  Could use version but dont think it is needed here */\n if(l_code = 'BKD_SECONDPASS_ADDITIONAL_INFO' AND l_status = 'ORA_SUBMITTED') THEN\n (\n  CONDITION_RESULT = 'Y'\n )\n index =  IRC_CSP_REQUEST_INFO_APPFLOW_CODE.NEXT(index, -1) \n)\n\n  \n\nreturn  CONDITION_RESULT",
+        "LEGISLATIVE_DATA_GROUP": "US Legislation",
+        "Description": "Automatically progress a candidate from one state to the next within the candidate selection process, following completion of the 2nd pass application.",
+        "FORMULA_TYPE_NAME": "Candidate Selection Process"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_ORC_",
+        "FORMULA_TEXT": "/*************************************************************************************************\n  FORMULA NAME: BKD_Recruit_CSP_Rehire_Ineligible_FF\n  FORMULA TYPE: Recruiting Candidate Selection Process\n  DESCRIPTION: Conditions can be used to determine if an automated action must be executed or to prevent moving a job application\n  Change History:\n  Name                      Date               Comments\n --------------------------------------------------------------------------------------------------------------------------\nFox               12/01/2023         Initial Version\n********************************************************************************************************/\n\n \n/*=========== INPUT VALUES DEFAULTS ENDS======================*/\nDEFAULT_DATA_VALUE FOR  IRC_CSP_REQUEST_INFO_APPFLOW_CODE IS 'N/A'\nDEFAULT_DATA_VALUE FOR  IRC_CSP_REQUEST_INFO_STATUS_CODE IS 'N/A'\nCONDITION_RESULT = 'N'\nl_submission_id = GET_CONTEXT(SUBMISSION_ID,0)\nL_STATUS = add_rlog (-1 , -1 , 'RRACHAMADUGU - Sub ID:'|| TO_CHAR(l_submission_id))\nl_rehire_eligible = 'Y'\n\nl_param = '|=P_SUBMISSION_ID='||to_char(l_submission_id)\nl_rehire_eligible = GET_VALUE_SET('BKD_ORC_CHK_REHIRE_ELIGIBILITY',l_param )\n\n if IS_TEXT_NULL(l_rehire_eligible) = 'N' then\n        l_rehire_eligible = 'Y'\n\t\t\nL_STATUS = add_rlog (-1 , -1 , 'RRACHAMADUGU - Rehire Flag: '|| l_rehire_eligible)\n\nif l_rehire_eligible = 'Y' THEN\nCONDITION_RESULT = 'N'\n\nif l_rehire_eligible = 'N' THEN\nCONDITION_RESULT = 'Y'\n\nL_STATUS = add_rlog (-1 , -1 , 'RRACHAMADUGU - Condition Res: '|| CONDITION_RESULT)\n\nreturn  CONDITION_RESULT",
+        "LEGISLATIVE_DATA_GROUP": "US Legislation",
+        "Description": "Automatically progress a candidate from one state to the next within the candidate selection process, following completion of the 2nd pass application and it compares the Rehired candidate's SS# and their Legal Use Only field = 'Yes' OR Term Reason is a value that disqualifies the candidate for rehire. ",
+        "FORMULA_TYPE_NAME": "Candidate Selection Process"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_ORC_",
+        "FORMULA_TEXT": "DEFAULT_DATA_VALUE FOR IRC_CSP_INTRVWRQST_STATUS IS 'NA'\nCONDITION_RESULT = 'N'\nCONDITION_MESSAGE = 'Debug: '\n\ni = 1\nWHILE IRC_CSP_INTRVWRQST_STATUS.EXISTS(i) LOOP\n(\n CONDITION_MESSAGE = CONDITION_MESSAGE || IRC_CSP_INTRVWRQST_STATUS[i]\n\n IF IRC_CSP_INTRVWRQST_STATUS[i] = 'INTERVIEW_SCHEDULED' THEN\n   CONDITION_RESULT = 'Y'\n\n i = i + 1\n)\n\nRETURN CONDITION_RESULT, CONDITION_MESSAGE",
+        "LEGISLATIVE_DATA_GROUP": "US Legislation",
+        "Description": "Automatically progress a candidate from one state to the next within the candidate selectin process, following scheduling of their interview.",
+        "FORMULA_TYPE_NAME": "Candidate Selection Process"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_ORC_",
+        "FORMULA_TEXT": "DEFAULT FOR IRC_CSP_JOBAPP_INTERNAL IS 'N'\nCONDITION_RESULT = 'N'\n...\nRESULT = IRC_CSP_JOBAPP_INTERNAL\n\nIF (RESULT = 'N' THEN\nCONDITION_RESULT = 'Y'\n\nreturn CONDITION_RESULT",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": " a fast formula to determine if a candidate is external.",
+        "FORMULA_TYPE_NAME": "Candidate Selection Process"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_ORC_",
+        "FORMULA_TEXT": "DEFAULT_DATA_VALUE FOR IRC_CSP_ASSMNT_PARTNER_NAME IS 'N/A'\nDEFAULT_DATA_VALUE FOR IRC_CSP_ASSMNT_PACKAGE_CODE IS 'N/A'\nDEFAULT_DATA_VALUE FOR IRC_CSP_ASSMNT_PACKAGE_NAME IS 'N/A'\nCONDITION_RESULT = 'Y'\n\ni = 1\nWHILE IRC_CSP_ASSMNT+PARTNER+NAME.EXISTS(i) LOOP\n(\n    partner_name = IRC_CSP_ASSMNT_PARTNER_NAME[i]\n    package_status_code = IRC_CSP_ASSMNT_PACKAGE_CODE[i]\n\n    /* ORA_INITIATED, ORA_REQUESTED, ORA_COMPLETED_PASS, ORA_COMPLETED_FAIL */\n    IF package_status_code != 'ORA_REQUESTED' THEN\n    CONDITION_RESULT = 'N'\n\n    i = i + 1\n)\nreturn CONDITION_RESULT",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "a fast formula based on assessment result.",
+        "FORMULA_TYPE_NAME": "Candidate Selection Process"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_ORC_",
+        "FORMULA_TEXT": "CONDITION_RESULT = 'N'\nCONDITION_MESSAGE = 'Debug: '\n \nl_interview_operation  = get_context(IRC_INTRVW_OPERATION, 'UNDEFINED')\n \nCONDITION_MESSAGE = CONDITION_MESSAGE || l_interview_operation \n  \nIF(l_interview_operation = 'INTERVIEW_COMPLETED') THEN\n  CONDITION_RESULT = 'Y'\n  \nreturn CONDITION_RESULT, CONDITION_MESSAGE",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "a fast formula based on a candidate interview being completed.",
+        "FORMULA_TYPE_NAME": "Candidate Selection Process"
+    }
+]

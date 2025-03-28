@@ -1,0 +1,72 @@
+[
+    {
+        "FORMULA_NAME": "Enrollment  endate AKF Pakistan",
+        "answer": "enrollmentEndDate = TO_DATE('31-12-2024','DD-MM-YYYY') RETURN enrollmentEndDate",
+        "question": "write a  formula calculates the sick leave accrual for domestic workers in New York. It first checks if the employee has completed a one-year waiting period from their hire date. If the waiting period is completed, it calculates the average weekly hours worked over the past year. Based on the average hours worked, the formula determines the accrual amount: 24 hours for an average of 30 or more hours per week, 16 hours for an average of 20 to 29 hours per week, and 8 hours for less than 20 hours per week. The final accrual value is then returned.",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment End",
+        "LEGISLATIVE_DATA_GROUP": "PK Legislative Data Group"
+    },
+    {
+        "FORMULA_NAME": "CIMB_TH_ANNUAL_ENR_ENDDT_FF",
+        "answer": "DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker' DEFAULT FOR PER_ASG_REL_ACTUAL_TERMINATION_DATE IS '4712/12/31 00:00:00' (date) EffDt = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date)) IF ADD_DAYS(EffDt,1) < PER_ASG_REL_ACTUAL_TERMINATION_DATE THEN enrollmentEndDate = EffDt ELSE enrollmentEndDate = ADD_DAYS(EffDt,-1) RETURN enrollmentEndDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment End",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Thailand"
+    },
+    {
+        "FORMULA_NAME": "CIMB_MY_CONTR_ENDDT_FF",
+        "answer": "DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker' DEFAULT FOR PER_ASG_REL_ACTUAL_TERMINATION_DATE IS '4712/12/31 00:00:00' (date) EffDt = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date)) l_End_Date = GET_CONTEXT(END_DATE, '4712/12/31 00:00:00' (date)) IF PER_ASG_REL_ACTUAL_TERMINATION_DATE WAS NOT DEFAULTED THEN enrollmentEndDate = PER_ASG_REL_ACTUAL_TERMINATION_DATE ELSE enrollmentEndDate = l_End_Date RETURN enrollmentEndDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment End",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Malaysia"
+    },
+    {
+        "FORMULA_NAME": "CIMB_CONTR_ENDDT_FF",
+        "answer": "DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker' DEFAULT FOR PER_ASG_REL_ACTUAL_TERMINATION_DATE IS '4712/12/31 00:00:00' (date) EffDt = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date)) l_End_Date = GET_CONTEXT(END_DATE, '4712/12/31 00:00:00' (date)) IF PER_ASG_REL_ACTUAL_TERMINATION_DATE WAS NOT DEFAULTED THEN enrollmentEndDate = PER_ASG_REL_ACTUAL_TERMINATION_DATE ELSE enrollmentEndDate = EffDt RETURN enrollmentEndDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment End",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Thailand"
+    },
+    {
+        "FORMULA_NAME": "CIMB_MY_SICK_LEAVE_ENROL_END",
+        "answer": "DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker' DEFAULT FOR PER_ASG_REL_ACTUAL_TERMINATION_DATE IS '4712/12/31 00:00:00' (date) DEFAULT FOR PER_ASG_EMPLOYMENT_CATEGORY IS 'X' l_person_id = GET_CONTEXT(PERSON_ID,0) l_asg_category = PER_ASG_EMPLOYMENT_CATEGORY l_current_date = to_date(GLOBAL_PAY_INTERFACE_EXTRACTION_DATE ,'rrrr/mm/dd') l_effective_date = GET_CONTEXT(EFFECTIVE_DATE,'4712/12/31 00:00:00'(date)) l_end_date = GET_CONTEXT(END_DATE, '4712/12/31 00:00:00' (date)) IF PER_ASG_REL_ACTUAL_TERMINATION_DATE WAS NOT DEFAULTED THEN l_termination_date = PER_ASG_REL_ACTUAL_TERMINATION_DATE L_year_start_date = LEAST(TO_DATE(GET_VALUE_SET('CIMB_GET_MY_ENROL_START_DATE','|=P_PERSON_ID='||TO_CHAR(l_person_id)||'|P_ASSG_CAT='''||l_asg_category||''''||'|P_EFF_DATE='''||TO_CHAR(l_effective_date,'YYYY/MM/DD')||''''),'YYYY-MM-DD'),l_end_date) enrollmentEndDate = LEAST(ADD_DAYS(l_year_start_date,-1),l_termination_date) RETURN enrollmentEndDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment End",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Malaysia"
+    },
+    {
+        "FORMULA_NAME": "CIMB_MY_ENROLL_END_CONTR_V2",
+        "answer": "DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker' DEFAULT FOR PER_ASG_REL_ACTUAL_TERMINATION_DATE IS '4712/12/31 00:00:00' (date) l_person_id = GET_CONTEXT(PERSON_ID,0) EffDt = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date)) l_End_Date = GET_CONTEXT(END_DATE, '4712/12/31 00:00:00' (date)) l_year_start_date = TO_DATE(GET_VALUE_SET('CIMB_GET_MY_ENROL_START_DATE','|=P_PERSON_ID='||to_char(l_person_id)),'YYYY-MM-DD') IF PER_ASG_REL_ACTUAL_TERMINATION_DATE WAS NOT DEFAULTED THEN enrollmentEndDate = PER_ASG_REL_ACTUAL_TERMINATION_DATE ELSE enrollmentEndDate = ADD_DAYS(l_year_start_date,-1) RETURN enrollmentEndDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment End",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Malaysia"
+    },
+    {
+        "FORMULA_NAME": "CIMB_MY_ENROLL_END_EMP",
+        "answer": "DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker' DEFAULT FOR PER_ASG_REL_ACTUAL_TERMINATION_DATE IS '4712/12/31 00:00:00' (date) l_person_id = GET_CONTEXT(PERSON_ID,0) EffDt = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date)) l_End_Date = GET_CONTEXT(END_DATE, '4712/12/31 00:00:00' (date)) IF PER_ASG_REL_ACTUAL_TERMINATION_DATE WAS NOT DEFAULTED THEN l_termination_date = PER_ASG_REL_ACTUAL_TERMINATION_DATE l_year_start_date = LEAST(TO_DATE(GET_VALUE_SET('CIMB_GET_MY_ENROL_START_DATE_CONTRACT','|=P_PERSON_ID='||to_char(l_person_id)),'YYYY-MM-DD'),l_End_Date) enrollmentEndDate = LEAST(l_End_Date,l_termination_date) RETURN enrollmentEndDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment End",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Malaysia"
+    },
+    {
+        "FORMULA_NAME": "CIMB UK BFL Plan Enrollment End Date",
+        "answer": "DEFAULT FOR GET_CURRENT_DATE IS '0001/01/01 00:00:00'(DATE) DEFAULT FOR GLOBAL_PAY_INTERFACE_EXTRACTION_DATE IS '1951/01/01' l_current_date = TO_CHAR(GET_CURRENT_DATE()) l_current_year = SUBSTR(l_current_date,0,4) l_start_date = TO_DATE(l_current_year||'/01/01 00:00:00') l_end_date = TO_DATE(l_current_year||'/04/30 00:00:00') l_eff_date = to_date(GLOBAL_PAY_INTERFACE_EXTRACTION_DATE ,'rrrr/mm/dd') enrollmentEndDate = l_end_date RETURN enrollmentEndDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment End",
+        "LEGISLATIVE_DATA_GROUP": "CIMB United Kingdom"
+    },
+    {
+        "FORMULA_NAME": "Kaneka Annual Leave Enrollment End Date FF",
+        "answer": "DEFAULT for PER_PERSON_ENTERPRISE_HIRE_DATE is '1951/01/01 00:00:00' (date) l_hire_date = '0001/01/01 00:00:00' (date) l_hire_date = add_months(PER_PERSON_ENTERPRISE_HIRE_DATE,12) ann_date = add_months(PER_PERSON_ENTERPRISE_HIRE_DATE,12) hire_enroll_month_no= to_num(to_char(ann_date, 'mm')) hire_year_number = to_num(to_char(ann_date, 'yyyy')) hire_day_number = to_num(to_char(ann_date, 'dd')) anniversary_date = to_date(to_char(hire_year_number) || '/' || to_char(hire_enroll_month_no) || '/' || to_char(hire_day_number),'yyyy/mm/dd') l_log =ESS_LOG_WRITE('1. Anniversary Date =' + to_char(anniversary_date)) enrollmentEndDate = add_days(anniversary_date,-1) l_log =ESS_LOG_WRITE('2. Enrollment End Date =' + to_char(enrollmentEndDate)) RETURN enrollmentEndDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment End",
+        "LEGISLATIVE_DATA_GROUP": "MY Legislative Data Group"
+    },
+    {
+        "FORMULA_NAME": "BKD ABS PTO Plan Enrollment End Date",
+        "answer": "Default for PER_ASG_REL_ACTUAL_TERMINATION_DATE is '0001/01/01 00:00:00' (date) ld_effective_date= GET_CONTEXT(EFFECTIVE_DATE,'4712/12/31 00:00:00'(date)) ld_term_date = PER_ASG_REL_ACTUAL_TERMINATION_DATE CHANGE_CONTEXTS(EFFECTIVE_DATE=ADD_DAYS(ld_effective_date,-1)) ( ld_payroll_id = GET_CONTEXT(PAYROLL_ID, 0) ) ld_end_date = GET_CONTEXT(END_DATE,'4712/12/31 00:00:00'(date)) l_debug= ESS_LOG_WRITE('ldpayroll_id is: '|| to_char(ld_payroll_id)) if ld_effective_date = PER_ASG_REL_ACTUAL_TERMINATION_DATE THEN enrollmentEndDate = ld_effective_date else enrollmentEndDate = ld_effective_date l_debug= ESS_LOG_WRITE('ld_term_date is: '|| to_char(ld_term_date)) l_debug= ESS_LOG_WRITE('ld_effective_date is: '|| to_char(ld_effective_date)) l_debug= ESS_LOG_WRITE('ld_end_date is: '|| to_char(ld_end_date)) return enrollmentEndDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment End",
+        "LEGISLATIVE_DATA_GROUP": "Standard formula"
+    }
+]

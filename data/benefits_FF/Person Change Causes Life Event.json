@@ -1,0 +1,65 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_PERSON_CHANGE_CAUSES_LIFE_EVENT",
+        "FORMULA_TEXT": "/*=========== INPUT VALUES DEFAULTS BEGIN =====================*/\nInputs are BEN_ASG_IN_ASSIGNMENT_TYPE (text), BEN_ASG_IO_ASSIGNMENT_TYPE (text)\nDEFAULT FOR BEN_ASG_IN_ASSIGNMENT_TYPE is \u2018xyz\u2019\nDEFAULT FOR BEN_ASG_IO_ASSIGNMENT_TYPE is \u2018abc\u2019\n/*=========== INPUT VALUES DEFAULTS ENDS======================*/\n/*================ FORMULA SECTION BEGIN =======================*/ l_return = \u2018N\u2019\nIF ( BEN_ASG_IN_ASSIGNMENT_TYPE = \u2018A\u2019\nand BEN_ASG_IO_ASSIGNMENT_TYPE= \u2018B\u2019 )\nthen\n(l_return = \u2018Y\u2019)\nelse\n(l_return = \u2018N\u2019)\nreturn l_return\n/*================ FORMULA SECTION END =======================*/",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula checks if an employee's assignment type matches specific criteria. It compares two assignment type values: one input and one output. If the input assignment type is 'A' and the output assignment type is 'B', the employee is marked as eligible. Otherwise, they are considered ineligible. The formula ensures that only employees with the exact combination of assignment types qualify.",
+        "FORMULA_TYPE_NAME": "Person Change Causes Life Event"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_PERSON_CHANGE_CAUSES_LIFE_EVENT",
+        "FORMULA_TEXT": "DEFAULT FOR PER_PER_ADD_COUNTRY is \u2018AA\u2019\nl_country = PER_PER_ADD_COUNTRY\nl_return = \u2018N\u2019\nIF (l_country = \u2018US\u2019 or l_country = \u2018CA\u2019)\nTHEN\n(l_return = \u2018Y\u2019)\nreturn l_return",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula checks if an employee's country is either the United States ('US') or Canada ('CA'). If the employee's country matches either of these values, they are marked as eligible. Otherwise, they are considered ineligible. The formula ensures that only employees from these two countries qualify.",
+        "FORMULA_TYPE_NAME": "Person Change Causes Life Event"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_PERSON_CHANGE_CAUSES_LIFE_EVENT",
+        "FORMULA_TEXT": "/*=========== DATABASE ITEM DEFAULTS BEGIN =====================*/\nDEFAULT FOR PER_ASG_ACTION_CODE is ' '\n/*=========== DATABASE ITEM DEFAULTS ENDS======================*/\n/*================ FORMULA SECTION BEGIN =======================*/\nl_action_code = PER_ASG_ACTION_CODE\nl_create_ptnl = 'N'\nif NOT PER_ASG_ACTION_CODE was defaulted then (\nif (l_action_code='RESIGNATION' or l_action_code='TERMINATION') then (l_create_ptnl = 'Y')\nelse\n(l_create_ptnl = 'N')\n)\nreturn l_create_ptnl",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula determines if a potential record should be created based on the employee's action code. It checks if the action code is either 'RESIGNATION' or 'TERMINATION'. If the action code matches either of these values, the employee is flagged for potential record creation. Otherwise, no action is taken. The formula ensures that potential records are only created for employees with resignation or termination actions.",
+        "FORMULA_TYPE_NAME": "Person Change Causes Life Event"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_PERSON_CHANGE_CAUSES_LIFE_EVENT",
+        "FORMULA_TEXT": "/*=========== DATABASE ITEM DEFAULTS BEGIN =====================*/\nDEFAULT FOR PER_ASG_ACTION_CODE is ' '\n/*=========== DATABASE ITEM DEFAULTS ENDS======================*/\n/*================ FORMULA SECTION BEGIN =======================*/\nl_action_code = PER_ASG_ACTION_CODE\nl_create_ptnl = 'N'\nif NOT PER_ASG_ACTION_CODE was defaulted then (\nif (l_action_code='RESIGNATION' or l_action_code='TERMINATION') then (l_create_ptnl = 'Y')\nelse\n(l_create_ptnl = 'N')\n)\nreturn l_create_ptnl",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula checks if an employee's action code is either 'RESIGNATION' or 'TERMINATION'. If the action code matches either of these values, the employee is flagged for potential record creation. Otherwise, no action is taken. The formula ensures that potential records are only created for employees with resignation or termination actions.",
+        "FORMULA_TYPE_NAME": "Person Change Causes Life Event"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_PERSON_CHANGE_CAUSES_LIFE_EVENT",
+        "FORMULA_TEXT": "inputs are BEN_SAL_IN_SALARY_AMOUNT(text), BEN_SAL_IO_SALARY_AMOUNT(text)\nDEFAULT FOR BEN_SAL_IN_SALARY_AMOUNT is '99999999' DEFAULT FOR BEN_SAL_IO_SALARY_AMOUNT is '99999999'\nl_create_ptnl = 'N'\nIf (BEN_SAL_IO_SALARY_AMOUNT = '99999999' or\nBEN_SAL_IN_SALARY_AMOUNT = BEN_SAL_IO_SALARY_AMOUNT )\nTHEN\n( l_create_ptnl = 'N' )\nELSE\n( l_create_ptnl = 'Y' )\nreturn l_create_ptnl",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula determines if a potential record should be created based on salary amounts. It checks if the output salary amount is the default value ('99999999') or if the input and output salary amounts are the same. If either condition is true, no potential record is created. Otherwise, a potential record is flagged for creation. The formula ensures that potential records are only created when there is a meaningful change in salary.",
+        "FORMULA_TYPE_NAME": "Person Change Causes Life Event"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_PERSON_CHANGE_CAUSES_LIFE_EVENT",
+        "FORMULA_TEXT": "/***************************************************\nFORMULA NAME : Legal Employer Transfer or New Hire\nFORMULA TYPE : Person Changes Causes Life Event\n****************************************************/\nINPUTS are BEN_ASG_IN_ACTION_CODE(text), BEN_ASG_IO_ACTION_CODE(text)\nDEFAULT FOR PER_ASG_ACTION_CODE is 'AA'\nl_action_code='XX'\nl_old_action_code='YY'\nl_action_code = BEN_ASG_IN_ACTION_CODE\nl_old_action_code =BEN_ASG_IO_ACTION_CODE\nl_return = 'N'\nif (l_action_code<>'XX') then\n(\nif ((l_action_code = 'HIRE' or l_action_code= 'GLB_TRANSFER') and\nl_action_code <> l_old_action_code ) then\n(\nl_return = 'Y'\n)\nelse\n(\nl_return = 'N'\n)\n)\nreturn l_return",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula checks if an employee's action code has changed to either 'HIRE' or 'GLB_TRANSFER'. If the action code changes to one of these values, the employee is flagged for a life event. Otherwise, no action is taken. The formula ensures that life events are triggered only for new hires or global transfers.",
+        "FORMULA_TYPE_NAME": "Person Change Causes Life Event"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_PERSON_CHANGE_CAUSES_LIFE_EVENT",
+        "FORMULA_TEXT": "/*******************************************************\nFORMULA NAME: BEN_POS_CHG_TRIGGER_FF\nFORMULA TYPE: Person Change Causes Life Event\nDESCRIPTION: FF to trigger 'Position Change' life event.\n********************************************************/\nINPUTS ARE NEW_VAL (text), OLD_VAL (text), COLUMN (text), PK_ID (text), BEN_ASG_IO_HOURLY_SALARIED_CODE (text), BEN_ASG_IN_HOURLY_SALARIED_CODE (text)\nDEFAULT FOR OLD_VAL IS 'NONE'\nDEFAULT FOR NEW_VAL IS 'NONE'\nDEFAULT FOR BEN_ASG_IN_HOURLY_SALARIED_CODE IS 'NONE'\nDEFAULT FOR BEN_ASG_IO_HOURLY_SALARIED_CODE IS 'NONE'\nDEFAULT FOR PER_ASG_ACTION_CODE IS 'NONE'\nDEFAULT FOR PER_ASG_HOURLY_SALARIED_CODE is 'NONE'\nl_hourly_code = PER_ASG_HOURLY_SALARIED_CODE\nl_action_code = PER_ASG_ACTION_CODE\nl_return = 'N'\n/* Check if Action is 'Position Change' OR 'Promotion' */\nIF (((l_hourly_code = 'H') AND ((l_action_code = 'POSITION_CHANGE') OR (l_action_code = 'PROMOTION')) AND (OLD_VAL <> NEW_VAL))\nOR ((l_action_code = 'PROMOTION') AND ((BEN_ASG_IO_HOURLY_SALARIED_CODE = 'H') AND (BEN_ASG_IN_HOURLY_SALARIED_CODE = 'S'))))\nTHEN\n(\nl_return = 'Y'\n)\nRETURN l_return",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula triggers a 'Position Change' life event based on specific conditions. It checks if the employee is hourly ('H') and their action code is either 'POSITION_CHANGE' or 'PROMOTION', and if there is a change in position-related values. It also triggers the event if the employee is promoted from hourly ('H') to salaried ('S'). The formula ensures the life event is triggered only for valid position changes or promotions.",
+        "FORMULA_TYPE_NAME": "Person Change Causes Life Event"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_PERSON_CHANGE_CAUSES_LIFE_EVENT",
+        "FORMULA_TEXT": "/****************************************************\nFORMULA TYPE: Person Change Causes Life Event\n*****************************************************/\nINPUTS ARE NEW_VAL (text), OLD_VAL (text), COLUMN (text), PK_ID (text)\nDEFAULT FOR OLD_VAL IS 'NONE'\nDEFAULT FOR NEW_VAL IS 'NONE'\nDEFAULT FOR PER_ASG_ACTION_CODE IS 'NONE'\nDEFAULT FOR PER_ASG_HOURLY_SALARIED_CODE is 'NONE'\nl_debug = 'Y'\nl_hourly_code = PER_ASG_HOURLY_SALARIED_CODE\nl_action_code = PER_ASG_ACTION_CODE\nl_return = 'N'\nIF ((l_hourly_code = 'H') AND (l_action_code = 'WORK_HOURS_CHANGE') AND (OLD_VAL <> NEW_VAL)) THEN\n(\nl_return = 'Y'\n)\nRETURN l_return",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula triggers a life event when an hourly employee's work hours change. It checks if the employee is hourly ('H'), their action code is 'WORK_HOURS_CHANGE', and there is a change in work hours. If all conditions are met, the life event is triggered. The formula ensures the event is only activated for valid work hour changes for hourly employees.",
+        "FORMULA_TYPE_NAME": "Person Change Causes Life Event"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_PERSON_CHANGE_CAUSES_LIFE_EVENT",
+        "FORMULA_TEXT": "INPUTS are NEW_VAL(text), OLD_VAL(text), COLUMN(text), PK_ID(text), \nBEN_ASG_IN_ACTION_CODE(text), BEN_ASG_IO_ACTION_CODE(text) ,BEN_ASG_IN_ASSIGNMENT_TYPE(text)\n \nDEFAULT FOR NEW_VAL is 'XXX'\nDEFAULT FOR OLD_VAL is 'ZZZ'\nDEFAULT FOR BEN_ASG_IN_ACTION_CODE is 'XX'\nDEFAULT FOR BEN_ASG_IO_ACTION_CODE is 'XX'\n \nl_create_ptnl = 'N'\nlterm = 'XX' \nl_old_term ='XX'\n \n \nlterm =    BEN_ASG_IN_ACTION_CODE \nl_old_term =BEN_ASG_IO_ACTION_CODE \nif  (ISNULL(lterm)='N' )  then\n(\nlterm='XX'\n)\n \nif  (ISNULL(l_old_term)='N' )  then\n(\nl_old_term='XX'\n)\n \n \nif (lterm<>'XX')  then\n(\n \nif ((lterm='HIRE' or lterm='REHIRE' or lterm='GLB_TRANSFER' ) AND \n    (lterm <> l_old_term) and ,BEN_ASG_IN_ASSIGNMENT_TYPE='E') THEN\n (l_create_ptnl = 'Y')\n)\nreturn l_create_ptnl",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula checks if an employee's action code has changed to 'HIRE', 'REHIRE', or 'GLB_TRANSFER' and if their assignment type is 'E'. If these conditions are met, the employee is flagged for potential record creation. The formula ensures that potential records are only created for new hires, rehires, or global transfers with the specified assignment type.",
+        "FORMULA_TYPE_NAME": "Person Change Causes Life Event"
+    }
+]

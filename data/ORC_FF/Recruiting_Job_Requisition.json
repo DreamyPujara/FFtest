@@ -1,0 +1,16 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_ORC_",
+        "FORMULA_TEXT": "/************************************************************************************************* \nFORMULA NAME: BKD_OR_REQ_AUTO_UNPOST_AFTER_25\nFORMULA TYPE: Recruiting Job Requisition\nDESCRIPTION: Fast Formula to support auto-unpost feature on Job Requisitions (#BKD > 25)\nChange History:  Name                      Date               Comments\n--------------------------------------------------------------------------------------------------------------------------\n                 Fox       02-15-2021         Initial Version\n********************************************************************************************************/ \n\n/*Default Statements*/\nDEFAULT FOR IRC_REQ_JOBAPP_COUNT_CONFIRMED IS 0\nCONDITION_RESULT = 'N'\n\n/*Get Job Application Count*/\nCOUNT = IRC_REQ_JOBAPP_COUNT_CONFIRMED\n\nIF (COUNT > 25) THEN\n\nCONDITION_RESULT = 'Y'\n\nreturn CONDITION_RESULT",
+        "LEGISLATIVE_DATA_GROUP": "US Legislation",
+        "Description": "Automatically unpost a requisition once the desired # of job applications is received.",
+        "FORMULA_TYPE_NAME": "Job requisition"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_ORC_",
+        "FORMULA_TEXT": "DEFAULT FOR IRC_REQ_JOBAPP_COUNT_CONFIRMED IS 0\nCONDITION_RESULT = 'N'\n...\n\nCOUNT = IRC_REQ_JOBAPP_COUNT_CONFIRMED\n\nIF (COUNT > 500) THEN\nCONDITION_RESULT = 'Y'\n\nreturn CONDITION_RESULT",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": " a fast formula to automatically unpost a job requisition based on the number of confirmed job applications on the requisition.",
+        "FORMULA_TYPE_NAME": "Job requisition"
+    }
+]

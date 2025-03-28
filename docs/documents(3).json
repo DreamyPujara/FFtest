@@ -1,0 +1,1052 @@
+[
+    {
+        "page_content": "***question***: What is Oracle Fast Formula?\n\n***answer***: Oracle Fast Formula is a tool used for creating custom business logic in Oracle HCM and Payroll. It allows you to define logic and calculations for things like payroll processing, benefits, and other HR processes.",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the syntax structure of a Fast Formula?\n\n***answer***: Fast Formula syntax typically consists of variables, functions, operators, and expressions. The formula logic is written in statements, and it usually ends with a RETURN statement to specify the output.",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What are the types of Fast Formulas?\n\n***answer***: There are three main types of Fast Formulas: \n Element Entry Formula, Validation Formula, and Aggregate Formula.",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you declare a variable in Oracle Fast Formula?\n\n***answer***: Variables are declared using the VARIABLE keyword followed by the variable name and type. \nVARIABLE salary NUMBER; \nRETURN salary;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you return a value in a Fast Formula?\n\n***answer***: The result of the formula is returned using the RETURN statement. \nRETURN salary;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What types of data can a Fast Formula handle?\n\n***answer***: Fast Formulas handle various data types like NUMBER, DATE, CHAR, and BOOLEAN.\n RETURN data_type;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Can Fast Formulas use IF-ELSE conditions?\n\n***answer***: Yes, Fast Formulas can use IF-ELSE statements to control the flow based on conditions.\n IF salary > 1000 THEN\n bonus = salary * 0.1;\n ELSE bonus = 0;\n END IF;\n RETURN bonus;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you perform arithmetic operations in Fast Formula?\n\n***answer***: You can perform arithmetic operations using standard operators like +, -, *, /, and %.\n total_salary = basic_salary + bonus;\n RETURN total_salary;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What are constants in Oracle Fast Formula?\n\n***answer***: Constants are predefined values, such as PI, TRUE, FALSE, and NULL. \nconstant_value = 100; \nRETURN constant_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you write comments in Oracle Fast Formula?\n\n***answer***: You can write single-line comments using\n --\n multi-line comments using\n /* comment */.\n -- This is a comment \n/* This is a multi-line comment */",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the use of NVL function in Fast Formula?\n\n***answer***: The NVL function replaces NULL values with a specified value.\n result = NVL(salary, 0);\n RETURN result;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you use the TO_NUMBER function in Fast Formula?\n\n***answer***: The TO_NUMBER function converts a string to a numeric value. \nsalary = TO_NUMBER('2000');\n RETURN salary;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What does the FUND function do?\n\n***answer***: The FUND function retrieves the value of a specific payroll element for an employee.\n fund_value = FUND('Earnings'); \nRETURN fund_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the purpose of SYSDATE in a Fast Formula?\n\n***answer***: SYSDATE returns the current system date and time. \ncurrent_date = SYSDATE; \nRETURN current_date;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How can you round a number in Fast Formula?\n\n***answer***: Use the ROUND function to round a number to a specified decimal place. \nrounded_salary = ROUND(salary, 2);\n RETURN rounded_salary;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What does TRUNC do in Oracle Fast Formula?\n\n***answer***: The TRUNC function truncates a number or date to a specified precision.\n truncated_value = TRUNC(salary, 1); \nRETURN truncated_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the LENGTH function used for in Fast Formula?\n\n***answer***: The LENGTH function returns the length of a string.\n string_length = LENGTH('Oracle');\n RETURN string_length;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you compare two strings in Fast Formula?\n\n***answer***: Strings can be compared using = for equality or <> for inequality. \nIF name1 = name2 THEN \nRETURN 'Names are equal';\n ELSE \nRETURN 'Names are different';\n END IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How can you use UPPER and LOWER in Fast Formula?\n\n***answer***: The UPPER function converts a string to uppercase, and LOWER converts a string to lowercase. \nupper_name = UPPER('john'); \nRETURN upper_name;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the ADD_MONTHS function in Fast Formula?\n\n***answer***: The ADD_MONTHS function adds or subtracts months from a given date. \nfuture_date = ADD_MONTHS(SYSDATE, 3); \nRETURN future_date;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you define a loop in Oracle Fast Formula?\n\n***answer***: You can define a FOR loop to iterate over a range of values. \nFOR i IN 1..10 LOOP \nresult = i * 10; \nEND LOOP; \nRETURN result;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the purpose of IS NULL in Fast Formula?\n\n***answer***: IS NULL is used to check if a value is NULL.\n IF variable IS NULL THEN\n RETURN 0;\n ELSE\n RETURN variable; \nEND IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you handle errors in Fast Formula?\n\n***answer***: Fast Formula does not have built-in error handling mechanisms, but you can use RAISE to raise an error explicitly in the logic. \nIF salary < 0 THEN\n RAISE_APPLICATION_ERROR(-20001, 'Salary cannot be negative');\n END IF;\n RETURN salary;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Can you call external APIs from within a Fast Formula?\n\n***answer***: No, Fast Formula cannot call external APIs. It is designed to work within the Oracle HCM environment for internal logic. RETURN result;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the GET_ELEMENT_ENTRY_VALUE function used for?\n\n***answer***: This function is used to retrieve the value of a payroll element for a specific employee within a given date range.\n element_value = GET_ELEMENT_ENTRY_VALUE('Earnings', '01-JAN-2024', '31-JAN-2024');\n RETURN element_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you access employee data in Fast Formula?\n\n***answer***: Employee data can be accessed through variables like PER_PERSONAL, PER_ASSIGNMENT, and others related to employee information. \nemployee_name = PER_PERSONAL.FIRST_NAME;\n RETURN employee_name;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How can you calculate payroll deductions using Fast Formula?\n\n***answer***: Payroll deductions can be calculated by defining a formula that uses payroll elements and applying the appropriate logic. \ndeduction = salary * deduction_rate;\n RETURN deduction;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the difference between ELEMENT_ENTRY and ELEMENT_TYPE in Fast Formula?\n\n***answer***: ELEMENT_ENTRY refers to a specific payroll element\u2019s value for an employee, while ELEMENT_TYPE refers to the classification of the payroll element. \nelement_value = ELEMENT_ENTRY('Earnings'); \nRETURN element_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you concatenate two strings in Fast Formula?\n\n***answer***: You concatenate strings using the || operator. \nfull_name = first_name || ' ' || last_name; \nRETURN full_name;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the use of CEIL function in Fast Formula?\n\n***answer***: The CEIL function rounds a number up to the nearest integer. rounded_salary = CEIL(salary); RETURN rounded_salary;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the purpose of the DEBUG function in Fast Formula?\n\n***answer***: The DEBUG function outputs debug messages to assist with formula troubleshooting. DEBUG('Current value of salary: ' || salary); RETURN salary;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Why should you avoid using SELECT statements in Fast Formula?\n\n***answer***: Fast Formula is optimized for in-memory processing, and using SELECT statements may slow down performance. \nRETURN result;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you ensure a Fast Formula executes efficiently?\n\n***answer***: Keep logic simple, avoid complex loops, minimize database calls, and use built-in functions like NVL for efficiency. \nIF NVL(salary, 0) > 1000 THEN\n RETURN salary;\n ELSE\n RETURN 0; \nEND IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Can you debug a Fast Formula in Oracle HCM?\n\n***answer***: Yes, you can use DEBUG functions or log output to debug Fast Formulas.\n DEBUG('Formula output: ' || result); RETURN result;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the impact of using too many nested IF statements in a Fast Formula?\n\n***answer***: Overusing nested IF statements can make the formula harder to read and may impact performance. \nIF salary > 1000 THEN\n IF salary < 2000 THEN\n RETURN salary * 0.1;\n ELSE \nRETURN salary * 0.2;\n END IF;\n END IF;\n RETURN result;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the purpose of using the `COALESCE` function in Fast Formula?\n\n***answer***: The `COALESCE` function returns the first non-NULL value in a list of expressions.\n COALESCE(variable1, variable2, 'default'); \nRETURN COALESCE(variable1, variable2, 'default');",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you define a constant value in a Fast Formula?\n\n***answer***: You define a constant using the `CONSTANT` keyword. \nCONSTANT TAX_RATE NUMBER(3,2) := 0.15; \nRETURN TAX_RATE;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `ROUND` function used for in Fast Formula?\n\n***answer***: The `ROUND` function rounds a numeric value to a specified decimal place.\n rounded_value = ROUND(value, 2);\n RETURN rounded_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the difference between `IF-THEN-ELSE` and `CASE` statements in Fast Formula?\n\n***answer***: `IF-THEN-ELSE` allows you to execute conditional logic with multiple conditions. A `CASE` statement evaluates multiple conditions and returns a result based on the first matching condition.\n CASE WHEN condition1 THEN\n result1\n WHEN condition2 THEN \nresult2\n ELSE default_result \nEND; \nRETURN result;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you use `SELECT` in Fast Formula to query element values?\n\n***answer***: `SELECT` statements should be avoided in Fast Formula. It is designed for in-memory calculations, and queries against the database can slow down performance. Fast Formula uses other methods to fetch values. RETURN result;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you check if a number is even or odd in Fast Formula?\n\n***answer***: You can use the modulus operator `%` to check if a number is divisible by 2. \nIF number % 2 = 0 THEN \n RETURN 'Even';\n ELSE RETURN 'Odd';\n END IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the purpose of the `PER_PERSONAL` table in Fast Formula?\n\n***answer***: The `PER_PERSONAL` table holds personal information about employees, such as their names, address, and contact details. \nemployee_name = PER_PERSONAL.FIRST_NAME; \nRETURN employee_name;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How can you extract the year from a date in Fast Formula?\n\n***answer***: You can use the `EXTRACT` function to extract the year part of a date.\n year = EXTRACT(YEAR FROM SYSDATE);\n RETURN year;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `SELECT_VALUE` function used for in Fast Formula?\n\n***answer***: The `SELECT_VALUE` function retrieves a specific value from a list or table based on a condition. \nvalue = SELECT_VALUE('Element', 'Condition');\n RETURN value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Can you use `NULLIF` in Fast Formula?\n\n***answer***: Yes, `NULLIF` returns `NULL` if two expressions are equal. Otherwise, it returns the first expression. \nresult = NULLIF(value1, value2);\n RETURN result;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `GET_EMPLOYEE_DATE` function in Fast Formula?\n\n***answer***: The `GET_EMPLOYEE_DATE` function retrieves the date associated with an employee's record for a specific event, such as hiring date.\n hire_date = GET_EMPLOYEE_DATE('HIRE_DATE'); \nRETURN hire_date;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you calculate the difference between two dates in Fast Formula?\n\n***answer***: You can subtract two dates to find the difference in days. \ndate_diff = end_date - start_date;\n RETURN date_diff;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `TRIM` function used for in Fast Formula?\n\n***answer***: The `TRIM` function removes leading and trailing spaces from a string.\n trimmed_string = TRIM('  Hello  ');\n RETURN trimmed_string;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `ISDATE` function in Fast Formula?\n\n***answer***: The `ISDATE` function checks if a given expression is a valid date. \nIF ISDATE('2024-12-31') THEN\n RETURN 'Valid Date';\n ELSE\n RETURN 'Invalid Date';\n END IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How can you set a default value in Fast Formula?\n\n***answer***: You can use the `NVL` or `COALESCE` function to set a default value for NULL values. default_value = NVL(variable, 0); RETURN default_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you define a loop for a range of values in Fast Formula?\n\n***answer***: Use a `FOR` loop to iterate over a specified range. \nFOR i IN 1..5 LOOP\n result = i * 10;\n END LOOP; \nRETURN result;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you compare two dates in Fast Formula?\n\n***answer***: You can use standard comparison operators like `=`, `<`, or `>` to compare dates.\n IF start_date > end_date THEN \nRETURN 'Invalid date range';\n ELSE\n RETURN 'Valid date range'; \nEND IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What does `PER_ASSIGNMENT` represent in Fast Formula?\n\n***answer***: The `PER_ASSIGNMENT` table holds information about an employee\u2019s assignment, such as job, location, and department.\n assignment_name = PER_ASSIGNMENT.JOB;\n RETURN assignment_name;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you check if a string is empty in Fast Formula?\n\n***answer***: You can use `LENGTH` function to check if a string is empty.\n IF LENGTH(string) = 0 THEN\n RETURN 'Empty';\n ELSE RETURN 'Not Empty';\n END IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the purpose of the `MONTHS_BETWEEN` function?\n\n***answer***: The `MONTHS_BETWEEN` function returns the number of months between two dates.\n months_diff = MONTHS_BETWEEN(end_date, start_date); \nRETURN months_diff;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `LAST_DAY` function used for in Fast Formula?\n\n***answer***: The `LAST_DAY` function returns the last day of the month for a given date.\n last_day_of_month = LAST_DAY(SYSDATE); \nRETURN last_day_of_month;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you calculate the sum of a range of values in Fast Formula?\n\n***answer***: You can use a `FOR` loop to sum values over a range. sum = 0; \nFOR i IN 1..5 LOOP\n sum = sum + i;\n END LOOP; \nRETURN sum;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you handle NULL values when performing calculations in Fast Formula?\n\n***answer***: Use `NVL` or `COALESCE` functions to replace NULL values with a default value.\n total = NVL(value, 0) + 100; \nRETURN total;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the difference between `<>` and `!=` in Fast Formula?\n\n***answer***: Both `<>` and `!=` are used for inequality comparisons in Fast Formula. They are functionally identical. \nIF value <> 100 THEN\n RETURN 'Not Equal';\nELSE\n RETURN 'Equal'; \nEND IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you check if a value exists in a list in Fast Formula?\n\n***answer***: Use a combination of `CASE` or `IF-THEN-ELSE` to check if a value is part of a predefined list. \nIF value IN ('A', 'B', 'C') THEN\n RETURN 'Found';\n ELSE RETURN 'Not Found';\n END IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `PER_JOB` table used for in Fast Formula?\n\n***answer***: The `PER_JOB` table holds job-related information for an employee, such as job code and description.\n job_description = PER_JOB.DESCRIPTION;\n RETURN job_description;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you format a date in Fast Formula?\n\n***answer***: You can use `TO_CHAR` to format a date in a specific format. \nformatted_date = TO_CHAR(SYSDATE, 'DD-MON-YYYY');\n RETURN formatted_date;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you assign a value to a variable in Fast Formula?\n\n***answer***: You simply use the assignment operator (`=`) to assign values to variables. \nsalary = basic_salary + bonus; \nRETURN salary;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you implement a conditional calculation in Fast Formula?\n\n***answer***: You can use an `IF-THEN-ELSE` statement to apply conditional logic. \nIF salary > 1000 THEN \nRETURN salary * 0.1; \nELSE RETURN 0;\n END IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `GET_ELEMENT_VALUE` function used for?\n\n***answer***: The `GET_ELEMENT_VALUE` function retrieves a specific element\u2019s value for an employee. \nelement_value = GET_ELEMENT_VALUE('Bonus'); \nRETURN element_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you generate a random number in Fast Formula?\n\n***answer***: You can use the `DBMS_RANDOM.VALUE` function to generate a random number.\n random_number = DBMS_RANDOM.VALUE(1, 100); \nRETURN random_number;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you create a date from separate year, month, and day values?\n\n***answer***: You can use the `TO_DATE` function to create a date from year, month, and day values.\n date_value = TO_DATE(year || '-' || month || '-' || day, 'YYYY-MM-DD');\n RETURN date_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you calculate age from a date of birth in Fast Formula?\n\n***answer***: Use `SYSDATE` and subtract the birth date to calculate the age in years. \nage = FLOOR(MONTHS_BETWEEN(SYSDATE, birth_date) / 12); \nRETURN age;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you calculate the percentage of a value in Fast Formula?\n\n***answer***: You can calculate the percentage by multiplying the value by the percentage.\n percentage_value = value * 0.15; \nRETURN percentage_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `DECODE` function used for in Fast Formula?\n\n***answer***: The `DECODE` function is similar to a CASE or IF-THEN-ELSE expression. It returns a value based on a condition.\n result = DECODE(variable, 'A', 'Yes', 'B', 'No', 'Unknown'); \nRETURN result;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you check if an employee has a specific assignment status?\n\n***answer***: You can use `PER_ASSIGNMENT.STATUS` to check the assignment status.\n IF PER_ASSIGNMENT.STATUS = 'ACTIVE' THEN\n RETURN 'Active Employee'; \nELSE RETURN 'Inactive Employee';\n END IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you calculate the number of workdays between two dates?\n\n***answer***: Use the `WORKDAYS_BETWEEN` function to find the number of workdays between two dates. \nworkdays_diff = WORKDAYS_BETWEEN(start_date, end_date);\n RETURN workdays_diff;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the purpose of the `GET_ELEMENT_ENTRY_VALUE` function?\n\n***answer***: `GET_ELEMENT_ENTRY_VALUE` retrieves the value of a payroll element for a specific employee within a date range. \nelement_value = GET_ELEMENT_ENTRY_VALUE('Earnings', '01-JAN-2024', '31-JAN-2024');\n RETURN element_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you get the current year in Fast Formula?\n\n***answer***: You can use the `EXTRACT` function to extract the current year from the system date.\n current_year = EXTRACT(YEAR FROM SYSDATE); \nRETURN current_year;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you compare two numbers in Fast Formula?\n\n***answer***: Use standard comparison operators such as `=`, `>`, `<`, `>=`, `<=`, and `<>`. \nIF salary > 1000 THEN \n RETURN 'Above threshold';\n ELSE \nRETURN 'Below threshold';\n END IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `LEAST` function used for in Fast Formula?\n\n***answer***: The `LEAST` function returns the smallest value in a list of expressions. \nsmallest_value = LEAST(value1, value2, value3); \nRETURN smallest_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `GREATEST` function used for in Fast Formula?\n\n***answer***: The `GREATEST` function returns the largest value in a list of expressions. largest_value = GREATEST(value1, value2, value3); RETURN largest_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you get the first day of the current month in Fast Formula?\n\n***answer***: You can use the `TRUNC` function to get the first day of the current month.\n first_day_of_month = TRUNC(SYSDATE, 'MM'); \nRETURN first_day_of_month;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you perform a case-insensitive comparison of strings in Fast Formula?\n\n***answer***: Use the `UPPER` or `LOWER` functions to make a case-insensitive comparison. \nIF UPPER(name) = UPPER('John') THEN\n RETURN 'Match';\n ELSE\n RETURN 'No Match';\n END IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you check if a number is negative in Fast Formula?\n\n***answer***: You can use an `IF` statement to check if a number is less than zero.\n IF number < 0 THEN \nRETURN 'Negative'; \nELSE\n RETURN 'Positive'; \nEND IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you format a currency value in Fast Formula?\n\n***answer***: Use `TO_CHAR` with a format mask to format a value as currency. \nformatted_value = TO_CHAR(value, '999,999.99');\n RETURN formatted_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you check if a date is in the future in Fast Formula?\n\n***answer***: You can use the `SYSDATE` to compare the date with the current system date. \nIF date > SYSDATE THEN\n RETURN 'Future Date'; \nELSE\n RETURN 'Past Date'; \nEND IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What does the `ADD_MONTHS` function do in Fast Formula?\n\n***answer***: The `ADD_MONTHS` function adds a specified number of months to a date.\n future_date = ADD_MONTHS(SYSDATE, 3); \nRETURN future_date;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you calculate the difference between two times in Fast Formula?\n\n***answer***: You can subtract one time value from another to calculate the difference.\n time_diff = time_end - time_start;\n RETURN time_diff;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you check if a string contains a substring in Fast Formula?\n\n***answer***: You can use the `INSTR` function to find if a string contains a substring. \nIF INSTR(string, 'Oracle') > 0 THEN \nRETURN 'Substring Found'; \nELSE\n RETURN 'Substring Not Found'; \nEND IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you calculate the sum of values in a list using Fast Formula?\n\n***answer***: Use a loop to sum the values in a list. sum = 0;\n FOR i IN 1..count LOOP \nsum = sum + list(i); \nEND LOOP;\n RETURN sum;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you use `SELECT_VALUE` in Fast Formula?\n\n***answer***: `SELECT_VALUE` is used to retrieve a value from an element or table based on a condition. \nselected_value = SELECT_VALUE('Element', 'Condition'); \nRETURN selected_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `FLOOR` function in Fast Formula?\n\n***answer***: The `FLOOR` function rounds a numeric value down to the nearest integer.\n floored_value = FLOOR(value);\n RETURN floored_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you extract the day of the week from a date in Fast Formula?\n\n***answer***: Use the `TO_CHAR` function to extract the day of the week.\n day_of_week = TO_CHAR(SYSDATE, 'Day'); \nRETURN day_of_week;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you find the length of an array in Fast Formula?\n\n***answer***: Use the `COUNT` function to find the number of elements in an array. \narray_length = COUNT(array); \nRETURN array_length;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you calculate the cumulative sum of a payroll element in Fast Formula?\n\n***answer***: Use the `SUM` function along with a date range to calculate the cumulative sum.\n cumulative_sum = SUM('Earnings', '01-JAN-2024', '31-DEC-2024');\n RETURN cumulative_sum;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `PER_JOB` table used for in Fast Formula?\n\n***answer***: The `PER_JOB` table contains job-related data such as job code and job title.\n job_code = PER_JOB.JOB_CODE; \nRETURN job_code;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you get the last day of the previous month in Fast Formula?\n\n***answer***: Use the `ADD_MONTHS` and `LAST_DAY` functions.\n last_day_previous_month = LAST_DAY(ADD_MONTHS(SYSDATE, -1)); \nRETURN last_day_previous_month;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you calculate the annual salary from a monthly salary in Fast Formula?\n\n***answer***: Multiply the monthly salary by 12 to calculate the annual salary. \nannual_salary = monthly_salary * 12; \nRETURN annual_salary;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you calculate a weighted average in Fast Formula?\n\n***answer***: Use a weighted formula to calculate the average.\n weighted_average = (value1 * weight1 + value2 * weight2) / (weight1 + weight2);\n RETURN weighted_average;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you create a date from a string in Fast Formula?\n\n***answer***: Use the `TO_DATE` function to convert a string to a date. \ndate_value = TO_DATE('2024-12-31', 'YYYY-MM-DD'); \nRETURN date_value;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: What is the `SYSDATE` function used for in Fast Formula?\n\n***answer***: `SYSDATE` returns the current system date and time. \ncurrent_date = SYSDATE;\n RETURN current_date;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you check if an element value is greater than a certain threshold in Fast Formula?\n\n***answer***: Use a conditional statement to check the value. \nIF element_value > threshold THEN\n RETURN 'Above Threshold';\n ELSE \nRETURN 'Below Threshold';\n END IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you set an element value conditionally in Fast Formula?\n\n***answer***: Use `IF-THEN` logic to set the value conditionally.\n IF salary > 5000 THEN\n bonus = 1000;\n ELSE bonus = 500;\n END IF;\n RETURN bonus;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you check if a variable is NULL in Fast Formula?\n\n***answer***: Use the `IS NULL` condition to check for NULL values.\n IF variable IS NULL THEN\n RETURN 'NULL';\n ELSE RETURN 'Not NULL'; \nEND IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you convert a string to uppercase in Fast Formula?\n\n***answer***: Use the `UPPER` function to convert a string to uppercase. \nupper_case_string = UPPER('oracle'); \nRETURN upper_case_string;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you use the `LENGTH` function in Fast Formula?\n\n***answer***: The `LENGTH` function returns the length of a string. \nstring_length = LENGTH('Oracle Fast Formula'); \nRETURN string_length;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do you concatenate two strings in Fast Formula?\n\n***answer***: Use the `||` operator to concatenate strings. \nfull_name = first_name || ' ' || last_name; \nRETURN full_name;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a sample Absence carryover formula\n\n***answer***: DEFAULT FOR PER_ASG_BUSINESS_UNIT_NAME IS ' '\n\ncarryover = 5\n\nIF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n (carryover = 7)\n\nRETURN carryover",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write an absence accrual formula with condition for Business Unit\n\n***answer***: DEFAULT FOR PER_ASG_BUSINESS_UNIT_NAME IS ' '\n\ncarryover = 5\n\nIF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n (carryover = 7)\n\nRETURN carryover",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write Absence formula\n\n***answer***: DEFAULT FOR PER_ASG_BUSINESS_UNIT_NAME IS ' '\n\ncarryover = 5\n\nIF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n (carryover = 7)\n\nRETURN carryover",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: write a fast formula where workers can accrue a set number of days every year depending on their grade level.\n\n***answer***: DEFAULT FOR PER_ASG_GRADE_NAME IS 'Associate'\nDEFAULT FOR PER_ASG_FTE_VALUE IS 1\n\naccrual = 0\ncarryover = 5\nprorationFactor = 1\ncarryOverProration = 1\n\nIF (PER_ASG_GRADE_NAME = 'Associate')\nTHEN (accrual = 12)\nIF (PER_ASG_GRADE_NAME = 'Staff')\nTHEN (accrual = 25)\nIF (PER_ASG_GRADE_NAME = 'Senior')\nTHEN (accrual = 20)\nIF (PER_ASG_GRADE_NAME = 'Principal')\nTHEN (accrual = 25)\nIF (PER_ASG_GRADE_NAME = 'Director' OR PER_ASG_GRADE_NAME = 'Vice President' OR PER_ASG_GRADE_NAME = 'President' OR PER_ASG_GRADE_NAME = 'Executive')\nTHEN (accrual = 30)\n\ncarryover = carryover * PER_ASG_FTE_VALUE\naccrual = accrual * PER_ASG_FTE_VALUE\n \nRETURN accrual, carryover",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula where the organization allows workers to carry over o a maximum of 5 days of vacation to the next year. The carryover and the accrual amount have to be prorated based on the worker\u2019s FTE.\n\n***answer***: DEFAULT FOR PER_ASG_GRADE_NAME IS 'Associate'\nDEFAULT FOR PER_ASG_FTE_VALUE IS 1\n\naccrual = 0\ncarryover = 5\nprorationFactor = 1\ncarryOverProration = 1\n\nIF (PER_ASG_GRADE_NAME = 'Associate')\nTHEN (accrual = 12)\nIF (PER_ASG_GRADE_NAME = 'Staff')\nTHEN (accrual = 25)\nIF (PER_ASG_GRADE_NAME = 'Senior')\nTHEN (accrual = 20)\nIF (PER_ASG_GRADE_NAME = 'Principal')\nTHEN (accrual = 25)\nIF (PER_ASG_GRADE_NAME = 'Director' OR PER_ASG_GRADE_NAME = 'Vice President' OR PER_ASG_GRADE_NAME = 'President' OR PER_ASG_GRADE_NAME = 'Executive')\nTHEN (accrual = 30)\n\ncarryover = carryover * PER_ASG_FTE_VALUE\naccrual = accrual * PER_ASG_FTE_VALUE\n \nRETURN accrual, carryover",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a formulawhich returns the accrual and carryover limit for workers enrolled into Vacation plan differentiated based on their assignment grades.\n\n***answer***: DEFAULT FOR PER_ASG_GRADE_NAME IS 'Associate'\nDEFAULT FOR PER_ASG_FTE_VALUE IS 1\n\naccrual = 0\ncarryover = 5\nprorationFactor = 1\ncarryOverProration = 1\n\nIF (PER_ASG_GRADE_NAME = 'Associate')\nTHEN (accrual = 12)\nIF (PER_ASG_GRADE_NAME = 'Staff')\nTHEN (accrual = 25)\nIF (PER_ASG_GRADE_NAME = 'Senior')\nTHEN (accrual = 20)\nIF (PER_ASG_GRADE_NAME = 'Principal')\nTHEN (accrual = 25)\nIF (PER_ASG_GRADE_NAME = 'Director' OR PER_ASG_GRADE_NAME = 'Vice President' OR PER_ASG_GRADE_NAME = 'President' OR PER_ASG_GRADE_NAME = 'Executive')\nTHEN (accrual = 30)\n\ncarryover = carryover * PER_ASG_FTE_VALUE\naccrual = accrual * PER_ASG_FTE_VALUE\n \nRETURN accrual, carryover",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write an accrual plan for Vacation where-in workers accrue a set number of days every year depending on the grade level that they are in.\n\n***answer***: DEFAULT FOR IV_CALEDARSTARTDATE IS '4712/12/31 00:00:00' (date)\nDEFAULT FOR IV_CALEDARENDDATE IS '4712/12/31 00:00:00' (date)\nDEFAULT FOR IV_EVENT_DATES IS EMPTY_DATE_NUMBER\nDEFAULT FOR IV_ACCRUAL_VALUES IS EMPTY_NUMBER_NUMBER\nDEFAULT FOR PER_ASG_FTE_VALUE IS 1\n\nINPUTS ARE IV_ACCRUAL, IV_EVENT_DATES, IV_ACCRUAL_VALUES, IV_CALEDARSTARTDATE (date), IV_CALEDARENDDATE (date)\n\ni = 1\nj = 2\nln_accrual_total = 0\nWHILE IV_EVENT_DATES.EXISTS(j)\nLOOP\n(\nln_accrual_total = ln_accrual_total + ( (DAYS_BETWEEN(IV_EVENT_DATES[j], IV_EVENT_DATES[i]) + 1) * IV_ACCRUAL_VALUES[i] )\ni = i+1\nj = j+1\n)\n\nln_term_duration = DAYS_BETWEEN(IV_CALEDARENDDATE, IV_CALEDARSTARTDATE) + 1\nln_accrual = PER_ASG_FTE_VALUE * (ln_accrual_total / ln_term_duration)\n\naccrual = ROUND(ln_accrual, 2)\n\nRETURN accrual",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast Formula logic in which when the worker changes grade within a year, then the accrual needs to be pro-rated depending on the days spent in each grade.\n\n***answer***: DEFAULT FOR IV_CALEDARSTARTDATE IS '4712/12/31 00:00:00' (date)\nDEFAULT FOR IV_CALEDARENDDATE IS '4712/12/31 00:00:00' (date)\nDEFAULT FOR IV_EVENT_DATES IS EMPTY_DATE_NUMBER\nDEFAULT FOR IV_ACCRUAL_VALUES IS EMPTY_NUMBER_NUMBER\nDEFAULT FOR PER_ASG_FTE_VALUE IS 1\n\nINPUTS ARE IV_ACCRUAL, IV_EVENT_DATES, IV_ACCRUAL_VALUES, IV_CALEDARSTARTDATE (date), IV_CALEDARENDDATE (date)\n\ni = 1\nj = 2\nln_accrual_total = 0\nWHILE IV_EVENT_DATES.EXISTS(j)\nLOOP\n(\nln_accrual_total = ln_accrual_total + ( (DAYS_BETWEEN(IV_EVENT_DATES[j], IV_EVENT_DATES[i]) + 1) * IV_ACCRUAL_VALUES[i] )\ni = i+1\nj = j+1\n)\n\nln_term_duration = DAYS_BETWEEN(IV_CALEDARENDDATE, IV_CALEDARSTARTDATE) + 1\nln_accrual = PER_ASG_FTE_VALUE * (ln_accrual_total / ln_term_duration)\n\naccrual = ROUND(ln_accrual, 2)\n\nRETURN accrual",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula where the total accrual value needs to be pro-rated by FTE and rounded to two decimal places.\n\n***answer***: DEFAULT FOR IV_CALEDARSTARTDATE IS '4712/12/31 00:00:00' (date)\nDEFAULT FOR IV_CALEDARENDDATE IS '4712/12/31 00:00:00' (date)\nDEFAULT FOR IV_EVENT_DATES IS EMPTY_DATE_NUMBER\nDEFAULT FOR IV_ACCRUAL_VALUES IS EMPTY_NUMBER_NUMBER\nDEFAULT FOR PER_ASG_FTE_VALUE IS 1\n\nINPUTS ARE IV_ACCRUAL, IV_EVENT_DATES, IV_ACCRUAL_VALUES, IV_CALEDARSTARTDATE (date), IV_CALEDARENDDATE (date)\n\ni = 1\nj = 2\nln_accrual_total = 0\nWHILE IV_EVENT_DATES.EXISTS(j)\nLOOP\n(\nln_accrual_total = ln_accrual_total + ( (DAYS_BETWEEN(IV_EVENT_DATES[j], IV_EVENT_DATES[i]) + 1) * IV_ACCRUAL_VALUES[i] )\ni = i+1\nj = j+1\n)\n\nln_term_duration = DAYS_BETWEEN(IV_CALEDARENDDATE, IV_CALEDARSTARTDATE) + 1\nln_accrual = PER_ASG_FTE_VALUE * (ln_accrual_total / ln_term_duration)\n\naccrual = ROUND(ln_accrual, 2)\n\nRETURN accrual",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula which returns the pro-rated accrual value for Vacation plan with band change pro-ration\n\n***answer***: DEFAULT FOR IV_CALEDARSTARTDATE IS '4712/12/31 00:00:00' (date)\nDEFAULT FOR IV_CALEDARENDDATE IS '4712/12/31 00:00:00' (date)\nDEFAULT FOR IV_EVENT_DATES IS EMPTY_DATE_NUMBER\nDEFAULT FOR IV_ACCRUAL_VALUES IS EMPTY_NUMBER_NUMBER\nDEFAULT FOR PER_ASG_FTE_VALUE IS 1\n\nINPUTS ARE IV_ACCRUAL, IV_EVENT_DATES, IV_ACCRUAL_VALUES, IV_CALEDARSTARTDATE (date), IV_CALEDARENDDATE (date)\n\ni = 1\nj = 2\nln_accrual_total = 0\nWHILE IV_EVENT_DATES.EXISTS(j)\nLOOP\n(\nln_accrual_total = ln_accrual_total + ( (DAYS_BETWEEN(IV_EVENT_DATES[j], IV_EVENT_DATES[i]) + 1) * IV_ACCRUAL_VALUES[i] )\ni = i+1\nj = j+1\n)\n\nln_term_duration = DAYS_BETWEEN(IV_CALEDARENDDATE, IV_CALEDARSTARTDATE) + 1\nln_accrual = PER_ASG_FTE_VALUE * (ln_accrual_total / ln_term_duration)\n\naccrual = ROUND(ln_accrual, 2)\n\nRETURN accrual",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula logic in wich the organization has an annual accrual limit rule, which allows workers to accrue up to a maximum of 30 days in an annual year. However, workers belonging to business unit \u2018OBU1\u2019 accrue up to a maximum of 40 days in an annual year.\n\n***answer***: DEFAULT FOR PER_ASG_BUSINESS_UNIT_NAME IS ' '\n\naccrualceiling = 30\n\nIF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n(ACCRUALCEILING = 40)\n\nRETURN accrualceiling",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula which returns the annual accrual limit for workers enrolled into Vacation plan differentiated based on their business unit\n\n***answer***: DEFAULT FOR PER_ASG_BUSINESS_UNIT_NAME IS ' '\n\naccrualceiling = 30\n\nIF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n(ACCRUALCEILING = 40)\n\nRETURN accrualceiling",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula which returns the pro-ration factor for the annual accrual ceiling limit for the absence plan.\n\n***answer***: DEFAULT FOR PER_ASG_FTE_VALUE IS 1\nDEFAULT FOR PER_ASG_JOB_NAME IS ' '\n\nPRORATIONFACTOR = 1\n\nIF (PER_ASG_JOB_NAME = 'Wealth Management Consultant' OR PER_ASG_JOB_NAME = 'Trade Associate')\nTHEN\n (PRORATIONFACTOR = ROUND(PER_ASG_FTE_VALUE,2))\n\nRETURN PRORATIONFACTOR",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula logic in which the organization has an annual accrual limit rule, which allows workers to accrue up to a maximum of 35 days.\n\n***answer***: DEFAULT FOR PER_ASG_FTE_VALUE IS 1\nDEFAULT FOR PER_ASG_JOB_NAME IS ' '\n\nPRORATIONFACTOR = 1\n\nIF (PER_ASG_JOB_NAME = 'Wealth Management Consultant' OR PER_ASG_JOB_NAME = 'Trade Associate')\nTHEN\n (PRORATIONFACTOR = ROUND(PER_ASG_FTE_VALUE,2))\n\nRETURN PRORATIONFACTOR",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: write a formula in which the Annual year accrual limit needs to be pro-rated by FTE of workers who have the jobs \u2018Wealth Management\u2019 or \u2018Trade Associate\u2019 assigned against their assignment record.\n\n***answer***: DEFAULT FOR PER_ASG_FTE_VALUE IS 1\nDEFAULT FOR PER_ASG_JOB_NAME IS ' '\n\nPRORATIONFACTOR = 1\n\nIF (PER_ASG_JOB_NAME = 'Wealth Management Consultant' OR PER_ASG_JOB_NAME = 'Trade Associate')\nTHEN\n (PRORATIONFACTOR = ROUND(PER_ASG_FTE_VALUE,2))\n\nRETURN PRORATIONFACTOR",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: write a fast formula logic in which the organization has a carryover rule which allows workers to carry forward only 5 days of their vacation balance into the next year.\n\n***answer***: DEFAULT FOR PER_ASG_BUSINESS_UNIT_NAME IS ' '\n\ncarryover = 5\n\nIF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n (carryover = 7)\n\nRETURN carryover",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula in which the Workers belonging to business unit \u2018OBU1\u2019 work in shifts and projects which prevent them from being able to utilize all their annual vacation days on time. Hence, as an exception, workers in this BU are allowed to carry forward an additional 2 days on top of the 5 days.\n\n***answer***: DEFAULT FOR PER_ASG_BUSINESS_UNIT_NAME IS ' '\n\ncarryover = 5\n\nIF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n (carryover = 7)\n\nRETURN carryover",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: write a logic in which formula returns the carryover limit for workers enrolled into Vacation plan differentiated based on their business unit\n\n***answer***: DEFAULT FOR PER_ASG_BUSINESS_UNIT_NAME IS ' '\n\ncarryover = 5\n\nIF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n (carryover = 7)\n\nRETURN carryover",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast  formula which returns the pro-ration factor for the carryover limit for the absence plan\n\n***answer***: DEFAULT FOR PER_ASG_FTE_VALUE IS 1\nDEFAULT FOR PER_ASG_JOB_NAME IS ' '\n\nprorationFactor = 1\n\nIF (PER_ASG_JOB_NAME = 'Wealth Management Consultant' OR PER_ASG_JOB_NAME = 'Trade Associate')\nTHEN\n (prorationFactor = ROUND(PER_ASG_FTE_VALUE,2))\n\nRETURN prorationFactor",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fas formula in which organization has a carryover rule which allows workers to carry forward only 5 days of their vacation balance into the next year.\n\n***answer***: DEFAULT FOR PER_ASG_FTE_VALUE IS 1\nDEFAULT FOR PER_ASG_JOB_NAME IS ' '\n\nprorationFactor = 1\n\nIF (PER_ASG_JOB_NAME = 'Wealth Management Consultant' OR PER_ASG_JOB_NAME = 'Trade Associate')\nTHEN\n (prorationFactor = ROUND(PER_ASG_FTE_VALUE,2))\n\nRETURN prorationFactor",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a logic The carryover needs to be pro-rated by FTE for workers who have the jobs \u2018Wealth Management\u2019 or \u2018Trade Associate\u2019 assigned against their assignment record.\n\n***answer***: DEFAULT FOR PER_ASG_FTE_VALUE IS 1\nDEFAULT FOR PER_ASG_JOB_NAME IS ' '\n\nprorationFactor = 1\n\nIF (PER_ASG_JOB_NAME = 'Wealth Management Consultant' OR PER_ASG_JOB_NAME = 'Trade Associate')\nTHEN\n (prorationFactor = ROUND(PER_ASG_FTE_VALUE,2))\n\nRETURN prorationFactor",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula which returns the ceiling limit for workers enrolled into Vacation plan differentiated based on their business unit\n\n***answer***: DEFAULT FOR PER_ASG_BUSINESS_UNIT_NAME IS ' '\n\nceiling = 35\n\nIF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n (ceiling= 40)\n\nRETURN ceiling",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Wite a fast formula logic in which the organization has a ceiling rule which allows workers to accrue up to a maximum of 30 days. Workers belonging to business unit \u2018OBU1\u2019 work in shifts and projects which prevent them from always being able to utilize all their annual vacation days on time.\n\n***answer***: DEFAULT FOR PER_ASG_BUSINESS_UNIT_NAME IS ' '\n\nceiling = 35\n\nIF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n (ceiling= 40)\n\nRETURN ceiling",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formulawhich returns the pro-ration factor for the ceiling limit for the absence plan.\n\n***answer***: DEFAULT FOR PER_ASG_FTE_VALUE IS 1\nDEFAULT FOR PER_ASG_JOB_NAME IS ' '\n\nprorationFactor = 1\n\nIF (PER_ASG_JOB_NAME = 'Wealth Management Consultant' OR PER_ASG_JOB_NAME = 'Trade Associate')\nTHEN\n (prorationFactor = ROUND(PER_ASG_FTE_VALUE,2))\n\nRETURN prorationFactor",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: write a fast formula in which the organization has a ceiling rule which allows workers to accrue upto a maximum of 35 days. This ceiling limit needs to be pro-rated by FTE for workers who have the jobs \u2018Wealth Management\u2019 or \u2018Trade Associate\u2019 assigned against their assignment record.\n\n***answer***: DEFAULT FOR PER_ASG_FTE_VALUE IS 1\nDEFAULT FOR PER_ASG_JOB_NAME IS ' '\n\nprorationFactor = 1\n\nIF (PER_ASG_JOB_NAME = 'Wealth Management Consultant' OR PER_ASG_JOB_NAME = 'Trade Associate')\nTHEN\n (prorationFactor = ROUND(PER_ASG_FTE_VALUE,2))\n\nRETURN prorationFactor",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula logic which dictates what minimum / maximum / increments are allowed\n\n***answer***: DEFAULT FOR PER_PERSON_ENTERPRISE_HIRE_DATE IS '0001/01/01 00:00:00' (date)\nDEFAULT FOR PER_REL_ORIGINAL_DATE_OF_HIRE IS '0001/01/01 00:00:00' (date)\nMIN=1\nMAX=5\nINCREMENT=1\n\nIF(PER_REL_ORIGINAL_DATE_OF_HIRE WAS DEFAULTED) THEN\n(L_Hire_Date = PER_PERSON_ENTERPRISE_HIRE_DATE)\nELSE\n(L_Hire_Date = PER_REL_ORIGINAL_DATE_OF_HIRE)\n\nL_Eff_Date = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date))\nLength_of_service = DAYS_BETWEEN(L_Eff_Date,L_Hire_Date)/365\nIF(Length_of_service > 5) THEN (\n    MAX = 10\n)\n\nRETURN MIN,MAX,INCREMENT",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula logic in which the organization has a vacation plan from which employees can choose to disburse some of the accrued vacation balance as cash. For employees with 5 years of service or less, the maximum amount\n\n***answer***: DEFAULT FOR PER_PERSON_ENTERPRISE_HIRE_DATE IS '0001/01/01 00:00:00' (date)\nDEFAULT FOR PER_REL_ORIGINAL_DATE_OF_HIRE IS '0001/01/01 00:00:00' (date)\nMIN=1\nMAX=5\nINCREMENT=1\n\nIF(PER_REL_ORIGINAL_DATE_OF_HIRE WAS DEFAULTED) THEN\n(L_Hire_Date = PER_PERSON_ENTERPRISE_HIRE_DATE)\nELSE\n(L_Hire_Date = PER_REL_ORIGINAL_DATE_OF_HIRE)\n\nL_Eff_Date = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date))\nLength_of_service = DAYS_BETWEEN(L_Eff_Date,L_Hire_Date)/365\nIF(Length_of_service > 5) THEN (\n    MAX = 10\n)\n\nRETURN MIN,MAX,INCREMENT",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a formula which dictates what minimum / maximum / increments are allowed.\n\n***answer***: DEFAULT FOR PER_PERSON_ENTERPRISE_HIRE_DATE IS '0001/01/01 00:00:00' (date)\nDEFAULT FOR PER_REL_ORIGINAL_DATE_OF_HIRE IS '0001/01/01 00:00:00' (date)\nMIN=1\nMAX=5\nINCREMENT=1\n\nIF(PER_REL_ORIGINAL_DATE_OF_HIRE WAS DEFAULTED) THEN\n(L_Hire_Date = PER_PERSON_ENTERPRISE_HIRE_DATE)\nELSE\n(L_Hire_Date = PER_REL_ORIGINAL_DATE_OF_HIRE)\n\nL_Eff_Date = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date))\nLength_of_service = DAYS_BETWEEN(L_Eff_Date,L_Hire_Date)/365\nIF(Length_of_service > 5) THEN (\n    MAX = 10\n)",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: write a formula in which the organization has a vacation plan from which employees can choose to donate some of the accrued vacation balance to another worker who has been enrolled into a donation plan.\n\n***answer***: DEFAULT FOR PER_PERSON_ENTERPRISE_HIRE_DATE IS '0001/01/01 00:00:00' (date)\nDEFAULT FOR PER_REL_ORIGINAL_DATE_OF_HIRE IS '0001/01/01 00:00:00' (date)\nMIN=1\nMAX=5\nINCREMENT=1\n\nIF(PER_REL_ORIGINAL_DATE_OF_HIRE WAS DEFAULTED) THEN\n(L_Hire_Date = PER_PERSON_ENTERPRISE_HIRE_DATE)\nELSE\n(L_Hire_Date = PER_REL_ORIGINAL_DATE_OF_HIRE)\n\nL_Eff_Date = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date))\nLength_of_service = DAYS_BETWEEN(L_Eff_Date,L_Hire_Date)/365\nIF(Length_of_service > 5) THEN (\n    MAX = 10\n)",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula logic in which employees with 5 years of service or less, the maximum amount that can be donated is 5 days. For employees that have more than 5 years of service, the maximum amount that can be donated increases to 10 days.\n\n***answer***: DEFAULT FOR PER_PERSON_ENTERPRISE_HIRE_DATE IS '0001/01/01 00:00:00' (date)\nDEFAULT FOR PER_REL_ORIGINAL_DATE_OF_HIRE IS '0001/01/01 00:00:00' (date)\nMIN=1\nMAX=5\nINCREMENT=1\n\nIF(PER_REL_ORIGINAL_DATE_OF_HIRE WAS DEFAULTED) THEN\n(L_Hire_Date = PER_PERSON_ENTERPRISE_HIRE_DATE)\nELSE\n(L_Hire_Date = PER_REL_ORIGINAL_DATE_OF_HIRE)\n\nL_Eff_Date = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date))\nLength_of_service = DAYS_BETWEEN(L_Eff_Date,L_Hire_Date)/365\nIF(Length_of_service > 5) THEN (\n    MAX = 10\n)",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formulawhich returns the Enrollment End Date for absence plan enrollments by subtracting 1 month from the termination date.\n\n***answer***: enrollmentEndDate = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date))\nenrollmentEndDate  = ADD_MONTHS(enrollmentEndDate, -1)\nRETURN enrollmentEndDate",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula logic in which Upon entering of termination information, the worker needs to be un-enrolled from the plan, one month before the actual termination date (in this case, the event date).\n\n***answer***: enrollmentEndDate = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date))\nenrollmentEndDate  = ADD_MONTHS(enrollmentEndDate, -1)\nRETURN enrollmentEndDate",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula logic in which All new Interns and Graduates who are hired into the organization should get enrolled into the plan only after one month of employment. All other workers should get enrolled into the plan as of hire date.\n\n***answer***: DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker'\n\nenrollmentStartDate = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date))\n\nIF (PER_ASG_USER_PERSON_TYPE != 'Worker')\n   THEN (enrollmentStartDate  = ADD_MONTHS(enrollmentStartDate, 1))\nRETURN enrollmentStartDate",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula which returns the Enrollment Start Date for absence plan enrollments by adding 1 month to the event date for Interns and Graduates\n\n***answer***: DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker'\n\nenrollmentStartDate = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00' (date))\n\nIF (PER_ASG_USER_PERSON_TYPE != 'Worker')\n   THEN (enrollmentStartDate  = ADD_MONTHS(enrollmentStartDate, 1))\nRETURN enrollmentStartDate",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a formula which returns the calendar leave year start date for Anniversary year based on the person type.\n\n***answer***: DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker'\nDEFAULT FOR PER_PERSON_ENTERPRISE_HIRE_DATE IS '4712/12/31 00:00:00' (date)\nDEFAULT FOR PER_ASG_REL_DATE_START IS '4712/12/31 00:00:00' (date)\n\nIF (PER_ASG_USER_PERSON_TYPE = 'Worker')\nTHEN\n(\nanniversaryDate = PER_PERSON_ENTERPRISE_HIRE_DATE\n)\nELSE\n(\nanniversaryDate = PER_ASG_REL_DATE_START\n)\n\nRETURN anniversaryDate",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula in which The organization has an accrual plan term that is based on the anniversary of the worker.\n\n***answer***: DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker'\nDEFAULT FOR PER_PERSON_ENTERPRISE_HIRE_DATE IS '4712/12/31 00:00:00' (date)\nDEFAULT FOR PER_ASG_REL_DATE_START IS '4712/12/31 00:00:00' (date)\n\nIF (PER_ASG_USER_PERSON_TYPE = 'Worker')\nTHEN\n(\nanniversaryDate = PER_PERSON_ENTERPRISE_HIRE_DATE\n)\nELSE\n(\nanniversaryDate = PER_ASG_REL_DATE_START\n)\n\nRETURN anniversaryDate",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: write a fast formula logic in which If the person is a regular worker, then the leave year is to be based on the earliest start date of the Worker. If the person is an Intern or Graduate, then the leave year is to be based on the latest legal employer hire date.\n\n***answer***: DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker'\nDEFAULT FOR PER_PERSON_ENTERPRISE_HIRE_DATE IS '4712/12/31 00:00:00' (date)\nDEFAULT FOR PER_ASG_REL_DATE_START IS '4712/12/31 00:00:00' (date)\n\nIF (PER_ASG_USER_PERSON_TYPE = 'Worker')\nTHEN\n(\nanniversaryDate = PER_PERSON_ENTERPRISE_HIRE_DATE\n)\nELSE\n(\nanniversaryDate = PER_ASG_REL_DATE_START\n)\n\nRETURN anniversaryDate",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: write a formula which calculates and returns the rollover limit amount for the vacation plan.\n\n***answer***: DEFAULT FOR PER_ASG_BUSINESS_UNIT_NAME IS ' '\nROLLOVER=30\nIF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n(ROLLOVER = 40)\n\nRETURN ROLLOVER",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula in which the organization has a rollover limit rule, which allows workers to rollover up to a maximum of 30 days to another plan at the end of year. However, workers belonging to business unit \u2018OBU1\u2019 are allowed to rollover up to a maximum of 40 days at the end of year.\n\n***answer***: DEFAULT FOR PER_ASG_BUSINESS_UNIT_NAME IS ' '\nROLLOVER=30\nIF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n(ROLLOVER = 40)\n\nRETURN ROLLOVER",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: write a fast formula in whichThe organization has a vesting rule which allows newly joined interns and graduates to avail their vacation balance only after 30 days from enrollment into the plan.\n\n***answer***: DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker'\n\nvestingUOM = 'C'\nvestingUnits = 0\n\nIF (PER_ASG_USER_PERSON_TYPE != 'Worker')\nTHEN\n (\n vestingUOM = 'C'\n vestingUnits=30\n )\n\nRETURN vestingUOM,vestingUnits",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula which calculates and returns the vesting period duration for the vacation plan.\n\n***answer***: DEFAULT FOR PER_ASG_USER_PERSON_TYPE IS 'Worker'\n\nvestingUOM = 'C'\nvestingUnits = 0\n\nIF (PER_ASG_USER_PERSON_TYPE != 'Worker')\nTHEN\n (\n vestingUOM = 'C'\n vestingUnits=30\n )\n\nRETURN vestingUOM,vestingUnits",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: write a fast formula logic which Calculate Sick accrual based on Bargaining unit code, employment category and hours worked.\n\n***answer***: DEFAULT for PER_ASG_REL_ORIGINAL_DATE_OF_HIRE is '4712/12/31 00:00:00' (date)\nDEFAULT for ANC_ABS_PLN_NAME is 'abcd'\nDEFAULT for ANC_ABS_PLN_PLAN_UOM is 'H'\nDEFAULT for PER_ASG_BARGAINING_UNIT_CODE is 'abcd'\nDEFAULT for PER_ASG_EMPLOYMENT_CATEGORY is 'abcd'\nDEFAULT for PER_REL_LENGTH_OF_SERVICE_BY_SENIORITY is -1\n \nINPUTS ARE IV_ACCRUALPERIODENDDATE (Date)\n,IV_ACCRUALPERIODSTARTDATE (Date)\n\nl_Accrual_Period_End_Date = IV_ACCRUALPERIODENDDATE\nl_Accrual_Period_Start_Date = IV_ACCRUALPERIODSTARTDATE\n \nl_eff_date = GET_CONTEXT(EFFECTIVE_DATE,'4712/12/31 00:00:00'(date))\n \nNullText = '**NULL**'\nl_absence_plan = NullText\nl_earned_hours = 0\nl_accrual_rate = 4\nl_bargaining_unit_code = NullText\nl_employment_Category = NullText\nl_Years_of_Service = -1\nl_reported_hours = 0\nl_absence_hours = 0\n \nl_standard_hours = 80\nl_accrual_rate_table = 'COR_SICK_ACCRUAL_RATE'\nl_accrual_hours_table = 'COR_ACCRUAL_CALCULATION'\nl_carryover = 0\nl_ceiling = 0\nl_approved = 'Y' /* Use N for grp_type_id 201 and use Y for grp_type_id 101 */\nl_grp_type_id = 101 /* 101 for Reported Hours and 201 for Calculated hours */\nl_accrual_start_date    = IV_ACCRUALPERIODSTARTDATE\nl_accrual_end_date      = IV_ACCRUALPERIODENDDATE\n \nL_Person_Id = GET_CONTEXT(PERSON_ID,0)\nL_Term_Id = GET_CONTEXT(HR_TERM_ID,0)\nL_Hr_Relationship_Id = GET_CONTEXT(HR_RELATIONSHIP_ID,0)\nL_AccPlan_Id = GET_CONTEXT(ACCRUAL_PLAN_ID,0)\nl_hr_assign_id = GET_CONTEXT(HR_ASSIGNMENT_ID,0)\n \nl_absence_plan = ANC_ABS_PLN_NAME\nl_bargaining_unit_code = PER_ASG_BARGAINING_UNIT_CODE\nl_employment_Category = PER_ASG_EMPLOYMENT_CATEGORY\nl_Years_of_Service = PER_REL_LENGTH_OF_SERVICE_BY_SENIORITY\n \nl_log_data = ESS_LOG_WRITE('Formula COR_SICK_ACCRUAL_CALC Starts ...')\nl_log_data = ESS_LOG_WRITE('Absence Plan: ' + l_absence_plan + ' ; Bargaining unit: ' + l_bargaining_unit_code + ' ; Employment Category: ' + l_employment_Category )\n \n/* Get Accrual Rate based on Bargaining unit, employment category and service */\n \nl_column = upper(l_bargaining_unit_code)\nl_row = l_employment_Category\n \n \n/* Get Time Card Calculated and Approved hours    */\n \nCHANGE_CONTEXTS(GRP_TYPE_ID = l_grp_type_id, HR_ASSIGNMENT_ID= l_hr_assign_id,START_DATE = l_Accrual_Period_Start_Date,APPROVED = l_approved, PERSON_ID= L_Person_Id  ,EFFECTIVE_DATE = l_Accrual_Period_End_Date)\n(\n        l_reported_hours = TOH_HW_ASG_WORK_HOURS_ASSIGNMENT_ASG_AAP\n  \n)\n l_absence_hours = to_number(get_value_set('TOH_GET_ABS_HOURS',\n                                '|=P_ASSIGNMENT_ID='''||to_char(l_person_id)||''''||\n                                '|P_START_DATE='''||to_char(l_accrual_start_date,'YYYY/MM/DD')||''''||\n                                '|P_END_DATE='''||to_char(l_accrual_end_date,'YYYY/MM/DD')||''''||\n                                '|P_CATEGORY='''||'ToH Hours Towards OT'||''''))\n \nl_work_hours = l_reported_hours + l_absence_hours\n \nl_log_data = ESS_LOG_WRITE('Updated version Earned Hours = ' + to_char(l_work_hours) + ' ; Standard Hours: ' + to_char(l_standard_hours)  + ' ; Accrual Period Start Date: ' + to_char(trunc(l_Accrual_Period_Start_Date)))\n \n \n/* check if employee enrolled into this plan or not */\n \n \n    if (l_work_hours >= 48 and l_employment_Category <> 'RS') then\n    (\n        accrual = 4\n    )\n    else if (l_employment_Category ='RS' and l_work_hours >= 40) then\n        (\n        accrual = least(round((l_accrual_rate/l_standard_hours) * l_work_hours,4),4)\n         ) \n    else\n    (\n        accrual = 0\n    )\n  \n    l_log_data = ESS_LOG_WRITE('Rama Accrual: ' + to_char(accrual) + ' ; Carryover: ' + to_char(l_carryover) + ' ; Ceiling: ' + to_char(l_ceiling)\n                                        + ' ; Earned Hours = ' + to_char(l_work_hours) + ' ; Standard Hours: ' + to_char(l_standard_hours)\n                                        + ' ; Accrual Period Start Date: ' + to_char(l_Accrual_Period_Start_Date,'YYYY/MM/DD')+'l_employment_Category' + l_employment_Category )\n \n \nl_log_data = ESS_LOG_WRITE(' Formula COR_SICK_ACCRUAL_CALC Ends ...')\nceiling = 9999999\n        carryover = 9999999\n      \nreturn accrual,ceiling,carryover",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula logic on the basis of assignment category and work hours.\n\n***answer***: DEFAULT for PER_ASG_REL_ORIGINAL_DATE_OF_HIRE is '4712/12/31 00:00:00' (date)\nDEFAULT for ANC_ABS_PLN_NAME is 'abcd'\nDEFAULT for ANC_ABS_PLN_PLAN_UOM is 'H'\nDEFAULT for PER_ASG_BARGAINING_UNIT_CODE is 'abcd'\nDEFAULT for PER_ASG_EMPLOYMENT_CATEGORY is 'abcd'\nDEFAULT for PER_REL_LENGTH_OF_SERVICE_BY_SENIORITY is -1\n \nINPUTS ARE IV_ACCRUALPERIODENDDATE (Date)\n,IV_ACCRUALPERIODSTARTDATE (Date)\n\nl_Accrual_Period_End_Date = IV_ACCRUALPERIODENDDATE\nl_Accrual_Period_Start_Date = IV_ACCRUALPERIODSTARTDATE\n \nl_eff_date = GET_CONTEXT(EFFECTIVE_DATE,'4712/12/31 00:00:00'(date))\n \nNullText = '**NULL**'\nl_absence_plan = NullText\nl_earned_hours = 0\nl_accrual_rate = 4\nl_bargaining_unit_code = NullText\nl_employment_Category = NullText\nl_Years_of_Service = -1\nl_reported_hours = 0\nl_absence_hours = 0\n \nl_standard_hours = 80\nl_accrual_rate_table = 'COR_SICK_ACCRUAL_RATE'\nl_accrual_hours_table = 'COR_ACCRUAL_CALCULATION'\nl_carryover = 0\nl_ceiling = 0\nl_approved = 'Y' /* Use N for grp_type_id 201 and use Y for grp_type_id 101 */\nl_grp_type_id = 101 /* 101 for Reported Hours and 201 for Calculated hours */\nl_accrual_start_date    = IV_ACCRUALPERIODSTARTDATE\nl_accrual_end_date      = IV_ACCRUALPERIODENDDATE\n \nL_Person_Id = GET_CONTEXT(PERSON_ID,0)\nL_Term_Id = GET_CONTEXT(HR_TERM_ID,0)\nL_Hr_Relationship_Id = GET_CONTEXT(HR_RELATIONSHIP_ID,0)\nL_AccPlan_Id = GET_CONTEXT(ACCRUAL_PLAN_ID,0)\nl_hr_assign_id = GET_CONTEXT(HR_ASSIGNMENT_ID,0)\n \nl_absence_plan = ANC_ABS_PLN_NAME\nl_bargaining_unit_code = PER_ASG_BARGAINING_UNIT_CODE\nl_employment_Category = PER_ASG_EMPLOYMENT_CATEGORY\nl_Years_of_Service = PER_REL_LENGTH_OF_SERVICE_BY_SENIORITY\n \nl_log_data = ESS_LOG_WRITE('Formula COR_SICK_ACCRUAL_CALC Starts ...')\nl_log_data = ESS_LOG_WRITE('Absence Plan: ' + l_absence_plan + ' ; Bargaining unit: ' + l_bargaining_unit_code + ' ; Employment Category: ' + l_employment_Category )\n \n/* Get Accrual Rate based on Bargaining unit, employment category and service */\n \nl_column = upper(l_bargaining_unit_code)\nl_row = l_employment_Category\n \n \n/* Get Time Card Calculated and Approved hours    */\n \nCHANGE_CONTEXTS(GRP_TYPE_ID = l_grp_type_id, HR_ASSIGNMENT_ID= l_hr_assign_id,START_DATE = l_Accrual_Period_Start_Date,APPROVED = l_approved, PERSON_ID= L_Person_Id  ,EFFECTIVE_DATE = l_Accrual_Period_End_Date)\n(\n        l_reported_hours = TOH_HW_ASG_WORK_HOURS_ASSIGNMENT_ASG_AAP\n  \n)\n l_absence_hours = to_number(get_value_set('TOH_GET_ABS_HOURS',\n                                '|=P_ASSIGNMENT_ID='''||to_char(l_person_id)||''''||\n                                '|P_START_DATE='''||to_char(l_accrual_start_date,'YYYY/MM/DD')||''''||\n                                '|P_END_DATE='''||to_char(l_accrual_end_date,'YYYY/MM/DD')||''''||\n                                '|P_CATEGORY='''||'ToH Hours Towards OT'||''''))\n \nl_work_hours = l_reported_hours + l_absence_hours\n \nl_log_data = ESS_LOG_WRITE('Updated version Earned Hours = ' + to_char(l_work_hours) + ' ; Standard Hours: ' + to_char(l_standard_hours)  + ' ; Accrual Period Start Date: ' + to_char(trunc(l_Accrual_Period_Start_Date)))\n \n \n/* check if employee enrolled into this plan or not */\n \n \n    if (l_work_hours >= 48 and l_employment_Category <> 'RS') then\n    (\n        accrual = 4\n    )\n    else if (l_employment_Category ='RS' and l_work_hours >= 40) then\n        (\n        accrual = least(round((l_accrual_rate/l_standard_hours) * l_work_hours,4),4)\n         ) \n    else\n    (\n        accrual = 0\n    )\n  \n    l_log_data = ESS_LOG_WRITE('Rama Accrual: ' + to_char(accrual) + ' ; Carryover: ' + to_char(l_carryover) + ' ; Ceiling: ' + to_char(l_ceiling)\n                                        + ' ; Earned Hours = ' + to_char(l_work_hours) + ' ; Standard Hours: ' + to_char(l_standard_hours)\n                                        + ' ; Accrual Period Start Date: ' + to_char(l_Accrual_Period_Start_Date,'YYYY/MM/DD')+'l_employment_Category' + l_employment_Category )\n \n \nl_log_data = ESS_LOG_WRITE(' Formula COR_SICK_ACCRUAL_CALC Ends ...')\nceiling = 9999999\n        carryover = 9999999\n      \nreturn accrual,ceiling,carryover",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Calculate Sick accrual based on Bargaining unit code, employment category and hours worked\n\n***answer***:\nFORMULA NAME: TOH Personal Days Accrual\nFORMULA TYPE: Global Absence Accrual\nDESCRIPTION: Calculate Sick accrual based on Bargaining unit code, employment category and hours worked\nChange History:\n\n/* DATABASE ITEM DEFAULTS BEGIN*/\nDEFAULT for PER_ASG_REL_ORIGINAL_DATE_OF_HIRE is '4712/12/31 00:00:00' (date)\nDEFAULT for ANC_ABS_PLN_NAME is 'abcd'\nDEFAULT for ANC_ABS_PLN_PLAN_UOM is 'H'\nDEFAULT for PER_ASG_BARGAINING_UNIT_CODE is 'abcd'\nDEFAULT for PER_ASG_EMPLOYMENT_CATEGORY is 'abcd'\nDEFAULT for PER_REL_LENGTH_OF_SERVICE_BY_SENIORITY is -1\nDEFAULT FOR PER_ASG_REL_ATTRIBUTE_DATE1 is '0001/01/01 00:00:00' (Date)\nDEFAULT FOR PER_ASG_REL_ATTRIBUTE_DATE3 is '0001/01/01 00:00:00' (Date)\nDEFAULT FOR PER_PER_LATEST_REHIRE_DATE is '0001/01/01 00:00:00' (Date)\nDEFAULT FOR PER_REL_ATTRIBUTE_DATE6 is '0001/01/01 00:00:00' (Date)\n\n\n/*DATABASE ITEM DEFAULTS ENDS=*/\nINPUTS ARE SECTION BEGIN===========================*/\n\nINPUTS ARE IV_ACCRUALPERIODENDDATE (Date)\n,IV_ACCRUALPERIODSTARTDATE (Date)\n\n/*INPUTS ARE SECTION END*/\n\n\n/* FORMULA SECTION BEGIN*/\n\nl_Accrual_Period_End_Date = IV_ACCRUALPERIODENDDATE\nl_Accrual_Period_Start_Date = IV_ACCRUALPERIODSTARTDATE\n\nl_eff_date = GET_CONTEXT(EFFECTIVE_DATE,'4712/12/31 00:00:00'(date))\n\nNullText = '**NULL**'\nl_absence_plan = NullText\nl_earned_hours = 0\nl_accrual_rate = 4\nl_bargaining_unit_code = NullText\nl_employment_Category = NullText\nl_Years_of_Service = -1\n\nl_standard_hours = 80\nl_accrual_rate_table = 'COR_SICK_ACCRUAL_RATE'\nl_accrual_hours_table = 'COR_ACCRUAL_CALCULATION'\nl_carryover = 0\nl_ceiling = 0\nl_approved = 'N' /* Use N for grp_type_id 201 and use Y for grp_type_id 101 */\nl_grp_type_id = 201 /* 101 for Reported Hours and 201 for Calculated hours */\n\n\nL_Person_Id = GET_CONTEXT(PERSON_ID,0)\nL_Term_Id = GET_CONTEXT(HR_TERM_ID,0)\nL_Hr_Relationship_Id = GET_CONTEXT(HR_RELATIONSHIP_ID,0)\nL_AccPlan_Id = GET_CONTEXT(ACCRUAL_PLAN_ID,0)\nl_hr_assign_id = GET_CONTEXT(HR_ASSIGNMENT_ID,0)\n\nl_absence_plan = ANC_ABS_PLN_NAME\nl_bargaining_unit_code = PER_ASG_BARGAINING_UNIT_CODE\nl_employment_Category = PER_ASG_EMPLOYMENT_CATEGORY\nl_Years_of_Service = PER_REL_LENGTH_OF_SERVICE_BY_SENIORITY\n\nl_log_data = ESS_LOG_WRITE('Formula COR_SICK_ACCRUAL_CALC Starts ...')\nl_log_data = ESS_LOG_WRITE('Absence Plan: ' + l_absence_plan + ' ; Bargaining unit: ' + l_bargaining_unit_code + ' ; Employment Category: ' + l_employment_Category )\n\n/* Get Accrual Rate based on Bargaining unit, employment category and service */\n\nl_column = upper(l_bargaining_unit_code)\nl_row = l_employment_Category\n\n\nl_log_data = ESS_LOG_WRITE('Bonus vacation date ...' + to_char(PER_ASG_REL_ATTRIBUTE_DATE3) )\nl_log_data = ESS_LOG_WRITE('Adjusted Service date ...' + to_char(PER_ASG_REL_ATTRIBUTE_DATE1) )\nl_log_data = ESS_LOG_WRITE('Hire date ...' + to_char(PER_PER_LATEST_REHIRE_DATE) )\n\n\nif (PER_ASG_REL_ATTRIBUTE_DATE3 WAS NOT DEFAULTED) then\n(\nlv_emp_begin_date =PER_ASG_REL_ATTRIBUTE_DATE3\n\n\n)\nelse if ( PER_ASG_REL_ATTRIBUTE_DATE1 WAS NOT DEFAULTED) then\n(\nlv_emp_begin_date = PER_ASG_REL_ATTRIBUTE_DATE1\n\n\n)\nelse\n(\nlv_emp_begin_date = PER_REL_ATTRIBUTE_DATE6\n\n)\n\n\n\n\nanniversaryDate = lv_emp_begin_date\n\n\nlv_number_of_years =0\n\naccrual =0\n\nlv_number_of_years = to_number( to_char(l_eff_date,'YYYY') ) - to_number( to_char(anniversaryDate,'YYYY'))\n\nif (lv_number_of_years = 1 ) then\n(\naccrual =16\n \n )\nelse if (lv_number_of_years = 2 ) then\n(\naccrual =24\n \n )\nelse if (lv_number_of_years = 3 ) then\n(\naccrual =32\n \n )\nelse if (lv_number_of_years >= 4 ) then\n(\naccrual =40\n  )\n \n\n\n\n\nl_log_data = ESS_LOG_WRITE('Rama Accrual: ' + to_char(accrual) + ' +  ; Effective Date: ' + to_char(l_eff_date,'YYYY/MM/DD')\n+ ' +  ; anniversaryDate : ' + to_char(anniversaryDate,'YYYY/MM/DD') \n+ ' Seniority  ' + to_char(lv_number_of_years ) )\n\n\nl_log_data = ESS_LOG_WRITE(' Formula COR_SICK_ACCRUAL_CALC Ends ...')\nceiling = 9999999\ncarryover = 9999999\n\nreturn accrual",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: write a fast formula which returns the end date for a Rolling Backward qualification plan term.\n\n***answer***: INPUTS ARE IV_START_DATE (date), IV_END_DATE (date)\n\nREFERENCE_DATE = ADD_DAYS(IV_END_DATE, - 365)\n\nRETURN REFERENCE_DAT",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula in which the organization has a qualification plan with a rolling backward plan term which starts 365 days prior to the absence end date of the absence entry.\n\n***answer***: INPUTS ARE IV_START_DATE (date), IV_END_DATE (date)\n\nREFERENCE_DATE = ADD_DAYS(IV_END_DATE, - 365)\n\nRETURN REFERENCE_DAT",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula which evaluates the entitlement band based on location of Worker.\n\n***answer***: DEFAULT FOR PER_ASG_LOC_REGION2 IS ' XXXXXXXXXX'\n\nIF (PER_ASG_LOC_REGION2 = 'CA')\nTHEN {\n   BAND1PAYFACTOR = 100\n   BAND1ENTITLEMENT = 50\n   BAND2PAYFACTOR = 75\n   BAND2ENTITLEMENT = 50\n   BAND3PAYFACTOR = 50\n   BAND3ENTITLEMENT = 50\n)\nELSE (\n   BAND1PAYFACTOR = 100\n   BAND1ENTITLEMENT = 40\n  BAND2PAYFACTOR = 75\n   BAND2ENTITLEMENT = 40\n   BAND3PAYFACTOR = 50\n   BAND3ENTITLEMENT = 40\n)\nRETURN BAND1PAYFACTOR, BAND1ENTITLEMENT, BAND2PAYFACTOR, BAND2ENTITLEMENT, BAND3PAYFACTOR, BAND3ENTITLEMENT",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a fast formula in which the organization has an entitlement payment band structures that is based on the working location of the worker.\n\n***answer***: DEFAULT FOR PER_ASG_LOC_REGION2 IS ' XXXXXXXXXX'\n\nIF (PER_ASG_LOC_REGION2 = 'CA')\nTHEN {\n   BAND1PAYFACTOR = 100\n   BAND1ENTITLEMENT = 50\n   BAND2PAYFACTOR = 75\n   BAND2ENTITLEMENT = 50\n   BAND3PAYFACTOR = 50\n   BAND3ENTITLEMENT = 50\n)\nELSE (\n   BAND1PAYFACTOR = 100\n   BAND1ENTITLEMENT = 40\n  BAND2PAYFACTOR = 75\n   BAND2ENTITLEMENT = 40\n   BAND3PAYFACTOR = 50\n   BAND3ENTITLEMENT = 40\n)\nRETURN BAND1PAYFACTOR, BAND1ENTITLEMENT, BAND2PAYFACTOR, BAND2ENTITLEMENT, BAND3PAYFACTOR, BAND3ENTITLEMENT",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I set default values for variables in Fast Formula?\n\n***answer***: DEFAULT FOR PER_ASG_GRADE_NAME IS 'Associate';  -- Default value for PER_ASG_GRADE_NAME\nDEFAULT FOR PER_ASG_FTE_VALUE IS 1;  -- Default value for PER_ASG_FTE_VALUE",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I define default values for PER_ASG_GRADE_NAME and PER_ASG_FTE_VALUE?\n\n***answer***: DEFAULT FOR PER_ASG_GRADE_NAME IS 'Associate';  -- Default value for PER_ASG_GRADE_NAME\nDEFAULT FOR PER_ASG_FTE_VALUE IS 1;  -- Default value for PER_ASG_FTE_VALUE",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I initialize variables in Fast Formula?\n\n***answer***: accrual = 0;  -- Initialize accrual to 0\ncarryover = 5;  -- Initialize carryover to 5",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I set initial values for accrual and carryover?\n\n***answer***: accrual = 0;  -- Initialize accrual to 0\ncarryover = 5;  -- Initialize carryover to 5",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I use conditional logic (IF-THEN) to set the accrual based on PER_ASG_GRADE_NAME?\n\n***answer***: IF (PER_ASG_GRADE_NAME = 'Associate') THEN\n    accrual = 12;  -- Set accrual for Associate\nELSIF (PER_ASG_GRADE_NAME = 'Staff') THEN\n    accrual = 25;  -- Set accrual for Staff\nELSIF (PER_ASG_GRADE_NAME = 'Senior') THEN\n    accrual = 20;  -- Set accrual for Senior\nELSIF (PER_ASG_GRADE_NAME = 'Principal') THEN\n    accrual = 25;  -- Set accrual for Principal\nELSIF (PER_ASG_GRADE_NAME = 'Director' OR PER_ASG_GRADE_NAME = 'Vice President' OR PER_ASG_GRADE_NAME = 'President' OR PER_ASG_GRADE_NAME = 'Executive') THEN\n    accrual = 30;  -- Set accrual for Director, VP, President, or Executive\nEND IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How can I modify accrual for different job grades like Associate, Staff, etc.?\n\n***answer***: IF (PER_ASG_GRADE_NAME = 'Associate') THEN\n    accrual = 12;  -- Set accrual for Associate\nELSIF (PER_ASG_GRADE_NAME = 'Staff') THEN\n    accrual = 25;  -- Set accrual for Staff\nELSIF (PER_ASG_GRADE_NAME = 'Senior') THEN\n    accrual = 20;  -- Set accrual for Senior\nELSIF (PER_ASG_GRADE_NAME = 'Principal') THEN\n    accrual = 25;  -- Set accrual for Principal\nELSIF (PER_ASG_GRADE_NAME = 'Director' OR PER_ASG_GRADE_NAME = 'Vice President' OR PER_ASG_GRADE_NAME = 'President' OR PER_ASG_GRADE_NAME = 'Executive') THEN\n    accrual = 30;  -- Set accrual for Director, VP, President, or Executive\nEND IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I adjust accrual and carryover based on PER_ASG_FTE_VALUE?\n\n***answer***: carryover = carryover * PER_ASG_FTE_VALUE;  -- Adjust carryover by FTE value\naccrual = accrual * PER_ASG_FTE_VALUE;  -- Adjust accrual by FTE value",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How can I prorate carryover and accrual based on the FTE value?\n\n***answer***: carryover = carryover * PER_ASG_FTE_VALUE;  -- Adjust carryover by FTE value\naccrual = accrual * PER_ASG_FTE_VALUE;  -- Adjust accrual by FTE value",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I set default values for input variables in Fast Formula?\n\n***answer***: DEFAULT FOR IV_CALEDARSTARTDATE IS '4712/12/31 00:00:00';  -- Default date for calendar start\nDEFAULT FOR IV_CALEDARENDDATE IS '4712/12/31 00:00:00';  -- Default date for calendar end\nDEFAULT FOR IV_EVENT_DATES IS EMPTY_DATE_NUMBER;  -- Default empty date array\nDEFAULT FOR IV_ACCRUAL_VALUES IS EMPTY_NUMBER_NUMBER;  -- Default empty accrual values array\nDEFAULT FOR PER_ASG_FTE_VALUE IS 1;  -- Default FTE value",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How can I set default values for dates and numbers like IV_CALEDARSTARTDATE, IV_CALEDARENDDATE, and IV_ACCRUAL_VALUES?\n\n***answer***: DEFAULT FOR IV_CALEDARSTARTDATE IS '4712/12/31 00:00:00';  -- Default date for calendar start\nDEFAULT FOR IV_CALEDARENDDATE IS '4712/12/31 00:00:00';  -- Default date for calendar end\nDEFAULT FOR IV_EVENT_DATES IS EMPTY_DATE_NUMBER;  -- Default empty date array\nDEFAULT FOR IV_ACCRUAL_VALUES IS EMPTY_NUMBER_NUMBER;  -- Default empty accrual values array\nDEFAULT FOR PER_ASG_FTE_VALUE IS 1;  -- Default FTE value",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I initialize variables to hold calculation results?\n\n***answer***: i = 1; -- Initialize counter i for event dates j = 2; -- Initialize counter j for event dates ln_accrual_total = 0; -- Initialize accrual total to 0",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I declare variables like i, j, ln_accrual_total, and ln_term_duration in Fast Formula?\n\n***answer***: i = 1; -- Initialize counter i for event dates j = 2; -- Initialize counter j for event dates ln_accrual_total = 0; -- Initialize accrual total to 0",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I write a WHILE loop in Fast Formula?\n\n***answer***: WHILE IV_EVENT_DATES.EXISTS(j) LOOP  -- Loop through event dates\n    -- Accumulate total accrual based on event dates and accrual values\n    ln_accrual_total = ln_accrual_total + ( (DAYS_BETWEEN(IV_EVENT_DATES[j], IV_EVENT_DATES[i]) + 1) * IV_ACCRUAL_VALUES[i] );\n    i = i + 1;  -- Increment index i\n    j = j + 1;  -- Increment index j\nEND LOOP;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I iterate over arrays like IV_EVENT_DATES and IV_ACCRUAL_VALUES to calculate a total accrual?\n\n***answer***: WHILE IV_EVENT_DATES.EXISTS(j) LOOP  -- Loop through event dates\n    -- Accumulate total accrual based on event dates and accrual values\n    ln_accrual_total = ln_accrual_total + ( (DAYS_BETWEEN(IV_EVENT_DATES[j], IV_EVENT_DATES[i]) + 1) * IV_ACCRUAL_VALUES[i] );\n    i = i + 1;  -- Increment index i\n    j = j + 1;  -- Increment index j\nEND LOOP;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I calculate the total number of days between two dates in Fast Formula?\n\n***answer***: ln_term_duration = DAYS_BETWEEN(IV_CALEDARENDDATE, IV_CALEDARSTARTDATE) + 1;  -- Calculate total days between start and end date",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How can I calculate the term duration using IV_CALEDARSTARTDATE and IV_CALEDARENDDATE?\n\n***answer***: ln_term_duration = DAYS_BETWEEN(IV_CALEDARENDDATE, IV_CALEDARSTARTDATE) + 1;  -- Calculate total days between start and end date",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I calculate the final accrual value based on the total accrual and the term duration?\n\n***answer***: ln_accrual = PER_ASG_FTE_VALUE * (ln_accrual_total / ln_term_duration);  -- Calculate the prorated accrual based on FTE",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I multiply the total accrual by the PER_ASG_FTE_VALUE to adjust for FTE?\n\n***answer***: ln_accrual = PER_ASG_FTE_VALUE * (ln_accrual_total / ln_term_duration);  -- Calculate the prorated accrual based on FTE",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How can I round the final accrual value to 2 decimal places in Fast Formula?\n\n***answer***: accrual = ROUND(ln_accrual, 2); -- Round the final accrual to 2 decimal places",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I return the calculated accrual value at the end of the formula?\n\n***answer***: RETURN accrual;  -- Return the final calculated accrual value",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a formula on the If Then logic for absence accrual.\n\n***answer***: IF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n(ACCRUALCEILING = 40)",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: Write a formula on the If Then logic for absence accrual and business unit.\n\n***answer***: IF (PER_ASG_BUSINESS_UNIT_NAME = 'OBU1')\nTHEN\n(ACCRUALCEILING = 40)",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How do I write a conditional statement in Fast Formula using IF-THEN?\n\n***answer***: IF (PER_ASG_JOB_NAME = 'Wealth Management Consultant' OR PER_ASG_JOB_NAME = 'Trade Associate') THEN PRORATIONFACTOR = ROUND(PER_ASG_FTE_VALUE, 2); -- Round FTE to 2 decimal places for certain job titles END IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    },
+    {
+        "page_content": "***question***: How can I check if PER_ASG_JOB_NAME is one of multiple job titles?\n\n***answer***: IF (PER_ASG_JOB_NAME = 'Wealth Management Consultant' OR PER_ASG_JOB_NAME = 'Trade Associate') THEN PRORATIONFACTOR = ROUND(PER_ASG_FTE_VALUE, 2); -- Round FTE to 2 decimal places for certain job titles END IF;",
+        "metadata": {
+            "source": "dataset"
+        }
+    }
+]

@@ -1,0 +1,9 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_COVERAGE_UPPER_LIMIT",
+        "FORMULA_TEXT": "DEFAULT FOR CMP_ASSIGNMENT_SALARY_ANNUAL_AMOUNT is 0\nl_sal=CMP_ASSIGNMENT_SALARY_ANNUAL_AMOUNT\nL_MX_CVG_ALWD_AMT = LEAST((5*l_sal),2000000)\nRETURN L_MX_CVG_ALWD_AMT",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula **calculates the maximum allowed coverage amount** for an employee based on their annual salary:  \n\n- The coverage is **5 times the annual salary**, but **capped at 2,000,000**.  \n- If **5 times the salary exceeds 2,000,000**, the maximum allowed amount is **2,000,000**.  \n- Otherwise, it is simply **5 times the salary**.",
+        "FORMULA_TYPE_NAME": "Coverage Upper Limit"
+    }
+]

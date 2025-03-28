@@ -1,0 +1,16 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_ROUNDING",
+        "FORMULA_TEXT": "INPUTS are VALUE\nDEFAULT FOR VALUE IS 0\nl_input_val = VALUE\nl_output = ROUNDUP(l_input_val,2)\nreturn l_output",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula rounds up the input value to two decimal places. It takes the input value, applies the rounding operation, and returns the result. The formula ensures that the output is always rounded up to the nearest value with two decimal places.",
+        "FORMULA_TYPE_NAME": "Rounding"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_ROUNDING",
+        "FORMULA_TEXT": "INPUTS are VALUE\nDEFAULT FOR VALUE IS 0\nl_input_val = VALUE\nl_output = ROUND(l_input_val,2)\nreturn l_output",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula rounds the input value to two decimal places. It takes the input value, applies the rounding operation, and returns the result. The formula ensures that the output is rounded to the nearest value with two decimal places.",
+        "FORMULA_TYPE_NAME": "Rounding"
+    }
+]

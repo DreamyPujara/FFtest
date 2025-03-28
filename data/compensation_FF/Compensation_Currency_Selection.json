@@ -1,0 +1,9 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_ Compensation Currency Selection Formula",
+        "FORMULA_TEXT": "INPUTS ARE CMP_IV_ASSIGNMENT_ID (number), CMP_IV_PLAN_ID (number), CMP_IV_PERIOD_ID (number), CMP_IV_COMPONENT_ID (number)\n\n\nDEFAULT FOR CMP_IV_COMPONENT_ID IS 0\nl_curr_code = 'XXX' \nIF (CMP_IV_COMPONENT_ID = 489) THEN \n(\nl_curr_code = 'USD'\n) \nELSE IF (CMP_IV_COMPONENT_ID = 490THEN \n(\nl_curr_code = 'GBP'\n) \nRETURN l_curr_code",
+        "LEGISLATIVE_DATA_GROUP": "",
+        "Description": "Generate a fast formula to determine the currency code based on a compensation component. If the component ID is 489, the currency is set to USD. If the component ID is 490, the currency is set to GBP. If neither condition is met, a default currency code is assigned. The formula ensures the correct currency is applied to compensation components.",
+        "FORMULA_TYPE_NAME": "Compensation Currency Selection"
+    }
+]

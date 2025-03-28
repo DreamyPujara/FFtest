@@ -1,0 +1,16 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_RATE_START_DATE",
+        "FORMULA_TEXT": "DEFAULT FOR PER_ASG_REL_ORIGINAL_DATE_OF_HIRE is '1951/01/01 00:00:00'(date)\nl_enrt_perd_end = '1951/01/01 00:00:00'(date)\nl_rt_strt_dt = '1951/01/01 00:00:00'(date)\nl_hire_dt=PER_ASG_REL_ORIGINAL_DATE_OF_HIRE\nl_enrt_perd_end = LAST_DAY(ADD_MONTHS(l_hire_dt,1))\nl_rt_strt_dt = ADD_DAYS(l_enrt_perd_end,1)\nreturn l_rt_strt_dt",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula **calculates the start date of a rate period based on the employee's original hire date**:  \n\n- It first determines the **end of the enrollment period**, which is **the last day of the month following the hire date**.  \n- Then, the **rate period starts on the next day** after this enrollment period ends.  \n- The formula returns this **rate start date**.",
+        "FORMULA_TYPE_NAME": "Rate Start Date"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_RATE_START_DATE",
+        "FORMULA_TEXT": "DEFAULT FOR PER_ASG_REL_ACTUAL_TERMINATION_DATE is '1951/01/01 00:00:00' (date)\nl_strt_dt = '1951/01/01 00:00:00'(date)\nl_fc_dt = '1951/01/01 00:00:00'(date)\nl_term_dt = PER_ASG_REL_ACTUAL_TERMINATION_DATE\nl_fc_dt = ADD_DAYS(LAST_DAY(ADD_MONTHS(l_term_dt,1)),1)\nRETURN l_fc_dt",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula **calculates the first coverage date after an employee's termination**:  \n\n- It takes the **termination date** and finds the **last day of the following month**.  \n- Then, it adds **one more day** to determine the **first coverage date after termination**.  \n- The formula returns this **calculated future date**.",
+        "FORMULA_TYPE_NAME": "Rate Start Date"
+    }
+]

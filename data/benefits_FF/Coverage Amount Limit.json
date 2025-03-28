@@ -1,0 +1,9 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_COVERAGE_AMOUNT_LIMIT",
+        "FORMULA_TEXT": "DEFAULT FOR CMP_ASSIGNMENT_SALARY_AMOUNT IS 0\nDEFAULT FOR CMP_ASSIGNMENT_SALARY_ANNUALIZATION_FACTOR IS 0\nL_MN_CVG_RQD_AMT = 0\nL_MX_CVG_ALWD_AMT = 0\nL_MX_CVG_WCFN_AMT = 300000\nL_MX_CVG_INCR_ALWD_AMT = 10000\nL_MX_CVG_INCR_WCF_ALWD_AMT = 10000\nIF ( 3 * CMP_ASSIGNMENT_SALARY_AMOUNT *\nCMP_ASSIGNMENT_SALARY_ANNUALIZATION_FACTOR ) > 200000\nTHEN\n( L_MX_CVG_ALWD_AMT = 200000 )\nELSE\n( L_MX_CVG_ALWD_AMT = 3 * CMP_ASSIGNMENT_SALARY_AMOUNT *\nCMP_ASSIGNMENT_SALARY_ANNUALIZATION_FACTOR )\nReturn L_MN_CVG_RQD_AMT, L_MX_CVG_ALWD_AMT, L_MX_CVG_WCFN_AMT, L_MX_CVG_INCR_ALWD_AMT, L_MX_CVG_INCR_WCF_ALWD_AMT",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula calculates the maximum coverage amount for an employee based on their salary.\n\nIt multiplies the salary amount by the annualization factor and then by 3 to determine the coverage.\nIf the calculated amount exceeds $200,000, the maximum coverage allowed is capped at $200,000.\nOtherwise, the maximum coverage allowed is set to three times the salary.\nIt also returns predefined coverage amounts for minimum required coverage, work-confirmed coverage, and allowed coverage increments.",
+        "FORMULA_TYPE_NAME": "Coverage Amount Limit"
+    }
+]

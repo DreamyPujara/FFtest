@@ -1,0 +1,30 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_COMPENSATION_CALCULATION",
+        "FORMULA_TEXT": "DEFAULT FOR CMP_ASSIGNMENT_SALARY_AMOUNT is 0\nDEFAULT FOR CMP_ASSIGNMENT_SALARY_ANNUALIZATION_FACTOR is 0\nl_output = 0\nl_sal = CMP_ASSIGNMENT_SALARY_AMOUNT\nl_ann_fctr = CMP_ASSIGNMENT_SALARY_ANNUALIZATION_FACTOR\nl_output = l_sal * l_ann_fctr\nReturn l_output",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula calculates the **annual salary** of an employee by multiplying their **salary amount** by the **annualization factor**. The result is returned as the output.",
+        "FORMULA_TYPE_NAME": "Compensation Calculation"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_COMPENSATION_CALCULATION",
+        "FORMULA_TEXT": "DEFAULT FOR CMP_ASSIGNMENT_SALARY_AMOUNT is 0\nDEFAULT FOR CMP_ASSIGNMENT_SALARY_ANNUALIZATION_FACTOR is 0 DEFAULT FOR PER_ASG_BARGAINING_UNIT_CODE is \u2018xyz\u2019\nl_output = 0\nl_sal = CMP_ASSIGNMENT_SALARY_AMOUNT\nl_ann_fctr = CMP_ASSIGNMENT_SALARY_ANNUALIZATION_FACTOR l_unit = PER_ASG_BARGAINING_UNIT_CODE\nif (l_unit = \u2018Technical Unit\u2019 or l_unit = \u2018Service Unit\u2019) then l_output = (l_sal * l_ann_fctr ) * 1.1 else\nl_output = (l_sal * l_ann_fctr ) * 1.05\nReturn l_output",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula calculates an employee\u2019s **adjusted annual salary** based on their **bargaining unit**. If they belong to the **Technical or Service Unit**, their salary is **increased by 10%**. Otherwise, it is **increased by 5%**. The adjusted salary is then returned.",
+        "FORMULA_TYPE_NAME": "Compensation Calculation"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_COMPENSATION_CALCULATION",
+        "FORMULA_TEXT": "DEFAULT FOR PER_ASG_FTE_VALUE IS 0\nDEFAULT FOR CMP_ASSIGNMENT_SALARY_ANNUALIZATION_FACTOR IS 0\nDEFAULT FOR CMP_ASSIGNMENT_SALARY_AMOUNT IS 0\nl_cmp_amt = CMP_ASSIGNMENT_SALARY_AMOUNT\nl_ann_sal= 0\nl_ann_fctr = CMP_ASSIGNMENT_SALARY_ANNUALIZATION_FACTOR\nl_fte = PER_ASG_FTE_VALUE\nIF (l_ann_fctr > 1) THEN\n(\nl_ann_sal=(l_cmp_amt * l_fte * l_ann_fctr)\n)\nELSE\n(\nl_ann_sal=(l_cmp_amt * l_ann_fctr)\n)\nRETURN l_ann_sal",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula calculates an **employee\u2019s annual salary** based on their **salary amount, annualization factor, and full-time equivalent (FTE) value**. If the **annualization factor is greater than 1**, the salary is multiplied by both **FTE and the factor**. Otherwise, it is multiplied by the **annualization factor alone**. The calculated annual salary is returned.",
+        "FORMULA_TYPE_NAME": "Compensation Calculation"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_COMPENSATION_CALCULATION",
+        "FORMULA_TEXT": "DEFAULT FOR CMP_ASSIGNMENT_SALARY_ANNUAL_AMOUNT IS 0\nDEFAULT_DATA_VALUE FOR BEN_PBB_BNFTS_BAL_NAME_TN IS 'NA'\nDEFAULT_DATA_VALUE FOR BEN_PBB_VAL_NN IS 0\nDEFAULT FOR BEN_PIL_LF_EVT_OCRD_DT IS '1951/01/01 00:00:00' (date)\nl_ann_sal = CMP_ASSIGNMENT_SALARY_ANNUAL_AMOUNT\nl_lf_evt_ocrd_dt = BEN_PIL_LF_EVT_OCRD_DT\ni=1\nl_bal = 0\nl_val = 0\nwhile BEN_PBB_BNFTS_BAL_NAME_TN.exists(i)\nloop\n(\nIF BEN_PBB_BNFTS_BAL_NAME_TN[i] = 'Executive Salary' THEN\n(\nl_bal = BEN_PBB_VAL_NN[i]\nexit\n)\ni=i+1\n) /* end while */\nl_val = l_bal/12\nIF l_val = 0 THEN\n( l_val = l_ann_sal/12)\nRETURN l_val",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula calculates the **monthly salary amount** for an employee. If an **\"Executive Salary\"** balance exists, it takes that value and divides it by **12** to get the monthly amount. If no such balance is found, it defaults to dividing the **annual salary** by **12**. The resulting monthly salary is returned.",
+        "FORMULA_TYPE_NAME": "Compensation Calculation"
+    }
+]

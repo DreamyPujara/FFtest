@@ -1,0 +1,23 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_RATE_VALUE_CALCULATION",
+        "FORMULA_TEXT": "DEFAULT FOR l_sons is 0\nDEFAULT FOR l_spouse is 0\nDEFAULT FOR l_daughters is 0\nl_rate = 0\nl_sons = ben_fn_get_char_value(\n' PER_CONTACT_RELSHIPS_F'\n, 'SON_COUNT'\n,NULL\n,NULL\n, 'LEGISLATION_CODE' ,'US'\n)\nl_daughters = ben_fn_get_char_value(\n' PER_CONTACT_RELSHIPS_F'\n, 'DAUGHTER_COUNT'\n,NULL\n,NULL\n, 'LEGISLATION_CODE' ,'US'\n)\nl_spouse = ben_fn_get_char_value(\n' PER_CONTACT_RELSHIPS_F'\n, 'SPOUSE_COUNT'\n,NULL\n,NULL\n, 'LEGISLATION_CODE' ,'US'\n)\nif ( l_spouse = 0 and l_sons= 0 and l_daughters = 0 ) then l_rate = 80 )\nif (l_spouse = 1 and l_sons= 0 and l_daughters = 0) then (l_rate = 100 )\nif (l_spouse = 1 and (l_sons> 0 or l_daughters > 0)) then ( l_rate = 150 )\nreturn l_rate",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula determines an insurance or benefit rate based on family composition. If a person has no spouse or children, the rate is **80**. If they have only a spouse, the rate is **100**. If they have a spouse and at least one child (son or daughter), the rate increases to **150**. The formula retrieves the count of spouse, sons, and daughters from a database and applies these conditions to set the final rate.",
+        "FORMULA_TYPE_NAME": "Rate Value Calculation"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_RATE_VALUE_CALCULATION",
+        "FORMULA_TEXT": "DEFAULT FOR BEN_PLN_NAME is 'ABC'\nDEFAULT FOR BEN_OPT_NAME is 'ABC'\nl_pl_name = BEN_PLN_NAME\nl_opt_name = BEN_OPT_NAME\nl_rate = 0\nif ( l_pl_name = 'Aetna PPO' and l_opt_name = 'Employee Only' ) then ( l_rate = 50 )\nif ( l_pl_name = 'Aetna PPO' and l_opt_name = 'Employee + Family' ) then ( l_rate = 100 )\nif ( l_pl_name = 'Be Healthy HMO' and l_opt_name = 'Employee + Family' ) then ( l_rate = 110 )\nif ( l_pl_name = 'Be Healthy HMO' and l_opt_name = 'Employee Only' ) then\n( l_rate = 60 )\nElse\n( l_rate = 90 )\nreturn l_rate",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula assigns a benefit plan rate based on the selected **insurance plan** and **coverage option**. If the plan is **\"Aetna PPO\"**, the rate is **50** for \"Employee Only\" and **100** for \"Employee + Family.\" If the plan is **\"Be Healthy HMO\"**, the rate is **60** for \"Employee Only\" and **110** for \"Employee + Family.\" If none of these conditions match, a default rate of **90** is assigned.",
+        "FORMULA_TYPE_NAME": "Rate Value Calculation"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_RATE_VALUE_CALCULATION",
+        "FORMULA_TEXT": "DEFAULT_DATA_VALUE FOR BEN_PBB_BNFTS_BAL_NAME_TN IS 'XXX'\nDEFAULT_DATA_VALUE FOR BEN_PBB_VAL_NN IS 0\nDEFAULT FOR BEN_PBB_VAL is 0\nl_BEN_PBB_VAL = 0\nj=1\nl_rate= 1062.32\nWHILE (BEN_PBB_BNFTS_BAL_NAME_TN.EXISTS(j)) LOOP\n(\nIF (BEN_PBB_BNFTS_BAL_NAME_TN[j] = 'HEALTH_BAL') then\n( l_BEN_PBB_VAL = BEN_PBB_VAL_NN[j] )\nj=j+1\n)\nif (l_BEN_PBB_VAL = 2)\nTHEN\n(\nl_rate = l_rate + 25\n)\nreturn l_rate",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula adjusts a **benefit rate** based on a specific **health balance value**. It loops through a list of benefit balances and checks if any entry is labeled **\"HEALTH_BAL.\"** If found, it assigns the corresponding numeric value. If this value equals **2**, the base rate of **1062.32** is increased by **25**. If no match is found or the value is not 2, the base rate remains unchanged.",
+        "FORMULA_TYPE_NAME": "Rate Value Calculation"
+    }
+]

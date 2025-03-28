@@ -1,0 +1,16 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_ENROLLMENT_COVERAGE_START_DATE",
+        "FORMULA_TEXT": "l_eff_date =GET_CONTEXT(EFFECTIVE_DATE, to_date('1951/01/01 00:00:00'))\nl_rt_start_dt='1951/12/31 00:00:00'(date)\nl_day = to_num(to_char(l_eff_date,'DD'))\nIf l_day >=1 and l_day <=15 THEN\n(\nl_rt_start_dt = ADD_DAYS(LAST_DAY(l_eff_date),1)\n)\nELSE\n(\nl_rt_start_dt = ADD_MONTHS(ADD_DAYS(LAST_DAY(l_eff_date),1),1)\n)\nReturn l_rt_start_dt",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula **determines a restart date based on the effective date**:  \n\n1. It extracts the **day** from the `EFFECTIVE_DATE`.  \n2. If the day is **between 1 and 15**, the restart date is set to **the first day of the next month**.  \n3. If the day is **16 or later**, the restart date is set to **the first day of the month after next**.  \n\n### Example Scenarios:\n- **Effective Date: March 10, 2025** \u2192 Restart Date: **April 1, 2025**  \n- **Effective Date: March 20, 2025** \u2192 Restart Date: **May 1, 2025**",
+        "FORMULA_TYPE_NAME": "Enrollment Coverage Start Date"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_ENROLLMENT_COVERAGE_START_DATE",
+        "FORMULA_TEXT": "DEFAULT FOR BEN_LER_NAME IS 'NA'\nDEFAULT FOR BEN_PIL_LF_DT is '1951/01/01 00:00:00'(date)\nl_ler_name = BEN_LER_NAME\nl_lf_dt = BEN_PIL_LF_DT\nl_cvg_strt_dt = '1951/01/01 00:00:00'(date)\nIF l_ler_name = 'Death of Dependent'\nTHEN\n(\nl_cvg_strt_dt = ADD_DAYS(l_lf_dt,1)\n)\nRETURN l_cvg_strt_dt",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula determines the coverage start date based on the life event:",
+        "FORMULA_TYPE_NAME": "Enrollment Coverage Start Date"
+    }
+]

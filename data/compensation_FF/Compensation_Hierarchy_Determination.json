@@ -1,0 +1,9 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_ Compensation Hierarchy Determination Formula ",
+        "FORMULA_TEXT": "INPUTS ARE CMP_IV_ASSIGNMENT_ID (number), CMP_IV_PLAN_ID (number), CMP_IV_PERIOD_ID (number)\n\nDEFAULT FOR CMP_IV_ASSIGNMENT_ID IS 0 \nL_PERSON_ID = '0' L_ASSIGNMENT_ID = '0'\n if (CMP_IV_ASSIGNMENT_ID = 100000008154060 ) THEN \n(\nL_PERSON_ID = to_char(-999) //-999 indicates top level \n//Manager.\nL_ASSIGNMENT_ID = to_char(-999)\n)\nELSE \n(\nL_PERSON_ID = to_char(100000008153756)\nL_ASSIGNMENT_ID = to_char(100000008154060)\n) \n\nRETURN L_PERSON_ID , L_ASSIGNMENT_ID",
+        "LEGISLATIVE_DATA_GROUP": "",
+        "Description": "Generate a fast formula to determine the reporting hierarchy based on an assignment ID. If the assignment ID matches a predefined value, it is identified as a top-level manager, and both the person and assignment IDs are set to indicate this status. Otherwise, the formula assigns a specific manager's person and assignment IDs. This helps in structuring the compensation approval or reporting hierarchy. The formula returns the identified person and assignment IDs.",
+        "FORMULA_TYPE_NAME": "Compensation Hierarchy Determination"
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_EXTRA_INPUT",
+        "FORMULA_TEXT": "P_ENRLD_BNFT_AMT = 0\nl_bnft_amt_char = '0'\nl_lf_evt_dt_char = ben_fn_get_char_value('BEN_PER_IN_LER'\n,'LF_EVT_OCRD_DT'\n,' '\n,' '\n,'BENEFIT_RELATION_NAME'\n,'DFLT')\nl_lf_evt_dt = to_date(l_lf_evt_dt_char)\nl_pay_perd_end_date = TO_DATE(BEN_FN_GET_CHAR_VALUE( 'PAY_TIME_PERIODS'\n,'END_DATE'\n,' '\n,' '\n,'START_DATE'\n,l_lf_evt_dt_char\n)\n)\nCHANGE_CONTEXTS (EFFECTIVE_DATE = l_pay_perd_end_date)\n(\nl_bnft_amt_char = ben_fn_get_char_value('BEN_PRTT_ENRT_RSLT'\n,'BNFT_AMT'\n,'Medical Care Reimbursement'\n,'Coverage'\n)\nIF (l_bnft_amt_char <> 'N' AND l_bnft_amt_char <> 'NO_DATA_FOUND' AND l_bnft_amt_char <> ' ')\nTHEN\n(\nP_ENRLD_BNFT_AMT = TO_NUMBER(l_bnft_amt_char)\n)\n)\nReturn P_ENRLD_BNFT_AMT",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula determines the **enrolled benefit amount for Medical Care Reimbursement** based on the **pay period end date**. It first retrieves the **life event occurrence date** and then finds the corresponding **pay period end date**. Using this date, it fetches the **benefit amount for Medical Care Reimbursement**. If a valid amount is found, it converts it to a number; otherwise, the default remains zero.",
+        "FORMULA_TYPE_NAME": "Extra Input"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_EXTRA_INPUT",
+        "FORMULA_TEXT": "COVERAGE_AMT = 0\nl_eff_dt = GET_CONTEXT(EFFECTIVE_DATE, to_date('1951/01/01 00:00:00'))\nCHANGE_CONTEXTS(EFFECTIVE_DATE=l_eff_dt)\n(\nl_cvg_amt_char = ben_fn_get_char_value('BEN_PRTT_ENRT_RSLT'\n, 'BNFT_AMT'\n, 'Health Savings Account'\n, 'Elect')\n) /* end change contexts */\nif (l_cvg_amt_char <> 'NO_DATA_FOUND' AND l_cvg_amt_char <> 'N' AND l_cvg_amt_char <> ' ')\nthen\n(\nCOVERAGE_AMT = to_number(l_cvg_amt_char)\n)\nelse\n(\nCOVERAGE_AMT = 0\n)\nreturn COVERAGE_AMT",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula retrieves the **elected benefit amount for a Health Savings Account (HSA)** based on the **effective date**. It changes the context to this date and fetches the **HSA benefit amount**. If a valid amount is found, it converts it to a number; otherwise, it defaults to zero.",
+        "FORMULA_TYPE_NAME": "Extra Input"
+    }
+]

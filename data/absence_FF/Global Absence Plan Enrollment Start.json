@@ -1,0 +1,114 @@
+[
+    {
+        "FORMULA_NAME": "CIMB_NIAGA_ENROLL_START",
+        "answer": "DEFAULT for PER_ASG_REL_DATE_START is '4712/12/31 00:00:00'(date) l_hire_date = PER_ASG_REL_DATE_START enrollmentStartDate = l_hire_date l_start_date = to_date('2020-01-01','YYYY-MM-DD') IF(l_start_date >=l_hire_date) THEN ( enrollmentStartDate=l_start_date RETURN enrollmentStartDate ) RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Indonesia"
+    },
+    {
+        "FORMULA_NAME": "CIMB_MY_ENROLL_START_CONTR",
+        "answer": "DEFAULT for PER_ASG_REL_DATE_START is '4712/12/31 00:00:00'(date) DEFAULT FOR PER_ASG_EFFECTIVE_START_DATE IS '4712/12/31 00:00:00'(date) DEFAULT FOR PER_PER_PERSON_NUMBER IS 'X' l_hire_date = PER_ASG_REL_DATE_START l_hr_assignment_id = get_context(HR_ASSIGNMENT_ID,0) l_start_date = to_date('2019-09-23','yyyy-MM-dd') l_asg_eff_st_date = to_date('2019-09-23','yyyy-MM-dd') l_eff_date = GET_CONTEXT(EFFECTIVE_DATE,'4712/12/31 00:00:00'(date)) l_value = 'X' CHANGE_CONTEXTS(EFFECTIVE_DATE = l_eff_date) ( l_person_number = PER_PER_PERSON_NUMBER ) CHANGE_CONTEXTS(EFFECTIVE_DATE = l_eff_date,HR_ASSIGNMENT_ID = l_hr_assignment_id) ( l_asg_eff_st_date = PER_ASG_EFFECTIVE_START_DATE ) IF ( l_hire_date >= l_start_date) THEN ( enrollmentStartDate = l_hire_date ) Else IF l_asg_eff_st_date >= l_hire_date THEN ( enrollmentStartDate = l_asg_eff_st_date ) RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Malaysia"
+    },
+    {
+        "FORMULA_NAME": "CIMB_MY_ENROLL_START",
+        "answer": "DEFAULT for PER_ASG_REL_DATE_START is '4712/12/31 00:00:00'(date) l_hire_date = PER_ASG_REL_DATE_START l_start_date = to_date('2019-09-23','yyyy-MM-dd') IF ( l_hire_date > l_start_date) THEN ( enrollmentStartDate = l_hire_date ) Else ( enrollmentStartDate = l_start_date ) RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Malaysia"
+    },
+    {
+        "FORMULA_NAME": "CIMB_TH_ENROLL_START",
+        "answer": "DEFAULT for PER_ASG_REL_DATE_START is '4712/12/31 00:00:00'(date) l_hire_date = PER_ASG_REL_DATE_START l_start_date = to_date('2019-09-05','yyyy-MM-dd') IF ( l_hire_date > l_start_date) THEN ( enrollmentStartDate = l_hire_date ) Else ( enrollmentStartDate = l_start_date ) RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Thailand"
+    },
+    {
+        "FORMULA_NAME": "CIMB_SG_ENROLL_START",
+        "answer": "DEFAULT for PER_ASG_REL_DATE_START is '4712/12/31 00:00:00'(date) l_hire_date = PER_ASG_REL_DATE_START l_start_date = to_date('2019-09-23','yyyy-MM-dd') IF ( l_hire_date > l_start_date) THEN ( enrollmentStartDate = l_hire_date ) Else ( enrollmentStartDate = l_start_date ) RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Singapore"
+    },
+    {
+        "FORMULA_NAME": "CIMB_MY_SICK_LEAVE_ENROLL_START",
+        "answer": "DEFAULT for PER_ASG_REL_DATE_START is '4712/12/31 00:00:00'(date) DEFAULT FOR PER_ASG_EMPLOYMENT_CATEGORY IS 'X' l_person_id = GET_CONTEXT(PERSON_ID,0) l_hire_date = PER_ASG_REL_DATE_START l_asg_category = PER_ASG_EMPLOYMENT_CATEGORY l_effective_date = GET_CONTEXT(EFFECTIVE_DATE,'4712/12/31 00:00:00'(date)) l_start_date = to_date('2019-09-23','yyyy-MM-dd') l_new_date = to_date('2022-09-01','yyyy-MM-dd') EffDate = to_date(GLOBAL_PAY_INTERFACE_EXTRACTION_DATE ,'rrrr/mm/dd') L_year_start_date = TO_DATE(GET_VALUE_SET('CIMB_GET_MY_ENROL_START_DATE','|=P_PERSON_ID='||to_char(l_person_id)||'|=P_ASSG_CAT='||l_asg_category),'YYYY-MM-DD') IF l_asg_category = 'CONTRACT' THEN enrollmentStartDate = l_year_start_date ELSE ( IF ( l_year_start_date > l_effective_date) THEN ( enrollmentStartDate = l_year_start_date ) ELSE ( enrollmentStartDate = l_effective_date ) ) RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Malaysia"
+    },
+    {
+        "FORMULA_NAME": "CIMB_MY_ENROLL_START_EMP",
+        "answer": "DEFAULT for PER_ASG_REL_DATE_START is '4712/12/31 00:00:00'(date) DEFAULT FOR PER_ASG_EMPLOYMENT_CATEGORY IS 'X' l_person_id = GET_CONTEXT(PERSON_ID,0) l_hire_date = PER_ASG_REL_DATE_START l_asg_category = PER_ASG_EMPLOYMENT_CATEGORY l_start_date = to_date('2019-09-23','yyyy-MM-dd') l_new_date = to_date('2022-09-01','yyyy-MM-dd') EffDate = to_date(GLOBAL_PAY_INTERFACE_EXTRACTION_DATE ,'rrrr/mm/dd') l_eff_date = GET_CONTEXT(EFFECTIVE_DATE,'4712/12/31 00:00:00'(date)) L_year_start_date = GREATEST(PER_ASG_REL_DATE_START, TO_DATE(GET_VALUE_SET('CIMB_GET_MY_ENROL_START_DATE','|=P_PERSON_ID='||TO_CHAR(l_person_id)||'|P_ASSG_CAT='''||l_asg_category||''''||'|P_EFF_DATE='''||TO_CHAR(l_eff_date,'YYYY/MM/DD')||''''),'YYYY-MM-DD')) IF ( l_year_start_date > l_start_date) THEN ( enrollmentStartDate = l_year_start_date ) ELSE ( enrollmentStartDate = l_start_date ) RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Malaysia"
+    },
+    {
+        "FORMULA_NAME": "CIMB_MY_ENROLL_START_CONTR_V2",
+        "answer": "DEFAULT for PER_ASG_REL_DATE_START is '4712/12/31 00:00:00'(date) DEFAULT for PER_ASG_REL_ACTUAL_TERMINATION_DATE is'4712/12/31 00:00:00'(date) DEFAULT FOR PER_ASG_EFFECTIVE_START_DATE IS '4712/12/31 00:00:00'(date) DEFAULT FOR PER_PER_PERSON_NUMBER IS 'X' l_person_id = GET_CONTEXT(PERSON_ID,0) l_hire_date = PER_ASG_REL_DATE_START l_attrition_date = PER_ASG_REL_ACTUAL_TERMINATION_DATE l_hr_assignment_id = get_context(HR_ASSIGNMENT_ID,0) l_start_date = to_date('2019-09-23','yyyy-MM-dd') l_asg_eff_st_date = to_date('2019-09-23','yyyy-MM-dd') l_eff_date = GET_CONTEXT(EFFECTIVE_DATE,'4712/12/31 00:00:00'(date)) l_value = 'X' l_year_start_date = TO_DATE(GET_VALUE_SET('CIMB_GET_CONTRACT_RENEWAL_DATE','|=P_PERSON_ID='||to_char(l_person_id)||'|P_EFF_DATE='''||TO_CHAR(l_attrition_date,'YYYY/MM/DD')||''''),'YYYY-MM-DD') CHANGE_CONTEXTS(EFFECTIVE_DATE = l_eff_date) ( l_person_number = PER_PER_PERSON_NUMBER ) CHANGE_CONTEXTS(EFFECTIVE_DATE = l_eff_date,HR_ASSIGNMENT_ID = l_hr_assignment_id) ( l_asg_eff_st_date = PER_ASG_EFFECTIVE_START_DATE ) IF ( l_year_start_date >= l_start_date) THEN ( enrollmentStartDate = l_year_start_date ) ELSE ( enrollmentStartDate = l_start_date ) RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Malaysia"
+    },
+    {
+        "FORMULA_NAME": "CIMB UK BFL Plan Enrollment Start Date",
+        "answer": "DEFAULT FOR GET_CURRENT_DATE IS '0001/01/01 00:00:00'(DATE) DEFAULT FOR GLOBAL_PAY_INTERFACE_EXTRACTION_DATE IS '1951/01/01' l_current_date = TO_CHAR(GET_CURRENT_DATE()) l_current_year = SUBSTR(l_current_date,0,4) l_start_date = TO_DATE(l_current_year||'/01/01 00:00:00') l_eff_end_date = TO_DATE(l_current_year||'/05/01 00:00:00') l_eff_date = to_date(GLOBAL_PAY_INTERFACE_EXTRACTION_DATE ,'rrrr/mm/dd') enrollmentStartDate = l_start_date RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "CIMB United Kingdom"
+    },
+    {
+        "FORMULA_NAME": "Leave Enrollment Formula",
+        "answer": "DEFAULT for ACP_HIRE_DATE is '0001/01/01 00:00:00' (date) l_hire_date = ACP_HIRE_DATE l_date= '2020/01/01 00:00:00' (date) l_hire_yr = to_number(to_char(ACP_HIRE_DATE,'YYYY')) l_hire_dt = to_number(to_char(ACP_HIRE_DATE,'DD')) l_hire_Mt = to_number(to_char(ACP_HIRE_DATE,'MM')) l_date_Yr = to_number(to_char(l_date,'YYYY')) l_date_dt = to_number(to_char(l_date,'DD')) l_date_Mt = to_number(to_char(l_date,'MM')) if(l_hire_yr>=l_date_Yr AND l_hire_Mt>=l_date_Mt) then( enrollmentStartDate=l_hire_date ) else( enrollmentStartDate=l_date ) RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "AU Legislative Data Group"
+    },
+    {
+        "FORMULA_NAME": "SAC Enhanced Leave Enrolment Start Formula",
+        "answer": "DEFAULT FOR GET_PASD_FSED IS '0001/01/01 00:00:00' (date) ldEnrolmentStart = '2023/01/01 00:00:00' (date) ENROLLMENTSTARTDATE = GREATEST(GET_PASD_FSED, ldEnrolmentStart) RETURN ENROLLMENTSTARTDATE",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "South Ayrshire Council"
+    },
+    {
+        "FORMULA_NAME": "UUU_ENROLLMENT_START_AS_ASSIGN_START",
+        "answer": "DEFAULT FOR ASG_HR_ASG_ID is 0 DEFAULT for PER_ASG_EFFECTIVE_START_DATE is '4712/12/31 00:00:00' (date) DEFAULT_DATA_VALUE FOR PER_HIST_ASG_ASSIGNMENT_ID is 0 DEFAULT_DATA_VALUE FOR PER_HIST_ASG_EFFECTIVE_START_DATE is '4712/12/31 00:00:00' (date) l_log = ESS_LOG_WRITE('--------------------------------------------------------------------------------') l_log = ESS_LOG_WRITE('ASG_HR_ASG_ID: '|| TO_CHAR(ASG_HR_ASG_ID)) l_log = ESS_LOG_WRITE('PER_HIST_ASG_EFFECTIVE_START_DATE[1]: '|| to_char(PER_HIST_ASG_EFFECTIVE_START_DATE[1], 'DD/MM/YYYY')) ENROLLMENTSTARTDATE = '2021/04/01 00:00:00' (date) IF (PER_HIST_ASG_EFFECTIVE_START_DATE[1] > '2021/04/01 00:00:00' (date)) THEN ( ENROLLMENTSTARTDATE = PER_HIST_ASG_EFFECTIVE_START_DATE[1] ) l_log = ESS_LOG_WRITE('ENROLLMENTSTARTDATE: ' || to_char(ENROLLMENTSTARTDATE, 'DD/MM/YYYY')) RETURN ENROLLMENTSTARTDATE",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "GB Legislative Data Group"
+    },
+    {
+        "FORMULA_NAME": "BKD ABS Latest Hire Enrolment Date",
+        "answer": "DEFAULT FOR ACP_HIRE_DATE IS '1951/01/01 00:00:00'(date) DEFAULT FOR PER_PERSON_ENTERPRISE_HIRE_DATE IS '1951/01/01 00:00:00'(date) DEFAULT FOR PER_PER_LATEST_REHIRE_DATE IS '1951/01/01 00:00:00'(date) l_ft_flag = 'N' l_eff_date = GET_CONTEXT(EFFECTIVE_DATE,'4712/12/31 00:00:00'(date)) l_go_live_date = l_eff_date l_eit_date = l_eff_date L_GO_LIVE_DATE_CHAR = GET_TABLE_VALUE('BKD_GO_LIVE_UDT','GO_LIVE_SETUP','GO_LIVE_DATE','X') IF L_GO_LIVE_DATE_CHAR <> 'X' THEN l_go_live_date = TO_DATE(L_GO_LIVE_DATE_CHAR) i=1 L_HIRE_DATE = GREATEST(ACP_HIRE_DATE,PER_PERSON_ENTERPRISE_HIRE_DATE,PER_PER_LATEST_REHIRE_DATE) enrollmentStartDate = GREATEST(L_GO_LIVE_DATE,L_HIRE_DATE) l_debug= ESS_LOG_WRITE('enrollmentStartDate'|| TO_CHAR(enrollmentStartDate)) RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "Standard formula"
+    },
+    {
+        "FORMULA_NAME": "BKD ABS Generic Enrollment Start Date",
+        "answer": "DEFAULT_DATA_VALUE FOR PER_PERSON_EIT_ALL_PEI_INFORMATION1 IS 'N' DEFAULT_DATA_VALUE FOR PER_PERSON_EIT_ALL_PEI_INFORMATION_CATEGORY IS ' ' DEFAULT_DATA_VALUE FOR PER_PERSON_EIT_ALL_EFFECTIVE_START_DATE IS '4712/12/31 00:00:00' (date) DEFAULT_DATA_VALUE FOR PER_PERSON_EIT_ALL_EFFECTIVE_END_DATE IS '4712/12/31 00:00:00' (date) DEFAULT FOR ACP_HIRE_DATE IS '1951/01/01 00:00:00'(date) DEFAULT FOR PER_PERSON_ENTERPRISE_HIRE_DATE IS '1951/01/01 00:00:00'(date) DEFAULT FOR PER_PER_LATEST_REHIRE_DATE IS '1951/01/01 00:00:00'(date) l_ft_flag = 'N' l_eff_date = GET_CONTEXT(EFFECTIVE_DATE,'4712/12/31 00:00:00'(date)) l_go_live_date = l_eff_date l_eit_date = l_eff_date L_GO_LIVE_DATE_CHAR = GET_TABLE_VALUE('BKD_GO_LIVE_UDT','GO_LIVE_SETUP','GO_LIVE_DATE','X') IF L_GO_LIVE_DATE_CHAR <> 'X' THEN l_go_live_date = TO_DATE(L_GO_LIVE_DATE_CHAR) i=1 WHILE PER_PERSON_EIT_ALL_PEI_INFORMATION1.EXISTS(i) LOOP ( IF PER_PERSON_EIT_ALL_PEI_INFORMATION_CATEGORY[i] = 'Person Additional Info' AND l_eff_date >= PER_PERSON_EIT_ALL_EFFECTIVE_START_DATE[i] AND l_eff_date <= PER_PERSON_EIT_ALL_EFFECTIVE_END_DATE[i] THEN ( l_ft_flag = PER_PERSON_EIT_ALL_PEI_INFORMATION1[i] l_eit_date = PER_PERSON_EIT_ALL_EFFECTIVE_START_DATE[i] EXIT ) i = i + 1 ) L_HIRE_DATE = GREATEST(ACP_HIRE_DATE,PER_PERSON_ENTERPRISE_HIRE_DATE,PER_PER_LATEST_REHIRE_DATE) enrollmentStartDate = GREATEST(L_GO_LIVE_DATE,l_eit_date,L_HIRE_DATE) l_debug= ESS_LOG_WRITE('enrollmentStartDate'|| TO_CHAR(enrollmentStartDate)) RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "Standard formula"
+    },
+    {
+        "FORMULA_NAME": "Amico Absence Enrollment Start Date",
+        "answer": "Default for PER_PER_LATEST_REHIRE_DATE is '1951/01/01 00:00:00'(date) L_OCRD_DT = PER_PER_LATEST_REHIRE_DATE enrollmentStartDate = L_OCRD_DT return enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "CA Legislative Data Group"
+    },
+    {
+        "FORMULA_NAME": "BBC_ABS_Enroll_Start",
+        "answer": "DEFAULT for PER_PERSON_ENTERPRISE_HIRE_DATE is '4712/12/31 00:00:00' (date) IF ( PER_PERSON_ENTERPRISE_HIRE_DATE >= '2016/1/1 00:00:00' (date)) THEN (enrollmentStartDate = PER_PERSON_ENTERPRISE_HIRE_DATE) ELSE (enrollmentStartDate = '2016/1/1 00:00:00' (date)) RETURN enrollmentStartDate",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Enrollment Start",
+        "LEGISLATIVE_DATA_GROUP": "Standard formula"
+    }
+]

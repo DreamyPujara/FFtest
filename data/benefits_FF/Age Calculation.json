@@ -1,0 +1,9 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_AGE_CALCULATION",
+        "FORMULA_TEXT": "DEFAULT FOR PER_PER_DATE_OF_BIRTH is '2013/01/01 12:00:00' (date)\nl_output = 0\nl_date = '2011/01/01 12:00:00'\nl_start_date = PER_PER_DATE_OF_BIRTH\nl_effective_date = to_date('2013/01/01 12:00:00')\nl_age = months_between(l_effective_date, l_start_date)\nl_output = l_age/12\nl_output = floor(l_output)\nif l_output < 30 then\nl_date = '2012/01/01 12:00:00'\nelse\nl_date = '2013/01/01 12:00:00'\nreturn l_date",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula calculates an employee's age based on their date of birth and a fixed effective date. It determines if the employee is younger than 30 years old. If the employee is under 30, it returns the date '2012/01/01'. Otherwise, it returns the date '2013/01/01'. The formula ensures the correct date is returned based on the employee's age.",
+        "FORMULA_TYPE_NAME": "Age Calculation"
+    }
+]

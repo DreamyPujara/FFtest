@@ -1,0 +1,37 @@
+[
+    {
+        "FORMULA_NAME": "AKF_BD_ANNUAL_DISBURSEMENT",
+        "answer": "MIN=0 MAX=0 INCREMENT=0 L_DATE = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00'(DATE)) L_BALANCE = 0 ln_hr_assignment_id = GET_CONTEXT(HR_ASSIGNMENT_ID,0) ln_person_id = GET_CONTEXT(PERSON_ID,0) ln_leg_group_id = GET_CONTEXT(LEGISLATIVE_DATA_GROUP_ID,0) lc_plan_name = 'Annual Leave' CHANGE_CONTEXTS(HR_ASSIGNMENT_ID = ln_hr_assignment_id ,PERSON_ID = ln_person_id ,EFFECTIVE_DATE = L_DATE ,LEGISLATIVE_DATA_GROUP_ID = ln_leg_group_id) ( L_BALANCE = GET_PLAN_BALANCE(lc_plan_name) ) MIN = 0 MAX = FLOOR(L_BALANCE*.5) INCREMENT = 1 RETURN MIN,MAX,INCREMENT",
+        "question": "Determines the enrollment end date for brought forward leave (BFL) plans for employees in the UK. Uses the employee\u2019s actual termination date if available, otherwise defaults to the context end date or a specific policy date. Returns the calculated enrollment end date.",
+        "FORMULA_TYPE_NAME": "Global Absence Discretionary Disbursement Rule",
+        "LEGISLATIVE_DATA_GROUP": "BD Legislative Data Group"
+    },
+    {
+        "FORMULA_NAME": "AKF IN Earned Leave Disbursement",
+        "answer": "MIN=0 MAX=0 INCREMENT=1 L_DATE = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00'(DATE)) L_BALANCE = 0 ln_hr_assignment_id = GET_CONTEXT(HR_ASSIGNMENT_ID,0) ln_person_id = GET_CONTEXT(PERSON_ID,0) ln_leg_group_id = GET_CONTEXT(LEGISLATIVE_DATA_GROUP_ID,0) lc_plan_name = 'Earned Leave' CHANGE_CONTEXTS(HR_ASSIGNMENT_ID = ln_hr_assignment_id ,PERSON_ID = ln_person_id ,EFFECTIVE_DATE = L_DATE ,LEGISLATIVE_DATA_GROUP_ID = ln_leg_group_id) ( L_BALANCE = GET_PLAN_BALANCE(lc_plan_name) ) MIN = 0 MAX = L_BALANCE - 16.5 IF MAX<0 Then (MAX=0) INCREMENT = 1 RETURN MIN,MAX,INCREMENT",
+        "question": "write a  fast formula validates the number of days an employee can apply for leave within a year, ensuring compliance with specific rules and restrictions. The formula checks the total duration of leave taken within a year and ensures it meets the following conditions:  If the leave duration is less than 12 days and the reason is related to salary advance (e.g., \"Local with Salary Advance,\" \"External with Salary Advance,\" etc.), the leave is not eligible for salary advance. If the employee's citizenship is \"Saudi Arabia\" and the reason involves a ticket (e.g., \"External with Ticket,\" \"External with Ticket & Exit Re-entry,\" etc.), the leave is not eligible for a ticket. The formula returns a validation status and an error message if any of the conditions are not met",
+        "FORMULA_TYPE_NAME": "Global Absence Discretionary Disbursement Rule",
+        "LEGISLATIVE_DATA_GROUP": "IN Legislative Data Group"
+    },
+    {
+        "FORMULA_NAME": "AKF PK AKF Pak Disbursement Formula",
+        "answer": "DEFAULT FOR PER_ASG_DATE_PROBATION_END IS '4712/12/31 00:00:00' (date) MIN=0 MAX=11 INCREMENT=0 L_DATE = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00'(DATE)) L_BALANCE = 0 ln_hr_assignment_id = GET_CONTEXT(HR_ASSIGNMENT_ID,0) ln_person_id = GET_CONTEXT(PERSON_ID,0) ln_leg_group_id = GET_CONTEXT(LEGISLATIVE_DATA_GROUP_ID,0) lc_plan_name = 'Annual Leave - AKF Pakistan' CHANGE_CONTEXTS(HR_ASSIGNMENT_ID = ln_hr_assignment_id ,PERSON_ID = ln_person_id ,EFFECTIVE_DATE = L_DATE ,LEGISLATIVE_DATA_GROUP_ID = ln_leg_group_id) ( L_BALANCE = GET_PLAN_BALANCE(lc_plan_name) ) MIN = 0 MAX = LEAST(FLOOR(L_BALANCE*.5),11) INCREMENT = 1 RETURN MIN,MAX,INCREMENT",
+        "question": "write a  fast formula validates the total duration of sick leave an employee can take within a year. It checks the total duration of sick leave, including the current request and any previously approved or submitted sick leave within the current year. If the total duration exceeds 120 days, the formula sets the validation status to 'N' (not valid) and provides an error message indicating that the employee is only eligible for 120 days of sick leave in a year. If the total duration is within the 120-day limit, the validation status is set to 'Y' (valid).",
+        "FORMULA_TYPE_NAME": "Global Absence Discretionary Disbursement Rule",
+        "LEGISLATIVE_DATA_GROUP": "PK Legislative Data Group"
+    },
+    {
+        "FORMULA_NAME": "AKF KG Annual Leave Disbursement",
+        "answer": "DEFAULT FOR PER_ASG_DATE_PROBATION_END IS '4712/12/31 00:00:00' (date) MIN=0 MAX=0 INCREMENT=0 L_DATE = GET_CONTEXT(EFFECTIVE_DATE, '4712/12/31 00:00:00'(DATE)) ( L_BALANCE = 0 ln_hr_assignment_id = GET_CONTEXT(HR_ASSIGNMENT_ID,0) ln_person_id = GET_CONTEXT(PERSON_ID,0) ln_leg_group_id = GET_CONTEXT(LEGISLATIVE_DATA_GROUP_ID,0) lc_plan_name = 'Annual Leave' CHANGE_CONTEXTS(HR_ASSIGNMENT_ID = ln_hr_assignment_id ,PERSON_ID = ln_person_id ,EFFECTIVE_DATE = L_DATE ,LEGISLATIVE_DATA_GROUP_ID = ln_leg_group_id) ( L_BALANCE = GET_PLAN_BALANCE(lc_plan_name) ) MIN = 0 MAX = ROUND(L_BALANCE) INCREMENT = 1 ) RETURN MIN,MAX,INCREMENT",
+        "question": "Write a global ansence entry validation formula to  ensure that employees cannot apply for more than 64 hours of New Mexico Paid Sick Leave in a year by validating the total duration of existing and new requests.",
+        "FORMULA_TYPE_NAME": "Global Absence Discretionary Disbursement Rule",
+        "LEGISLATIVE_DATA_GROUP": "KG Legislative Data Group"
+    },
+    {
+        "FORMULA_NAME": "CIMB_NIAGA_CASH_DISBURSEMENT",
+        "answer": "DEFAULT FOR PER_PERSON_ENTERPRISE_HIRE_DATE IS '0001/01/01 00:00:00' (date) DEFAULT FOR PER_REL_ORIGINAL_DATE_OF_HIRE IS '0001/01/01 00:00:00' (date) DEFAULT FOR PER_REL_ACTUAL_TERMINATION_DATE IS '4712/12/31 00:00:00' (date) MIN=0 MAX=0 INCREMENT=1 l_ann_bal=0 l_term_date = PER_REL_ACTUAL_TERMINATION_DATE l_hr_assign_id = GET_CONTEXT(HR_ASSIGNMENT_ID, 0) l_person_id = GET_CONTEXT(PERSON_ID, 0) L_ldg_id = GET_CONTEXT(LEGISLATIVE_DATA_GROUP_ID,0) IF(PER_REL_ACTUAL_TERMINATION_DATE WAS NOT DEFAULTED) THEN ( MIN=1 MAX=0 CHANGE_CONTEXTS(HR_ASSIGNMENT_ID = l_hr_assign_id, PERSON_ID = l_person_id, EFFECTIVE_DATE = l_term_date, LEGISLATIVE_DATA_GROUP_ID = L_ldg_id) ( l_ann_bal = GET_PLAN_BALANCE('Annual Leave') ) MAX=l_ann_bal INCREMENT=1 ) RETURN MIN,MAX,INCREMENT",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Discretionary Disbursement Rule",
+        "LEGISLATIVE_DATA_GROUP": "CIMB Indonesia"
+    }
+]

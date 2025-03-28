@@ -1,0 +1,9 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_WAITING_PERIOD_VALUE_AND_UOM",
+        "FORMULA_TEXT": "DEFAULT FOR PER_ASG_COUNTRY_OF_BIRTH is 'XX' DEFAULT FOR PER_ASG_JOB_NAME is 'ABC'\nl_cntry = PER_ASG_COUNTRY_OF_BIRTH\nl_job = PER_ASG_JOB_NAME\nif ( l_cntry <> 'US' and l_job = 'Content Writer' ) then\n(WAIT_PERD_VAL = 6\nWAIT_PERD_UOM = 'MO' )\nElse\n(WAIT_PERD_VAL = 1\nWAIT_PERD_UOM = 'MO' )\nreturn WAIT_PERD_VAL, WAIT_PERD_UOM",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula determines the waiting period for an employee based on their country of birth and job role.",
+        "FORMULA_TYPE_NAME": "Waiting Period Value and UOM"
+    }
+]

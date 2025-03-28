@@ -1,0 +1,16 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_LENGTH_OF_SERVICE_DATE_TO_USE",
+        "FORMULA_TEXT": "DEFAULT FOR PER_ASG_ATTRIBUTE_DATE3 IS '1951/01/01 00:00:00'(DATE)\nDEFAULT FOR PER_REL_ORIGINAL_DATE_OF_HIRE IS '1951/01/01 00:00:00'(DATE)\nl_return = '1951/01/01 00:00:00'(DATE)\nIF (PER_ASG_ATTRIBUTE_DATE3 WAS NOT DEFAULTED) THEN\n(\nl_return = PER_ASG_ATTRIBUTE_DATE3\n)\nELSE\n(\nl_return = PER_REL_ORIGINAL_DATE_OF_HIRE\n)\nRETURN l_return",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula **determines the correct date to return** based on assignment and hire date:  \n\n- If **PER_ASG_ATTRIBUTE_DATE3 is available (not defaulted)**, it is used as the return date.  \n- Otherwise, the **original date of hire (PER_REL_ORIGINAL_DATE_OF_HIRE)** is returned.",
+        "FORMULA_TYPE_NAME": "Length of Service Date to Use"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_LENGTH_OF_SERVICE_DATE_TO_USE",
+        "FORMULA_TEXT": "DEFAULT FOR ACP_HIRE_DATE IS '1951/01/01 00:00:00' (date)\nDEFAULT FOR PER_ASG_REL_ADJUSTED_SVC_DATE IS '1951/01/01 00:00:00' (date)\nl_pps_date = ACP_HIRE_DATE\nl_return = l_pps_date\nIF PER_ASG_REL_ADJUSTED_SVC_DATE WAS NOT DEFAULTED THEN\n(\nl_adjusted_svc_dt = PER_ASG_REL_ADJUSTED_SVC_DATE\nif (l_adjusted_svc_dt < l_pps_date) then\n(\nl_return = l_adjusted_svc_dt\n)\n)\nRETURN l_return",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula **determines the earliest date between hire date and adjusted service date**:  \n\n- It **defaults to the hire date (ACP_HIRE_DATE)**.  \n- If an **adjusted service date (PER_ASG_REL_ADJUSTED_SVC_DATE) exists**, it is compared to the hire date.  \n- If the **adjusted service date is earlier**, it replaces the hire date as the return value.",
+        "FORMULA_TYPE_NAME": "Length of Service Date to Use"
+    }
+]

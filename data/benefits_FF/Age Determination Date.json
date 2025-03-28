@@ -1,0 +1,16 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_AGE_DETERMINATION__DATE",
+        "FORMULA_TEXT": "l_effective_date = GET_CONTEXT(EFFECTIVE_DATE, TO_DATE(\u201901-JAN-2012\u2019))\nl_last_day = last_day(l_effective_date)\nl_output = add_days(l_last_day,1)\nreturn l_output",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula calculates the **first day of the next month** based on a given effective date. It first determines the **last day of the current month** using `last_day(l_effective_date)`, then adds **one day** to get the **first day of the following month**. The result is returned as `l_output`.",
+        "FORMULA_TYPE_NAME": "Age Determination  Date"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_AGE_DETERMINATION__DATE",
+        "FORMULA_TEXT": "DEFAULT FOR PER_ASG_JOB_NAME is 'XYZ'\nl_job = PER_ASG_JOB_NAME\nl_effective_date = GET_CONTEXT(EFFECTIVE_DATE, TO_DATE('01-JAN-2012'))\nl_output = last_day(add_months(l_effective_date,-1))\nif l_job = 'Remote Worker' then\n( l_output = add_days(l_output,1) )\nElse\n( l_output = last_day(l_effective_date))\nreturn l_output",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula determines the **last day of a specific month** based on the job title. By default, it calculates the **last day of the previous month** relative to the effective date. However, if the job title is **\"Remote Worker,\"** it shifts the date forward by **one day** (making it the **first day of the current month**). Otherwise, it simply returns the **last day of the current month**.",
+        "FORMULA_TYPE_NAME": "Age Determination  Date"
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "BASE_FORMULA_NAME": "XX_COVERAGE_AMOUNT_CALCULATION",
+        "FORMULA_TEXT": "/ DEFAULT FOR PER_PER_DATE_OF_BIRTH is '01-Jan-1951' (date)\nl_start_date = PER_PER_DATE_OF_BIRTH\nl_cvg = 0\nif ( l_start_date >= TO_DATE('01-Jan-1961') and l_start_date <= TO_DATE('31-Dec-1974') ) then (l_cvg = 800 )\nif ( l_start_date >= TO_DATE('01-Jan-1975') and l_start_date <= TO_DATE('31-Dec-1989') ) then (l_cvg = 1000 )\nif ( l_start_date >= TO_DATE('01-Jan-1990') and l_start_date <= TO_DATE('31-Dec-2010') ) then ( l_cvg = 1500 )\nreturn l_cvg",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula determines a coverage amount based on an employee\u2019s date of birth. Employees born between **1961 and 1974** receive **800** in coverage. Those born between **1975 and 1989** receive **1000**, and those born between **1990 and 2010** receive **1500**. The formula assigns the appropriate coverage amount based on these birth year ranges.",
+        "FORMULA_TYPE_NAME": "Coverage Amount Calculation"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_COVERAGE_AMOUNT_CALCULATION",
+        "FORMULA_TEXT": "DEFAULT FOR PER_PER_DATE_OF_BIRTH is '01-JAN-1901' (date)\nl_dob = PER_PER_DATE_OF_BIRTH\nl_effective_date = GET_CONTEXT(EFFECTIVE_DATE,to_date('01-JAN-2012'))\nif not PER_PER_DATE_OF_BIRTH was defaulted then (\nl_age = trunc(ROUNDUP(months_between(l_effective_date , l_dob)/12))\nl_cvg = l_age * 2500 )\nelse\n( l_cvg = 10000 )\nreturn l_cvg",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This formula calculates coverage based on an employee's age. If a valid date of birth is provided, it determines the age as of the **effective date** and multiplies it by **2,500** to get the coverage amount. If no valid date of birth is available, a default coverage of **10,000** is assigned.",
+        "FORMULA_TYPE_NAME": "Coverage Amount Calculation"
+    },
+    {
+        "BASE_FORMULA_NAME": "XX_COVERAGE_AMOUNT_CALCULATION",
+        "FORMULA_TEXT": "DEFAULT FOR CMP_ASSIGNMENT_SALARY_ANNUAL_AMOUNT is 0\nDEFAULT FOR PER_PER_LATEST_TERMINATION_DATE is '1951/01/01 00:00:00' (date)\nl_sal = 0\nl_yrs = 0\nl_fctr = 0\nl_val = 0\nl_eff_date = GET_CONTEXT(EFFECTIVE_DATE, to_date('1951/01/01 0:00:00'))\nIF PER_PER_LATEST_TERMINATION_DATE WAS NOT DEFAULTED\nTHEN\n(\nl_term_dt = PER_PER_LATEST_TERMINATION_DATE\nl_sal_dt = add_days(l_term_dt,-1)\n/* get the salary as of the term date -1 */\nCHANGE_CONTEXTS (EFFECTIVE_DATE=l_sal_dt)\n(\nl_sal = CMP_ASSIGNMENT_SALARY_ANNUAL_AMOUNT\n) /* end change contexts */\n/* calculate the time passed since the employee retired */\nl_yrs = Round(MONTHS_BETWEEN(l_eff_date,l_term_dt)/12)\nif (l_yrs>=0 and l_yrs < 5) then\n( l_fctr = 1 )\nelse if (l_yrs >= 5 ) then\n( l_fctr = 0.5 )\nl_val = ROUND(l_sal * l_fctr)\n) /* end defaulted */\nreturn l_val",
+        "LEGISLATIVE_DATA_GROUP": "XX",
+        "Description": "This appears to be a pseudo-code or SQL-like procedural script, likely used in an HR or payroll system to calculate a value (possibly a post-retirement benefit) based on an employee\u2019s termination date and salary.",
+        "FORMULA_TYPE_NAME": "Coverage Amount Calculation"
+    }
+]

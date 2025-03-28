@@ -1,0 +1,65 @@
+[
+    {
+        "FORMULA_NAME": "BC_PLN_ROLL_FWD_END",
+        "answer": "INPUTS ARE IV_START_DATE (date), IV_END_DATE (date) l_absence_start=IV_START_DATE Absence_month=to_char(l_absence_start,'MM') If (Absence_month='04') OR (Absence_month='05') OR (Absence_month='06') OR (Absence_month='07') OR (Absence_month='08') OR (Absence_month='09') OR (Absence_month='10') OR (Absence_month='11') OR (Absence_month='12') THEN ( REFERENCEDATE=TO_DATE('01/04/'||to_char((l_absence_start),'YYYY'),'DD/MM/YYYY') ) If (Absence_month='01') OR (Absence_month='02') OR (Absence_month='03') THEN ( Absence_year=ADD_YEARS(l_absence_start,-1) REFERENCEDATE=TO_DATE('01/04/'||to_char(Absence_year,'YYYY'),'DD/MM/YYYY') ) RETURN REFERENCEDATE",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Roll Forward Start",
+        "LEGISLATIVE_DATA_GROUP": "GB Legislative Data Group"
+    },
+    {
+        "FORMULA_NAME": "Teachers Rolling Forward Formula",
+        "answer": "INPUTS ARE IV_START_DATE (date), IV_END_DATE (date) l_absence_start=IV_START_DATE Absence_month=to_char(l_absence_start,'MM') If (Absence_month='04') OR (Absence_month='05') OR (Absence_month='06') OR (Absence_month='07') OR (Absence_month='08') OR (Absence_month='09') OR (Absence_month='10') OR (Absence_month='11') OR (Absence_month='12') THEN ( REFERENCEDATE=TO_DATE('01/04/'||to_char((l_absence_start),'YYYY'),'DD/MM/YYYY') L_CUSTOM_MESSAGE = ess_log_write('REFERENCEDATE1 : ' + to_char(REFERENCEDATE,'YYYYMMDD')) L_CUSTOM_MESSAGE = ess_log_write('in Loop1 : ') ) If (Absence_month='01') OR (Absence_month='02') OR (Absence_month='03') THEN ( Absence_year=ADD_YEARS(l_absence_start,-1) REFERENCEDATE=TO_DATE('01/04/'||to_char(Absence_year,'YYYY'),'DD/MM/YYYY') L_CUSTOM_MESSAGE = ess_log_write('REFERENCEDATE : ' + to_char(REFERENCEDATE,'YYYYMMDD')) L_CUSTOM_MESSAGE = ess_log_write('in Loop2 : ') ) RETURN REFERENCEDATE",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Roll Forward Start",
+        "LEGISLATIVE_DATA_GROUP": "East Midlands Group"
+    },
+    {
+        "FORMULA_NAME": "PLAN ROLL FORWARD START",
+        "answer": "INPUTS ARE IV_START_DATE (date), IV_END_DATE (date) l_absence_start=IV_START_DATE Absence_month=to_char(l_absence_start,'MM') If (Absence_month='04') OR (Absence_month='05') OR (Absence_month='06') OR (Absence_month='07') OR (Absence_month='08') OR (Absence_month='09') OR (Absence_month='10') OR (Absence_month='11') OR (Absence_month='12') THEN ( REFERENCEDATE=TO_DATE('01/04/'||to_char((l_absence_start),'YYYY'),'DD/MM/YYYY') ) If (Absence_month='01') OR (Absence_month='02') OR (Absence_month='03') THEN ( Absence_year=ADD_YEARS(l_absence_start,-1) REFERENCEDATE=TO_DATE('01/04/'||to_char(Absence_year,'YYYY'),'DD/MM/YYYY') ) RETURN REFERENCEDATE",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Roll Forward Start",
+        "LEGISLATIVE_DATA_GROUP": "London Borough of Newham"
+    },
+    {
+        "FORMULA_NAME": "NCC TEACHER TERM",
+        "answer": "INPUTS ARE IV_START_DATE (date), IV_END_DATE (date) l_absence_start=IV_START_DATE Absence_month=to_char(l_absence_start,'MM') If (Absence_month='04') OR (Absence_month='05') OR (Absence_month='06') OR (Absence_month='07') OR (Absence_month='08') OR (Absence_month='09') OR (Absence_month='10') OR (Absence_month='11') OR (Absence_month='12') THEN ( REFERENCEDATE=TO_DATE('01/04/'||to_char((l_absence_start),'YYYY'),'DD/MM/YYYY') L_CUSTOM_MESSAGE = ess_log_write('REFERENCEDATE1 : ' + to_char(REFERENCEDATE,'YYYYMMDD')) L_CUSTOM_MESSAGE = ess_log_write('in Loop1 : ') ) If (Absence_month='01') OR (Absence_month='02') OR (Absence_month='03') THEN ( Absence_year=ADD_YEARS(l_absence_start,-1) REFERENCEDATE=TO_DATE('01/04/'||to_char(Absence_year,'YYYY'),'DD/MM/YYYY') L_CUSTOM_MESSAGE = ess_log_write('REFERENCEDATE : ' + to_char(REFERENCEDATE,'YYYYMMDD')) L_CUSTOM_MESSAGE = ess_log_write('in Loop2 : ') ) RETURN REFERENCEDATE",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Roll Forward Start",
+        "LEGISLATIVE_DATA_GROUP": "Northumberland County Council"
+    },
+    {
+        "FORMULA_NAME": "Teachers Rolling Forward Formula",
+        "answer": "INPUTS ARE IV_START_DATE (date), IV_END_DATE (date) l_absence_start=IV_START_DATE Absence_month=to_char(l_absence_start,'MM') If (Absence_month='04') OR (Absence_month='05') OR (Absence_month='06') OR (Absence_month='07') OR (Absence_month='08') OR (Absence_month='09') OR (Absence_month='10') OR (Absence_month='11') OR (Absence_month='12') THEN ( REFERENCEDATE=TO_DATE('01/04/'||to_char((l_absence_start),'YYYY'),'DD/MM/YYYY') L_CUSTOM_MESSAGE = ess_log_write('REFERENCEDATE1 : ' + to_char(REFERENCEDATE,'YYYYMMDD')) L_CUSTOM_MESSAGE = ess_log_write('in Loop1 : ') ) If (Absence_month='01') OR (Absence_month='02') OR (Absence_month='03') THEN ( Absence_year=ADD_YEARS(l_absence_start,-1) REFERENCEDATE=TO_DATE('01/04/'||to_char(Absence_year,'YYYY'),'DD/MM/YYYY') L_CUSTOM_MESSAGE = ess_log_write('REFERENCEDATE : ' + to_char(REFERENCEDATE,'YYYYMMDD')) L_CUSTOM_MESSAGE = ess_log_write('in Loop2 : ') ) RETURN REFERENCEDATE",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Roll Forward Start",
+        "LEGISLATIVE_DATA_GROUP": "GB Legislative Data Group"
+    },
+    {
+        "FORMULA_NAME": "Teachers Rolling Forward Formula",
+        "answer": "INPUTS ARE IV_START_DATE (date), IV_END_DATE (date) l_absence_start=IV_START_DATE l_effective_date = GET_CONTEXT (EFFECTIVE_DATE,TO_DATE('4712/12/31','YYYY/MM/DD')) l_absence_start_month=to_char(l_absence_start,'MM') l_absence_start_year=to_char(l_absence_start,'YYYY') l_effective_month=to_char(l_effective_date,'MM') l_effective_year=to_char(l_effective_date,'YYYY') IF l_effective_year > l_absence_start_year THEN ( Absence_year=ADD_YEARS(l_effective_date,-1) REFERENCEDATE=TO_DATE('01/04/'||to_char(Absence_year,'YYYY'),'DD/MM/YYYY') L_CUSTOM_MESSAGE = ess_log_write('REFERENCEDATE : ' + to_char(REFERENCEDATE,'YYYYMMDD')) ) ELSE ( If (l_absence_start_month='04') OR (l_absence_start_month='05') OR (l_absence_start_month='06') OR (l_absence_start_month='07') OR (l_absence_start_month='08') OR (l_absence_start_month='09') OR (l_absence_start_month='10') OR (l_absence_start_month='11') OR (l_absence_start_month='12') THEN ( REFERENCEDATE=TO_DATE('01/04/'||to_char((l_absence_start),'YYYY'),'DD/MM/YYYY') L_CUSTOM_MESSAGE = ess_log_write('REFERENCEDATE1 : ' + to_char(REFERENCEDATE,'YYYYMMDD')) L_CUSTOM_MESSAGE = ess_log_write('in Loop1 : ') ) If (l_absence_start_month='01') OR (l_absence_start_month='02') OR (l_absence_start_month='03') THEN ( Absence_year=ADD_YEARS(l_absence_start,-1) REFERENCEDATE=TO_DATE('01/04/'||to_char(Absence_year,'YYYY'),'DD/MM/YYYY') L_CUSTOM_MESSAGE = ess_log_write('REFERENCEDATE : ' + to_char(REFERENCEDATE,'YYYYMMDD')) L_CUSTOM_MESSAGE = ess_log_write('in Loop2 : ') ) ) RETURN REFERENCEDATE",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Roll Forward Start",
+        "LEGISLATIVE_DATA_GROUP": "GB Legislative Data Group"
+    },
+    {
+        "FORMULA_NAME": "PLAN ROLL FORWARD START",
+        "answer": "INPUTS ARE IV_START_DATE (date), IV_END_DATE (date) l_absence_start=IV_START_DATE Absence_month=to_char(l_absence_start,'MM') If (Absence_month='04') OR (Absence_month='05') OR (Absence_month='06') OR (Absence_month='07') OR (Absence_month='08') OR (Absence_month='09') OR (Absence_month='10') OR (Absence_month='11') OR (Absence_month='12') THEN ( REFERENCEDATE=TO_DATE('01/04/'||to_char((l_absence_start),'YYYY'),'DD/MM/YYYY') ) If (Absence_month='01') OR (Absence_month='02') OR (Absence_month='03') THEN ( Absence_year=ADD_YEARS(l_absence_start,-1) REFERENCEDATE=TO_DATE('01/04/'||to_char(Absence_year,'YYYY'),'DD/MM/YYYY') ) RETURN REFERENCEDATE",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Roll Forward Start",
+        "LEGISLATIVE_DATA_GROUP": "London Borough of Havering"
+    },
+    {
+        "FORMULA_NAME": "Teachers Rolling Forward Formula",
+        "answer": "INPUTS ARE IV_START_DATE (date), IV_END_DATE (date) l_absence_start=IV_START_DATE Absence_month=to_char(l_absence_start,'MM') If (Absence_month='04') OR (Absence_month='05') OR (Absence_month='06') OR (Absence_month='07') OR (Absence_month='08') OR (Absence_month='09') OR (Absence_month='10') OR (Absence_month='11') OR (Absence_month='12') THEN ( REFERENCEDATE=TO_DATE('01/04/'||to_char((l_absence_start),'YYYY'),'DD/MM/YYYY') L_CUSTOM_MESSAGE = ess_log_write('REFERENCEDATE1 : ' + to_char(REFERENCEDATE,'YYYYMMDD')) L_CUSTOM_MESSAGE = ess_log_write('in Loop1 : ') ) If (Absence_month='01') OR (Absence_month='02') OR (Absence_month='03') THEN ( Absence_year=ADD_YEARS(l_absence_start,-1) REFERENCEDATE=TO_DATE('01/04/'||to_char(Absence_year,'YYYY'),'DD/MM/YYYY') L_CUSTOM_MESSAGE = ess_log_write('REFERENCEDATE : ' + to_char(REFERENCEDATE,'YYYYMMDD')) L_CUSTOM_MESSAGE = ess_log_write('in Loop2 : ') ) RETURN REFERENCEDATE",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Roll Forward Start",
+        "LEGISLATIVE_DATA_GROUP": "London Borough of Lambeth"
+    },
+    {
+        "FORMULA_NAME": "SCC TEACHER TERM",
+        "answer": "INPUTS ARE IV_START_DATE (date), IV_END_DATE (date) CUSTOM_MESSAGE = 'X' CUSTOM_MESSAGE = ESS_LOG_WRITE('*****************************') CUSTOM_MESSAGE = ESS_LOG_WRITE('* SCC TEACHER TERM *') CUSTOM_MESSAGE = ESS_LOG_WRITE('*****************************') CUSTOM_MESSAGE = ESS_LOG_WRITE(' ') ABSENCE_START_DATE = IV_START_DATE ABSENCE_MONTH = TO_CHAR(ABSENCE_START_DATE,'MM') If (ABSENCE_MONTH = '04') OR (ABSENCE_MONTH = '05') OR (ABSENCE_MONTH = '06') OR (ABSENCE_MONTH = '07') OR (ABSENCE_MONTH = '08') OR (ABSENCE_MONTH = '09') OR (ABSENCE_MONTH = '10') OR (ABSENCE_MONTH = '11') OR (ABSENCE_MONTH = '12') THEN ( CUSTOM_MESSAGE = ESS_LOG_WRITE('In Loop 1') REFERENCEDATE = TO_DATE('01/04/'|| to_char((ABSENCE_START_DATE),'YYYY'),'DD/MM/YYYY') CUSTOM_MESSAGE = ESS_LOG_WRITE('REFERENCE DATE 1 = ' || to_char(REFERENCEDATE)) ) If (ABSENCE_MONTH = '01') OR (ABSENCE_MONTH = '02') OR (ABSENCE_MONTH = '03') THEN ( CUSTOM_MESSAGE = ESS_LOG_WRITE('In Loop 2') ABSENCE_YEAR = ADD_YEARS(ABSENCE_START_DATE,-1) REFERENCEDATE = TO_DATE('01/04/'||to_char(ABSENCE_YEAR,'YYYY'),'DD/MM/YYYY') CUSTOM_MESSAGE = ess_log_write('REFERENCE DATE 2 = ' + to_char(REFERENCEDATE)) ) RETURN REFERENCEDATE",
+        "question": "",
+        "FORMULA_TYPE_NAME": "Global Absence Plan Roll Forward Start",
+        "LEGISLATIVE_DATA_GROUP": "GB Legislative Data Group"
+    }
+]
