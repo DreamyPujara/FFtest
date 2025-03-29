@@ -28,7 +28,7 @@ FORMULA_CONFIG = {
     },
     "ORC": {
         "types": [
-            "Recruiting Job Requisition","Recruitiong Candidate Selection Process"
+            "Recruiting Job Requisition","Recruiting Candidate Selection Process"
         ]
     }
 }
